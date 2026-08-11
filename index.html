@@ -642,7 +642,7 @@ const PRODUCTS = [
   {
     id:'heiruanshi',
     category:'granule',
-    name:'黑卵石 鵝卵石',
+    name:'黑卵石 鵝卵石 礦石',
     description:'黑卵石 鵝卵石 20kg     3分1x2    5分2x3    7分3x4',
     image:'images/heiruanshi.jpg',
     images:['images/heiruanshi.jpg', 'images/heiruanshi2.jpg'],
@@ -656,7 +656,7 @@ const PRODUCTS = [
   {
     id:'hanbaiyu',
     category:'granule',
-    name:'漢白玉 鵝卵石',
+    name:'漢白玉 鵝卵石 礦石',
     description:'20kg 1分 2分 3分 5分 7分 7分 1寸',
     image:'images/hanbaiyu.jpg',
     images:['images/hanbaiyu.jpg', 'images/hanbaiyu2.jpg'],
@@ -668,7 +668,7 @@ const PRODUCTS = [
   {
     id:'liulishi',
     category:'granule',
-    name:'混色琉璃石10kg',
+    name:'混色琉璃石10kg 礦石',
     description:'10kg 1分',
     image:'images/liulishi.jpg',
     images:['images/liulishi.jpg', 'images/liulishi2.jpg'],
@@ -680,7 +680,7 @@ const PRODUCTS = [
   {
     id:'caiseshi',
     category:'granule',
-    name:'彩色石 好運石 彩油石',
+    name:'彩色石 好運石 彩油石 礦石',
     description:'20kg 小粒中粒大粒',
     image:'images/caiseshi.jpg',
     images:['images/caiseshi.jpg', 'images/caiseshi2.jpg'],
@@ -726,6 +726,81 @@ const PRODUCTS = [
       { label:'6寸',   basePrice:180, discounts:{ TTFF:330, LACS:310, TCGH:325, ESWS:300 } },
       { label:'7寸',  basePrice:220, discounts:{ TTFF:330, LACS:310, TCGH:325, ESWS:300 } },
       { label:'8寸', basePrice:300, discounts:{ TTFF:330, LACS:310, TCGH:325, ESWS:300 } }
+    ]
+  },
+  //肥料類
+  {
+    id:'meinenglv',
+    category:'fertilizer',
+    name:'日本美能露活力素 肥料 液態肥',
+    description:'200ml/500ml/2L',
+    image:'images/meinenglv.jpg',
+    images:['images/meinenglv.jpg', 'images/meinenglv2.jpg'],
+    unit:'個',
+    variants:[
+      { label:'200ml',   basePrice:400, discounts:{ TTFF:400, LACS:400, TCGH:400, ESWS:400 } },
+      { label:'500ml',   basePrice:800, discounts:{ TTFF:800, LACS:800, TCGH:800, ESWS:800 } },
+      { label:'2L',   basePrice:1950, discounts:{ TTFF:1950, LACS:1950, TCGH:1950, ESWS:1950 } },
+    ]
+  },
+  {
+    id:'huazhifei',
+    category:'fertilizer',
+    name:'有機肥 網肥 肥料 開花 盆栽 觀葉',
+    description:'各種有機肥 小包裝',
+    image:'images/huazhifei.jpg',
+    images:['images/huazhifei.jpg', 'images/huazhifei2.jpg'],
+    unit:'個',
+    variants:[
+      { label:'2號肥600g 開花(茶花) 結果(番茄)',   basePrice:45, discounts:{ TTFF:45, LACS:45, TCGH:45, ESWS:45 } },
+      { label:'3號肥600g 盆栽松柏觀葉用',   basePrice:45, discounts:{ TTFF:45, LACS:45, TCGH:45, ESWS:45 } },
+      { label:'6號魚肚肥600g  火鶴/秋海棠/仙丹',   basePrice:45, discounts:{ TTFF:45, LACS:45, TCGH:45, ESWS:45 } },
+      { label:'通用 網包 有機肥 (一包50小包)',   basePrice:150, discounts:{ TTFF:150, LACS:150, TCGH:150, ESWS:150 } },
+    ]
+  },
+  {
+    id:'haokangduo',
+    category:'fertilizer',
+    name:'好康多 顆粒肥 緩效肥 肥料',
+    description:'1號通用 2號觀葉草坪',
+    image:'images/haokangduo.jpg',
+    images:['images/haokangduo.jpg', 'images/haokangduo2.jpg'],
+    unit:'個',
+    variants:[
+      { label:'好康多1號 350g',   basePrice:110, discounts:{ TTFF:110, LACS:110, TCGH:110, ESWS:110 } },
+      { label:'好康多1號 1.2kg',   basePrice:280, discounts:{ TTFF:280, LACS:280, TCGH:280, ESWS:280 } },
+      { label:'好康多1號 10kg',   basePrice:1300, discounts:{ TTFF:1300, LACS:1300, TCGH:1300, ESWS:1300 } },
+      { label:'好康多2號 350g',   basePrice:110, discounts:{ TTFF:110, LACS:110, TCGH:110, ESWS:110 } },
+      { label:'好康多2號 1.2kg',   basePrice:280, discounts:{ TTFF:280, LACS:280, TCGH:280, ESWS:280 } },
+      { label:'好康多2號 10kg',   basePrice:1450, discounts:{ TTFF:1450, LACS:1450, TCGH:1450, ESWS:1450 } },
+    ]
+  },
+  {
+    id:'aosimofei',
+    category:'fertilizer',
+    name:'奧斯魔肥 奧妙肥 緩效肥 顆粒肥 肥料',
+    description:'長效顆粒肥 提供網狀包裝不流失',
+    image:'images/aosimofei.jpg',
+    images:['images/aosimofei.jpg', 'images/aosimofei2.jpg'],
+    unit:'個',
+    variants:[
+      { label:'全效791 150g網包',   basePrice:130, discounts:{ TTFF:130, LACS:130, TCGH:130, ESWS:130 } },
+      { label:'精準692 500g顆粒罐裝',   basePrice:250, discounts:{ TTFF:250, LACS:250, TCGH:250, ESWS:250 } },
+      { label:'奧斯魔肥 8-9個月 1KG',   basePrice:280, discounts:{ TTFF:280, LACS:280, TCGH:280, ESWS:280 } },
+    ]
+  },
+  {
+    id:'kaigenfen',
+    category:'fertilizer',
+    name:'開根粉 癒合劑',
+    description:'開根粉 癒合劑',
+    image:'images/kaigenfen.jpg',
+    images:['images/kaigenfen.jpg', 'images/kaigenfen2.jpg'],
+    unit:'個',
+    variants:[
+      { label:'開根粉 150g',   basePrice:85, discounts:{ TTFF:85, LACS:85, TCGH:85, ESWS:85 } },
+      { label:'開根粉 1kg',   basePrice:240, discounts:{ TTFF:240, LACS:240, TCGH:240, ESWS:240 } },
+      { label:'癒合劑',   basePrice:85, discounts:{ TTFF:85, LACS:85, TCGH:85, ESWS:85 } },
     ]
   },
   {

@@ -299,6 +299,28 @@ color:#fff; font-weight:600; font-size:13px; cursor:pointer;
     font-weight:600; font-size:14px; cursor:pointer;
   }
 
+  .home-fab{
+    display:none;
+    position:fixed;
+    right:14px;
+    bottom:96px;
+    z-index:25;
+    border:none;
+    background:transparent;
+    cursor:pointer;
+    padding:0;
+  }
+  .home-fab img{
+    width:120px;
+    height:auto;
+    display:block;
+    filter:drop-shadow(0 4px 10px rgba(0,0,0,0.25));
+  }
+  .home-fab:active img{ transform:scale(0.96); }
+  @media (max-width:900px){
+    .home-fab{display:block;}
+  }
+
   footer{text-align:center; color:var(--stone-500); font-size:12px; padding:24px 16px 0;}
   .footer-fb{
   display:inline-flex;
@@ -420,6 +442,10 @@ color:#fff; font-weight:600; font-size:13px; cursor:pointer;
 
 </main>
 </div>
+
+<button type="button" class="home-fab" id="home-fab" aria-label="回到首頁">
+  <img src="images/pangaicon.png" alt="回到首頁">
+</button>
 
 <div class="cart-bar" id="cart-bar">
   <div class="info">已選購 <span id="cart-count">0</span> 項</div>
@@ -1540,6 +1566,15 @@ document.getElementById('back-btn').addEventListener('click', () => {
   searchQuery = '';
   document.getElementById('search-input').value = '';
   render();
+});
+
+/* ---------- 浮動回到首頁按鈕(手機用) ---------- */
+document.getElementById('home-fab').addEventListener('click', () => {
+  activeCategory = null;
+  searchQuery = '';
+  document.getElementById('search-input').value = '';
+  render();
+  window.scrollTo({ top:0, behavior:'smooth' });
 });
 
 /* ---------- 購物車 / 結帳 ---------- */

@@ -302,23 +302,37 @@ color:#fff; font-weight:600; font-size:13px; cursor:pointer;
   .home-fab{
     display:none;
     position:fixed;
-    right:14px;
+    left:14px;
     bottom:96px;
     z-index:25;
     border:none;
     background:transparent;
     cursor:pointer;
     padding:0;
+    flex-direction:column;
+    align-items:center;
+    gap:2px;
   }
   .home-fab img{
-    width:120px;
+    width:64px;
     height:auto;
     display:block;
     filter:drop-shadow(0 4px 10px rgba(0,0,0,0.25));
   }
-  .home-fab:active img{ transform:scale(0.96); }
+  .home-fab span{
+    display:inline-block;
+    background:#fff;
+    color:var(--stone-800);
+    font-size:12px;
+    font-weight:700;
+    padding:3px 10px;
+    border-radius:999px;
+    border:2px solid var(--stone-800);
+    box-shadow:0 4px 10px rgba(0,0,0,0.2);
+  }
+  .home-fab:active{ transform:scale(0.96); }
   @media (max-width:900px){
-    .home-fab{display:block;}
+    .home-fab{display:flex;}
   }
 
   footer{text-align:center; color:var(--stone-500); font-size:12px; padding:24px 16px 0;}
@@ -444,7 +458,8 @@ color:#fff; font-weight:600; font-size:13px; cursor:pointer;
 </div>
 
 <button type="button" class="home-fab" id="home-fab" aria-label="回到首頁">
-  <img src="images/pangaicon.png" alt="回到首頁">
+  <img src="images/pandaicon.png" alt="">
+  <span>回到首頁</span>
 </button>
 
 <div class="cart-bar" id="cart-bar">

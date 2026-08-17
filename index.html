@@ -66,7 +66,7 @@
   .top-bar label{font-size:11px; letter-spacing:0.04em; color:#222; text-transform:uppercase; font-weight:600;}
   .code-row{display:flex; gap:8px;}
   .code-row input{
-    flex:1; padding:9px 12px; border-radius:8px;
+    flex:none; width:50%; padding:9px 12px; border-radius:8px;
     border:1px solid rgba(255,255,255,0.2); background:rgba(255,255,255,0.08);
     color:#222;
 background:rgba(255,255,255,.35);
@@ -82,7 +82,7 @@ color:#fff; font-weight:600; font-size:13px; cursor:pointer;
   .code-status.ok{color:#CFE3B8;}
   .code-status.err{color:#F0B7A7;}
   .search-row input{
-    width:100%; padding:10px 12px; border-radius:8px; border:1px solid rgba(255,255,255,0.2);
+    width:50%; padding:10px 12px; border-radius:8px; border:1px solid rgba(255,255,255,0.2);
     background:rgba(255,255,255,0.08); color:#222; font-size:14px;
   }
   .search-row input::placeholder{ color:#666;}
@@ -384,13 +384,12 @@ color:#fff; font-weight:600; font-size:13px; cursor:pointer;
         <div>
           <label for="discount-code">客戶優惠代碼(尚未開放)</label>
           <div class="code-row">
-            <input id="discount-code" type="text" placeholder="代碼功能還在建置中" maxlength="10">
-            <button id="apply-code">套用</button>
+            <input id="discount-code" type="text" placeholder="建置中" maxlength="10">
           </div>
           <div class="code-status" id="code-status"></div>
         </div>
         <div class="search-row">
-          <input id="search-input" type="text" placeholder="搜尋商品名稱,例如:火山石">
+          <input id="search-input" type="text" placeholder="搜尋商品名稱">
         </div>
       </div>
     </div>
@@ -1749,8 +1748,7 @@ function applyCode(){
   render();
 }
 
-document.getElementById('apply-code').addEventListener('click', applyCode);
-document.getElementById('discount-code').addEventListener('keydown', e => { if(e.key === 'Enter') applyCode(); });
+document.getElementById('discount-code').addEventListener('input', applyCode);
 
 /* ---------- 搜尋 ---------- */
 document.getElementById('search-input').addEventListener('input', e => {

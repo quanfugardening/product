@@ -989,21 +989,7 @@ const PRODUCTS = [
       { label:'癒合劑',   basePrice:85, discounts:{ TTFF:85, LACS:85, TCGH:85, ESWS:85 } },
     ]
   },
-  {
-    id:'fertilizer-huoqubing',
-    category:'fertilizer',
-    name:'豁去病(殺菌原液)',
-    isNew:true,
-    description:'CP值高，防治白粉病、炭疽病、鏽病、殺菌...',
-    image:'images/huoqubing.jpg',
-    unit:'瓶',
-    variants:[
-      { label:'500ml(效期6個月)',      basePrice:160, discounts:{} },
-      { label:'1L(效期6個月)',         basePrice:180, discounts:{} },
-      { label:'500ml將軍(效期18個月)', basePrice:260, discounts:{} },
-      { label:'1L將軍(效期18個月)',    basePrice:280, discounts:{} }
-    ]
-  },
+
   {
     id:'fertilizer-spray-500',
     category:'fertilizer',
@@ -1172,6 +1158,17 @@ const PRODUCTS = [
     ]
   },
  //非圓形塑膠盆
+  {
+    id:'changhuacaoseventy',
+    category:'nonRoundPot',
+    name:'70cm長花槽(忠興)',
+    description:'台製 耐用 塑膠材質 70*30*32.5cm',
+    image:'images/changhuacaoseventy.jpg',
+    images:['images/changhuacaoseventy.jpg', 'images/changhuacaoseventy2.jpg'],
+    unit:'個',
+    variants:[
+    ]
+  },  
   {
     id:'sifangpen',
     category:'nonRoundPot',
@@ -1376,6 +1373,7 @@ const PRODUCTS = [
       { label:'6寸',   basePrice:15, discounts:{ TTFF:15, LACS:15, TCGH:15, ESWS:15 } },
     ]
   },
+  //以下最新產品，左上1，左下1，左上2，左下2，右上1，右下1，右上2，右下2..這樣排12個)
   {
     id:'xiduorou',
     category:'granule',
@@ -1437,14 +1435,18 @@ const PRODUCTS = [
     ]
   },
   {
-    id:'changhuacaoseventy',
-    category:'nonRoundPot',
-    name:'70cm長花槽(忠興)',
-    description:'台製 耐用 塑膠材質 70*30*32.5cm',
-    image:'images/changhuacaoseventy.jpg',
-    images:['images/changhuacaoseventy.jpg', 'images/changhuacaoseventy2.jpg'],
-    unit:'個',
+    id:'fertilizer-huoqubing',
+    category:'fertilizer',
+    name:'豁去病(殺菌原液)',
+    isNew:true,
+    description:'CP值高，防治白粉病、炭疽病、鏽病、殺菌...',
+    image:'images/huoqubing.jpg',
+    unit:'瓶',
     variants:[
+      { label:'500ml(效期6個月)',      basePrice:160, discounts:{} },
+      { label:'1L(效期6個月)',         basePrice:180, discounts:{} },
+      { label:'500ml將軍(效期18個月)', basePrice:260, discounts:{} },
+      { label:'1L將軍(效期18個月)',    basePrice:280, discounts:{} }
     ]
   },
   {

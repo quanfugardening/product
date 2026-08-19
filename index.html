@@ -307,7 +307,7 @@ color:#fff; font-weight:600; font-size:13px; cursor:pointer;
     display:none;
     position:fixed;
     left:14px;
-    top:96px;
+    top:110px;
     z-index:25;
     border:none;
     background:transparent;
@@ -417,7 +417,7 @@ color:#fff; font-weight:600; font-size:13px; cursor:pointer;
 
   <div id="featured-section" style="display:none;">
     <div class="section-title">
-      <h2>✨ 最新產品(點商品文字可進入下單區)</h2>
+      <h2>✨ 推薦or最新(可右滑，點文字可進入下單區)</h2>
     </div>
     <div id="featured-list" class="featured-scroll"></div>
   </div>
@@ -667,6 +667,22 @@ const PRODUCTS = [
     ]
   },
   {
+    id:'rixiangshi',
+    category:'granule',
+    name:'日向石 火山石 輕石',
+    description:'18L日本進口原包裝',
+    image:'images/rixiangshi.jpg',
+    images:['images/rixiangshi.jpg', 'images/rixiangshi2.jpg'],
+    unit:'個',
+    variants:[
+      { label:'18L細粒',   basePrice:250, discounts:{ TTFF:250, LACS:250, TCGH:250, ESWS:250 } },
+      { label:'18L小粒',   basePrice:250, discounts:{ TTFF:250, LACS:250, TCGH:250, ESWS:250 } },
+      { label:'18L中粒',   basePrice:250, discounts:{ TTFF:250, LACS:250, TCGH:250, ESWS:250 } },
+      { label:'18L大粒',   basePrice:250, discounts:{ TTFF:250, LACS:250, TCGH:250, ESWS:250 } },
+      { label:'30L麻布袋小粒',   basePrice:350, discounts:{ TTFF:350, LACS:350, TCGH:350, ESWS:350 } },
+    ]
+  },
+  {
     id:'lvfeishi',
     category:'granule',
     name:'綠沸石',
@@ -679,6 +695,21 @@ const PRODUCTS = [
       { label:'小粒3-6mm',   basePrice:350, discounts:{ TTFF:350, LACS:350, TCGH:350, ESWS:350 } },
       { label:'中粒5-8mm',   basePrice:350, discounts:{ TTFF:350, LACS:350, TCGH:350, ESWS:350 } },
       { label:'大粒10-20mm',   basePrice:350, discounts:{ TTFF:350, LACS:350, TCGH:350, ESWS:350 } },
+    ]
+  },
+  {
+    id:'baifeishi',
+    category:'granule',
+    name:'白沸石 保肥 顆粒石',
+    description:'印尼進口 原包裝約20kg',
+    image:'images/baifeishi.jpg',
+    images:['images/baifeishi.jpg', 'images/baifeishi2.jpg'],
+    unit:'個',
+    variants:[
+      { label:'20kg細粒',   basePrice:320, discounts:{ TTFF:320, LACS:320, TCGH:320, ESWS:320 } },
+      { label:'20kg小粒',   basePrice:320, discounts:{ TTFF:320, LACS:320, TCGH:320, ESWS:320 } },
+      { label:'20kg大粒',   basePrice:320, discounts:{ TTFF:320, LACS:320, TCGH:320, ESWS:320 } },
+      { label:'3L',   basePrice:90, discounts:{ TTFF:90, LACS:90, TCGH:90, ESWS:90 } },
     ]
   },
   {
@@ -1404,6 +1435,22 @@ const PRODUCTS = [
       { label:'銀鋁線2.0-6.0mm',   basePrice:230, discounts:{ TTFF:230, LACS:230, TCGH:230, ESWS:230 } },
       { label:'黑鋁線1.0-1.5mm',   basePrice:330, discounts:{ TTFF:330, LACS:330, TCGH:330, ESWS:330 } },
       { label:'黑鋁線2.0-6.0mm',   basePrice:310, discounts:{ TTFF:310, LACS:310, TCGH:310, ESWS:310 } },
+    ]
+  },
+  {
+    id:'feiliaohe',
+    category:'hardware',
+    name:'肥料盒 盒子',
+    description:'台灣製造非陸製2.3cm/3cm/3.5cm/4.5cm',
+    image:'images/feiliaohe.jpg',
+    images:['images/feiliaohe.jpg', 'images/feiliaohe2.jpg'],
+    unit:'個',
+    variants:[
+      { label:'2.3cm',   basePrice:6, discounts:{ TTFF:6, LACS:6, TCGH:6, ESWS:6 } },
+      { label:'3cm',   basePrice:8, discounts:{ TTFF:8, LACS:8, TCGH:8, ESWS:8 } },
+      { label:'3.5cm',   basePrice:10, discounts:{ TTFF:10, LACS:10, TCGH:10, ESWS:10 } },
+      { label:'4.5cm',   basePrice:13, discounts:{ TTFF:13, LACS:13, TCGH:13, ESWS:13 } },
+      { label:'日製肥料盒大3.4cm',   basePrice:9, discounts:{ TTFF:9, LACS:9, TCGH:9, ESWS:9 } },
     ]
   },
   {

@@ -83,6 +83,7 @@ color:#fff; font-weight:600; font-size:13px; cursor:pointer;
   .code-status{font-size:12px; min-height:16px;}
   .code-status.ok{color:#CFE3B8;}
   .code-status.err{color:#F0B7A7;}
+  .search-row{display:flex; justify-content:flex-end;}
   .search-row input{
     width:45%; padding:10px 12px; border-radius:8px; border:1px solid rgba(255,255,255,0.2);
     background:rgba(255,255,255,0.08); color:#222; font-size:14px;
@@ -305,7 +306,7 @@ color:#fff; font-weight:600; font-size:13px; cursor:pointer;
     display:none;
     position:fixed;
     left:14px;
-    bottom:96px;
+    top:96px;
     z-index:25;
     border:none;
     background:transparent;
@@ -384,8 +385,8 @@ color:#fff; font-weight:600; font-size:13px; cursor:pointer;
       </div>
       <div class="top-bar-right">
         <div class="fields-row">
-          <div class="field-group">
-            <label for="discount-code">客戶優惠代碼</label>
+          <div class="field-group" style="display:none;">
+            <label for="discount-code">客戶優惠代碼(尚未開放)</label>
             <div class="code-row">
               <input id="discount-code" type="text" placeholder="建置中" maxlength="10">
             </div>

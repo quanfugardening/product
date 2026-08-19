@@ -754,6 +754,50 @@ const PRODUCTS = [
     ]
   },
   {
+    id:'zhutan',
+    category:'granule',
+    name:'竹炭',
+    description:'原包裝40-50L，小包3L',
+    image:'images/zhutan.jpg',
+    images:['images/zhutan.jpg', 'images/zhutan2.jpg'],
+    unit:'個',
+    variants:[
+      { label:'原裝包 2-3mm',   basePrice:500, discounts:{ TTFF:480, LACS:480, TCGH:480, ESWS:480 } },
+      { label:'原裝包 3-5mm',   basePrice:500, discounts:{ TTFF:480, LACS:480, TCGH:480, ESWS:480 } },
+      { label:'原裝包 5-10mm',   basePrice:500, discounts:{ TTFF:480, LACS:480, TCGH:480, ESWS:480 } },
+      { label:'原裝包 10-20mm',   basePrice:500, discounts:{ TTFF:480, LACS:480, TCGH:480, ESWS:480 } },
+      { label:'原裝包 20-50mm',   basePrice:500, discounts:{ TTFF:480, LACS:480, TCGH:480, ESWS:480 } },
+    ]
+  },
+  {
+    id:'hongli',
+    category:'granule',
+    name:'紅礫 龍山石 磚瓦石 紅鑽石',
+    description:'麻布袋20kg，中包10kg，小包3L',
+    image:'images/hongli.jpg',
+    images:['images/hongli.jpg', 'images/hongli2.jpg'],
+    unit:'個',
+    variants:[
+      { label:'麻布袋20kg',   basePrice:300, discounts:{ TTFF:300, LACS:300, TCGH:300, ESWS:300 } },
+      { label:'紅礫包裝袋10L',   basePrice:180, discounts:{ TTFF:180, LACS:180, TCGH:180, ESWS:180 } },
+      { label:'小包裝3L',   basePrice:50, discounts:{ TTFF:50, LACS:50, TCGH:50, ESWS:50 } },
+    ]
+  },
+  {
+    id:'tangshanshi',
+    category:'granule',
+    name:'唐山石 摩金石',
+    description:'麻布袋18kg，中包6kg，小包3L 人工燒製而成 質地堅硬不易破裂 孔隙度高 排水性優良 適合多肉植物、蘭花、仙人掌等植物使用',
+    image:'images/tangshanshi.jpg',
+    images:['images/tangshanshi.jpg', 'images/tangshanshi2.jpg'],
+    unit:'個',
+    variants:[
+      { label:'麻布袋18kg',   basePrice:500, discounts:{ TTFF:500, LACS:500, TCGH:500, ESWS:500 } },
+      { label:'唐山包裝袋6kg',   basePrice:200, discounts:{ TTFF:200, LACS:200, TCGH:200, ESWS:200 } },
+      { label:'小包裝3L',   basePrice:80, discounts:{ TTFF:60, LACS:60, TCGH:60, ESWS:60 } },
+    ]
+  },
+  {
     id:'porttreebark',
     category:'nonGranule',
     name:'葡萄牙樹皮70L',
@@ -1126,6 +1170,26 @@ const PRODUCTS = [
       { label:'3*6尺',   basePrice:330, discounts:{ TTFF:330, LACS:330, TCGH:330, ESWS:330 } },
     ]
   },
+ //非圓形塑膠盆
+  {
+    id:'sifangpen',
+    category:'nonRoundPot',
+    name:'四方盆忠興',
+    description:'台製 耐用 塑膠材質',
+    image:'images/sifangpen.jpg',
+    images:['images/sifangpen.jpg', 'images/sifangpen2.jpg'],
+    unit:'個',
+    variants:[
+      { label:'6寸',   basePrice:55, discounts:{ TTFF:55, LACS:55, TCGH:55, ESWS:55 } },
+      { label:'8寸',   basePrice:70, discounts:{ TTFF:70, LACS:70, TCGH:70, ESWS:70 } },
+      { label:'1尺',   basePrice:105, discounts:{ TTFF:105, LACS:105, TCGH:105, ESWS:105 } },
+      { label:'1尺2',   basePrice:155, discounts:{ TTFF:155, LACS:155, TCGH:155, ESWS:155 } },
+      { label:'1尺4',   basePrice:215, discounts:{ TTFF:215, LACS:215, TCGH:215, ESWS:215 } },
+      { label:'1尺6',   basePrice:290, discounts:{ TTFF:290, LACS:290, TCGH:290, ESWS:290 } },
+      { label:'1尺8',   basePrice:600, discounts:{ TTFF:600, LACS:600, TCGH:600, ESWS:600 } },
+      { label:'2尺',   basePrice:900, discounts:{ TTFF:900, LACS:900, TCGH:900, ESWS:900 } },
+    ]
+  },
  //圓形塑膠盆
   {
     id:'ozouqianpen',
@@ -1312,6 +1376,23 @@ const PRODUCTS = [
     ]
   },
   {
+    id:'xiduorou',
+    category:'granule',
+    name:'萬能多肉介質 喜多肉介質 顆粒介質 塊根仙人掌多肉植物',
+    description:'喜多肉10L，3L，溫室自用40L',
+    image:'images/xiduorou.jpg',
+    images:['images/xiduorou.jpg', 'images/xiduorou2.jpg'],
+    unit:'個',
+    variants:[
+      { label:'喜多肉10L細粒(1-6mm)',   basePrice:200, discounts:{ TTFF:200, LACS:200, TCGH:200, ESWS:200 } },
+      { label:'喜多肉10L小粒(3-10mm)',   basePrice:200, discounts:{ TTFF:200, LACS:200, TCGH:200, ESWS:200 } },
+      { label:'小包裝3L細粒',   basePrice:90, discounts:{ TTFF:90, LACS:90, TCGH:90, ESWS:90 } },
+      { label:'小包裝3L小粒',   basePrice:90, discounts:{ TTFF:90, LACS:90, TCGH:90, ESWS:90 } },
+      { label:'麻布袋40L細粒',   basePrice:600, discounts:{ TTFF:600, LACS:600, TCGH:600, ESWS:600 } },
+      { label:'麻布袋40L小粒',   basePrice:600, discounts:{ TTFF:600, LACS:600, TCGH:600, ESWS:600 } },
+    ]
+  },
+  {
     id:'lvxian',
     category:'hardware',
     name:'銀鋁線 黑鋁線',
@@ -1352,25 +1433,6 @@ const PRODUCTS = [
       { label:'加高斜頂',   basePrice:130, discounts:{ TTFF:130, LACS:130, TCGH:130, ESWS:130 } },
       { label:'加高無開孔',   basePrice:160, discounts:{ TTFF:160, LACS:160, TCGH:160, ESWS:160 } },
       { label:' 加高有旋轉孔',   basePrice:160, discounts:{ TTFF:160, LACS:160, TCGH:160, ESWS:160 } },
-    ]
-  },
-  {
-    id:'sifangpen',
-    category:'nonRoundPot',
-    name:'四方盆忠興',
-    description:'台製 耐用 塑膠材質',
-    image:'images/sifangpen.jpg',
-    images:['images/sifangpen.jpg', 'images/sifangpen2.jpg'],
-    unit:'個',
-    variants:[
-      { label:'6寸',   basePrice:55, discounts:{ TTFF:55, LACS:55, TCGH:55, ESWS:55 } },
-      { label:'8寸',   basePrice:70, discounts:{ TTFF:70, LACS:70, TCGH:70, ESWS:70 } },
-      { label:'1尺',   basePrice:105, discounts:{ TTFF:105, LACS:105, TCGH:105, ESWS:105 } },
-      { label:'1尺2',   basePrice:155, discounts:{ TTFF:155, LACS:155, TCGH:155, ESWS:155 } },
-      { label:'1尺4',   basePrice:215, discounts:{ TTFF:215, LACS:215, TCGH:215, ESWS:215 } },
-      { label:'1尺6',   basePrice:290, discounts:{ TTFF:290, LACS:290, TCGH:290, ESWS:290 } },
-      { label:'1尺8',   basePrice:600, discounts:{ TTFF:600, LACS:600, TCGH:600, ESWS:600 } },
-      { label:'2尺',   basePrice:900, discounts:{ TTFF:900, LACS:900, TCGH:900, ESWS:900 } },
     ]
   },
   {

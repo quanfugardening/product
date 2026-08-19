@@ -307,7 +307,7 @@ color:#fff; font-weight:600; font-size:13px; cursor:pointer;
     display:none;
     position:fixed;
     left:14px;
-    top:110px;
+    top:140px;
     z-index:25;
     border:none;
     background:transparent;
@@ -672,7 +672,7 @@ const PRODUCTS = [
     name:'日向石 火山石 輕石',
     description:'18L日本進口原包裝',
     image:'images/rixiangshi.jpg',
-    images:['images/rixiangshi.jpg', 'images/rixiangshi2.jpg'],
+    images:['images/rixiangshi.jpg', 'images/rixiangshi2.jpg', 'images/rixiangshi3.jpg'],
     unit:'個',
     variants:[
       { label:'18L細粒',   basePrice:250, discounts:{ TTFF:250, LACS:250, TCGH:250, ESWS:250 } },
@@ -1404,6 +1404,22 @@ const PRODUCTS = [
       { label:'6寸',   basePrice:15, discounts:{ TTFF:15, LACS:15, TCGH:15, ESWS:15 } },
     ]
   },
+  {
+    id:'feiliaohe',
+    category:'hardware',
+    name:'肥料盒 盒子',
+    description:'台灣製造非陸製2.3cm/3cm/3.5cm/4.5cm',
+    image:'images/feiliaohe.jpg',
+    images:['images/feiliaohe.jpg', 'images/feiliaohe2.jpg'],
+    unit:'個',
+    variants:[
+      { label:'2.3cm',   basePrice:6, discounts:{ TTFF:6, LACS:6, TCGH:6, ESWS:6 } },
+      { label:'3cm',   basePrice:8, discounts:{ TTFF:8, LACS:8, TCGH:8, ESWS:8 } },
+      { label:'3.5cm',   basePrice:10, discounts:{ TTFF:10, LACS:10, TCGH:10, ESWS:10 } },
+      { label:'4.5cm',   basePrice:13, discounts:{ TTFF:13, LACS:13, TCGH:13, ESWS:13 } },
+      { label:'日製肥料盒大3.4cm',   basePrice:9, discounts:{ TTFF:9, LACS:9, TCGH:9, ESWS:9 } },
+    ]
+  },
   //以下最新產品，左上1，左下1，左上2，左下2，右上1，右下1，右上2，右下2..這樣排12個)
   {
     id:'xiduorou',
@@ -1438,21 +1454,22 @@ const PRODUCTS = [
     ]
   },
   {
-    id:'feiliaohe',
+    id:'mingpai',
     category:'hardware',
-    name:'肥料盒 盒子',
-    description:'台灣製造非陸製2.3cm/3cm/3.5cm/4.5cm',
-    image:'images/feiliaohe.jpg',
-    images:['images/feiliaohe.jpg', 'images/feiliaohe2.jpg'],
+    name:'植物名牌 標示牌 簽字 名字',
+    description:'各種款式 多種顏色可選',
+    image:'images/mingpai.jpg',
+    images:['images/mingpai.jpg', 'images/mingpai1.jpg', 'images/mingpai2.jpg', 'images/mingpai3.jpg', 'images/mingpai4.jpg', 'images/mingpai5.jpg'],
     unit:'個',
     variants:[
-      { label:'2.3cm',   basePrice:6, discounts:{ TTFF:6, LACS:6, TCGH:6, ESWS:6 } },
-      { label:'3cm',   basePrice:8, discounts:{ TTFF:8, LACS:8, TCGH:8, ESWS:8 } },
-      { label:'3.5cm',   basePrice:10, discounts:{ TTFF:10, LACS:10, TCGH:10, ESWS:10 } },
-      { label:'4.5cm',   basePrice:13, discounts:{ TTFF:13, LACS:13, TCGH:13, ESWS:13 } },
-      { label:'日製肥料盒大3.4cm',   basePrice:9, discounts:{ TTFF:9, LACS:9, TCGH:9, ESWS:9 } },
+      { label:'短500片一包',   basePrice:85, discounts:{ TTFF:85, LACS:85, TCGH:85, ESWS:85 } },
+      { label:'長100片一包(舊款/台製)',   basePrice:55, discounts:{ TTFF:55, LACS:55, TCGH:55, ESWS:55 } },
+      { label:'長100片一包(新款/大陸製)',   basePrice:55, discounts:{ TTFF:55, LACS:55, TCGH:55, ESWS:55 } },
+      { label:'小T 100片一包(台製)',   basePrice:75, discounts:{ TTFF:75, LACS:75, TCGH:75, ESWS:75 } },
+      { label:'大T 100片一包(台製)',   basePrice:120, discounts:{ TTFF:120, LACS:120, TCGH:120, ESWS:120 } },
     ]
   },
+
   {
     id:'tanhuangshuiguan',
     category:'hardware',
@@ -1497,6 +1514,21 @@ const PRODUCTS = [
     ]
   },
   {
+    id:'yingyangye',
+    category:'fertilizer',
+    name:'藻菁靈/喜酸植物/免爛根/多肉暴芽素',
+    description:'500ml可直接噴灑，免稀釋',
+    image:'images/yingyangye.jpg',
+    images:['images/yingyangye.jpg', 'images/yingyangye2.jpg'],
+    unit:'個',
+    variants:[
+      { label:'藻菁靈',   basePrice:220, discounts:{ TTFF:200, LACS:200, TCGH:200, ESWS:200 } },
+      { label:'喜酸植物',   basePrice:220, discounts:{ TTFF:200, LACS:200, TCGH:200, ESWS:200 } },
+      { label:'免爛根',   basePrice:220, discounts:{ TTFF:200, LACS:200, TCGH:200, ESWS:200 } },
+      { label:'多肉暴芽素',   basePrice:220, discounts:{ TTFF:200, LACS:200, TCGH:200, ESWS:200 } },
+    ]
+  },
+{
     id:'fushengpen',
     category:'nonRoundPot',
     name:'附生盆',

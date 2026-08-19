@@ -857,6 +857,18 @@ const PRODUCTS = [
     ]
   },
   {
+    id:'yezitu',
+    category:'nonGranule',
+    name:'椰子土100L 椰纖椰塊系列',
+    description:'麻布袋 CP值高',
+    image:'images/yezitu.jpg',
+    images:['images/yezitu.jpg', 'images/yezitu2.jpg'],
+    unit:'個',
+    variants:[
+      { label:'100L麻布袋',   basePrice:300, discounts:{ TTFF:300, LACS:300, TCGH:300, ESWS:300 } },
+    ]
+  },
+  {
     id:'heiruanshi',
     category:'granule',
     name:'黑卵石 鵝卵石 礦石',
@@ -918,7 +930,23 @@ const PRODUCTS = [
       { label:'植牆壁掛一般款',   basePrice:10, discounts:{ TTFF:9, LACS:9, TCGH:9, ESWS:9 } },
     ]
   },
-
+{
+    id:'yexianyuandiao',
+    category:'hardware',
+    name:'硬質椰纖圓吊組 椰纖壁盆 椰纖系列',
+    description:'10/12/14吋',
+    image:'images/yexianyuandiao.jpg',
+    images:['images/yexianyuandiao.jpg', 'images/yexianyuandiao2.jpg'],
+    unit:'個',
+    variants:[
+      { label:'10吋硬質椰纖圓吊組',   basePrice:150, discounts:{ TTFF:150, LACS:150, TCGH:150, ESWS:150 } },
+      { label:'12吋硬質椰纖圓吊組',   basePrice:180, discounts:{ TTFF:180, LACS:180, TCGH:180, ESWS:180 } },
+      { label:'14吋硬質椰纖圓吊組',   basePrice:230, discounts:{ TTFF:230, LACS:230, TCGH:230, ESWS:230 } },
+      { label:'10吋硬椰纖半壁組',   basePrice:220, discounts:{ TTFF:220, LACS:220, TCGH:220, ESWS:220 } },
+      { label:'12吋硬椰纖半壁組',   basePrice:275, discounts:{ TTFF:275, LACS:275, TCGH:275, ESWS:275 } },
+      { label:'14吋硬椰纖半壁組',   basePrice:315, discounts:{ TTFF:315, LACS:315, TCGH:315, ESWS:315 } },
+    ]
+  },
   {
     id:'granule-perlite',
     category:'granule',
@@ -1036,7 +1064,27 @@ const PRODUCTS = [
       { label:'蝸牛驅除',   basePrice:198, discounts:{} }
     ]
   },
-  
+  {
+    id:'yuanshuipan',
+    category:'nonRoundPot',
+    name:'圓水盤 水皿 底盤 接水',
+    description:'各尺寸 紅 白 金 咖 四色',
+    image:'images/yuanshuipan.jpg',
+    images:['images/yuanshuipan.jpg', 'images/yuanshuipan2.jpg'],
+    unit:'個',
+    variants:[
+      { label:'7號(三寸):內徑8.5cm',   basePrice:5, discounts:{ TTFF:5, LACS:5, TCGH:5, ESWS:5 } },
+      { label:'6號:內徑10cm',   basePrice:6, discounts:{ TTFF:6, LACS:6, TCGH:6, ESWS:6 } },
+      { label:'5號:內徑13cm',   basePrice:7, discounts:{ TTFF:7, LACS:7, TCGH:7, ESWS:7 } },
+      { label:'4號:內徑15.5cm ，外徑20m',   basePrice:10, discounts:{ TTFF:10, LACS:10, TCGH:10, ESWS:10 } },
+      { label:'3號:內徑19cm',   basePrice:14, discounts:{ TTFF:14, LACS:14, TCGH:14, ESWS:14 } },
+      { label:'2號:內徑22cm ',   basePrice:18, discounts:{ TTFF:18, LACS:18, TCGH:18, ESWS:18 } },
+      { label:'1號:(一尺三):內徑24cm',   basePrice:22, discounts:{ TTFF:22, LACS:22, TCGH:22, ESWS:22 } },
+      { label:'大二:內徑29cm ，外徑35.5cm',   basePrice:25, discounts:{ TTFF:25, LACS:25, TCGH:25, ESWS:25 } },
+      { label:'大一',   basePrice:46, discounts:{ TTFF:46, LACS:46, TCGH:46, ESWS:46 } },
+      { label:'一尺七',   basePrice:65, discounts:{ TTFF:65, LACS:65, TCGH:65, ESWS:65 } },
+    ]
+  },
   {
   id:'yuanjiao',
   category:'nonRoundPot',
@@ -1420,7 +1468,22 @@ const PRODUCTS = [
       { label:'日製肥料盒大3.4cm',   basePrice:9, discounts:{ TTFF:9, LACS:9, TCGH:9, ESWS:9 } },
     ]
   },
-  //以下最新產品，左上1，左下1，左上2，左下2，右上1，右下1，右上2，右下2..這樣排12個)
+  {
+    id:'modai',
+    category:'hardware',
+    name:'魔帶/束帶/綁帶',
+    description:' 小捆30米/大綑1KG，圓線跟扁線',
+    image:'images/modai.jpg',
+    images:['images/modai.jpg', 'images/modai2.jpg'],
+    unit:'個',
+    variants:[
+      { label:'大綑1KG圓線',   basePrice:200, discounts:{ TTFF:200, LACS:200, TCGH:200, ESWS:200 } },
+      { label:'大綑1KG扁線',   basePrice:200, discounts:{ TTFF:200, LACS:200, TCGH:200, ESWS:200 } },
+      { label:' 小捆30米 金色扁線',   basePrice:60, discounts:{ TTFF:60, LACS:60, TCGH:60, ESWS:60 } },
+      { label:' 小捆30米 綠色扁線',   basePrice:50, discounts:{ TTFF:50, LACS:50, TCGH:50, ESWS:50 } },
+    ]
+  },
+   //以下最新產品，左上1，左下1，左上2，左下2，右上1，右下1，右上2，右下2..這樣排12個)
   {
     id:'xiduorou',
     category:'granule',
@@ -1543,18 +1606,7 @@ const PRODUCTS = [
       { label:'白色 1尺',   basePrice:40, discounts:{ TTFF:30, LACS:30, TCGH:40, ESWS:40 } },
     ]
   },
-  {
-    id:'yezitu',
-    category:'nonGranule',
-    name:'椰子土100L 椰纖椰塊系列',
-    description:'麻布袋 CP值高',
-    image:'images/yezitu.jpg',
-    images:['images/yezitu.jpg', 'images/yezitu2.jpg'],
-    unit:'個',
-    variants:[
-      { label:'100L麻布袋',   basePrice:300, discounts:{ TTFF:300, LACS:300, TCGH:300, ESWS:300 } },
-    ]
-  },
+  
   {
     id:'yexianbang',
     category:'nonGranule',

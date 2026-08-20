@@ -104,6 +104,7 @@ color:#fff; font-weight:600; font-size:13px; cursor:pointer;
     color:#fff;
     text-align:center;
   }
+  .kw-link{ cursor:pointer; }
   .top-bar-right{
     flex:0 0 240px;
     display:flex;
@@ -379,10 +380,10 @@ color:#fff; font-weight:600; font-size:13px; cursor:pointer;
     </div>
 </div>
     <div class="top-bar-main">
-      <div class="top-bar-keywords">
-        白紅黑火山石　白綠沸石　麥飯石　竹炭 泥炭土 椰塊<br>
-        赤玉土　樹皮　蛇木屑　蛇木板　稻殼　珍珠石 蛭石<br>
-        喜多肉　蘭美樂　塑膠盆　肥料 殺菌殺蟲　名牌
+      <div class="top-bar-keywords" id="top-bar-keywords">
+        <span class="kw-link" data-q="火山石">白紅黑火山石</span>　<span class="kw-link" data-q="沸石">白綠沸石</span>　<span class="kw-link" data-q="麥飯石">麥飯石</span>　<span class="kw-link" data-q="竹炭">竹炭</span> <span class="kw-link" data-q="泥炭土">泥炭土</span> <span class="kw-link" data-q="椰塊">椰塊</span><br>
+        <span class="kw-link" data-q="赤玉土">赤玉土</span>　<span class="kw-link" data-q="樹皮">樹皮</span>　<span class="kw-link" data-q="蛇木屑">蛇木屑</span>　<span class="kw-link" data-q="蛇木板">蛇木板</span>　<span class="kw-link" data-q="稻殼">稻殼</span>　<span class="kw-link" data-q="珍珠石">珍珠石</span> <span class="kw-link" data-q="蛭石">蛭石</span><br>
+        <span class="kw-link" data-q="喜多肉">喜多肉</span>　<span class="kw-link" data-q="蘭美樂">蘭美樂</span>　<span class="kw-link" data-q="塑膠盆">塑膠盆</span>　<span class="kw-link" data-q="肥料">肥料</span> <span class="kw-link" data-q="殺菌殺蟲">殺菌殺蟲</span>　<span class="kw-link" data-q="名牌">名牌</span>
       </div>
       <div class="top-bar-right">
         <div class="fields-row">
@@ -1958,6 +1959,17 @@ document.getElementById('discount-code').addEventListener('input', applyCode);
 document.getElementById('search-input').addEventListener('input', e => {
   searchQuery = e.target.value;
   render();
+});
+
+/* ---------- 點擊上方關鍵字文字 → 自動搜尋 ---------- */
+document.getElementById('top-bar-keywords').querySelectorAll('.kw-link').forEach(el => {
+  el.addEventListener('click', () => {
+    const q = el.dataset.q;
+    searchQuery = q;
+    document.getElementById('search-input').value = q;
+    render();
+    document.getElementById('product-view').scrollIntoView({ behavior:'smooth', block:'start' });
+  });
 });
 
 /* ---------- 返回分類總覽 ---------- */

@@ -382,8 +382,8 @@ color:#fff; font-weight:600; font-size:13px; cursor:pointer;
     <div class="top-bar-main">
       <div class="top-bar-keywords" id="top-bar-keywords">
         <span class="kw-link" data-q="火山石">白紅黑火山石</span>　<span class="kw-link" data-q="沸石">白綠沸石</span>　<span class="kw-link" data-q="麥飯石">麥飯石</span>　<span class="kw-link" data-q="竹炭">竹炭</span> <span class="kw-link" data-q="泥炭土">泥炭土</span> <span class="kw-link" data-q="椰塊">椰塊</span><br>
-        <span class="kw-link" data-q="赤玉土">赤玉土</span>　<span class="kw-link" data-q="樹皮">樹皮</span>　<span class="kw-link" data-q="蛇木屑">蛇木屑</span>　<span class="kw-link" data-q="蛇木板">蛇木板</span>　<span class="kw-link" data-q="稻殼">稻殼</span>　<span class="kw-link" data-q="珍珠石">珍珠石</span> <span class="kw-link" data-q="蛭石">蛭石</span><br>
-        <span class="kw-link" data-q="喜多肉">喜多肉</span>　<span class="kw-link" data-q="蘭美樂">蘭美樂</span>　<span class="kw-link" data-q="塑膠盆">塑膠盆</span>　<span class="kw-link" data-q="肥料">肥料</span> <span class="kw-link" data-q="殺菌殺蟲">殺菌殺蟲</span>　<span class="kw-link" data-q="名牌">名牌</span>
+        <span class="kw-link" data-q="赤玉土">赤玉土</span>　<span class="kw-link" data-q="樹皮">樹皮</span>　<span class="kw-link" data-q="蛇木">蛇木屑</span>　<span class="kw-link" data-q="蛇木">蛇木板</span>　<span class="kw-link" data-q="稻殼">稻殼</span>　<span class="kw-link" data-q="珍珠石">珍珠石</span> <span class="kw-link" data-q="蛭石">蛭石</span><br>
+        <span class="kw-link" data-q="喜多肉">喜多肉</span>　<span class="kw-link" data-q="蘭美樂">蘭美樂</span>　<span class="kw-link" data-q="塑膠盆">塑膠盆</span>　<span class="kw-link" data-q="肥料">肥料</span> <span class="kw-link" data-q="殺菌">殺菌</span>　<span class="kw-link" data-q="殺蟲">殺蟲</span> <span class="kw-link" data-q="名牌">名牌</span>
       </div>
       <div class="top-bar-right">
         <div class="fields-row">
@@ -828,6 +828,43 @@ const PRODUCTS = [
       { label:'麻布袋18kg',   basePrice:500, discounts:{ TTFF:500, LACS:500, TCGH:500, ESWS:500 } },
       { label:'唐山包裝袋6kg',   basePrice:200, discounts:{ TTFF:200, LACS:200, TCGH:200, ESWS:200 } },
       { label:'小包裝3L',   basePrice:80, discounts:{ TTFF:60, LACS:60, TCGH:60, ESWS:60 } },
+    ]
+  },
+  {
+    id:'lanmeile',
+    category:'granule',
+    name:'蘭美樂 蘭花介質 混合材料 蛇木屑 日本石',
+    description:'約30L',
+    image:'images/lanmeile.jpg',
+    images:['images/lanmeile.jpg', 'images/lanmeile2.jpg', 'images/lanmeile3.jpg'],
+    unit:'個',
+    variants:[
+      { label:'蘭美樂 小粒',   basePrice:500, discounts:{ TTFF:470, LACS:470, TCGH:470, ESWS:470 } },
+      { label:'蘭美樂 粗粒',   basePrice:500, discounts:{ TTFF:470, LACS:470, TCGH:470, ESWS:470 } },
+    ]
+  },
+  {
+    id:'shuijingshi',
+    category:'granule',
+    name:'水晶石 緩衝材質 蘭花介質 透氣',
+    description:'原包裝約60-70L，台灣製造',
+    image:'images/shuijingshi.jpg',
+    images:['images/shuijingshi.jpg', 'images/shuijingshi2.jpg'],
+    unit:'個',
+    variants:[
+    ]
+  },
+  {
+    id:'tanhuadaoke',
+    category:'nonGranule',
+    name:'碳化稻殼 粗糠 防蟲',
+    description:'原包裝約80L，台灣製造',
+    image:'images/tanhuadaoke.jpg',
+    images:['images/tanhuadaoke.jpg', 'images/tanhuadaoke2.jpg'],
+    unit:'個',
+    variants:[
+      { label:'碳化稻殼80L',   basePrice:300, discounts:{ TTFF:300, LACS:300, TCGH:300, ESWS:300 } },
+      { label:'碳化稻殼3L',   basePrice:60, discounts:{ TTFF:60, LACS:60, TCGH:60, ESWS:60 } },
     ]
   },
   {

@@ -227,6 +227,23 @@ color:#fff; font-weight:600; font-size:13px; cursor:pointer;
   }
   .lightbox-close:hover{background:rgba(255,255,255,0.28);}
 
+  .lightbox-nav{
+    position:absolute; top:50%; transform:translateY(-50%);
+    width:44px; height:44px; border-radius:50%;
+    background:rgba(255,255,255,0.15); border:none; color:#fff;
+    font-size:28px; line-height:1; cursor:pointer;
+    display:flex; align-items:center; justify-content:center;
+    z-index:5;
+  }
+  .lightbox-nav:hover{background:rgba(255,255,255,0.28);}
+  .lightbox-prev{ left:16px; }
+  .lightbox-next{ right:16px; }
+  .lightbox-counter{
+    position:absolute; bottom:16px; left:50%; transform:translateX(-50%);
+    color:#fff; font-size:13px; background:rgba(0,0,0,0.4);
+    padding:4px 12px; border-radius:999px;
+  }
+
   .variant-row{
     display:grid; grid-template-columns:1fr auto; align-items:center; gap:10px;
     padding:10px 0; border-top:1px solid var(--stone-200);
@@ -1609,7 +1626,7 @@ const PRODUCTS = [
     name:'植物名牌 標示牌 簽字 名字',
     description:'各種款式 多種顏色可選',
     image:'images/mingpai.jpg',
-    images:['images/mingpai.jpg', 'images/mingpai1.jpg', 'images/mingpai2.jpg', 'images/mingpai3.jpg', 'images/mingpai4.jpg', 'images/mingpai5.jpg'],
+    images:['images/mingpai.jpg', 'images/mingpai1.jpg', 'images/mingpai2.jpg', 'images/mingpai3.jpg', 'images/mingpai4.jpg'],
     unit:'個',
     variants:[
       { label:'短500片一包',   basePrice:85, discounts:{ TTFF:85, LACS:85, TCGH:85, ESWS:85 } },
@@ -1853,7 +1870,7 @@ function renderFeaturedSection(showHomepage){
   listEl.querySelectorAll('.featured-thumb img').forEach(img => {
     img.addEventListener('click', (e) => {
       e.stopPropagation();
-      openLightbox(img.dataset.full, img.alt);
+      openLightbox([img.dataset.full], 0, img.alt);
     });
   });
 
@@ -1978,30 +1995,80 @@ function attachListenersWithin(container){
   attachLightboxWithin(container);
 }
 
-/* ---------- 照片燈箱(點擊放大) ---------- */
-function openLightbox(src, alt){
-  const overlay = document.getElementById('lightbox-overlay');
+/* ---------- 照片燈箱(點擊放大,支援多張照片切換) ---------- */
+let lightboxImages = [];
+let lightboxIndex = 0;
+
+function updateLightboxImage(){
   const img = document.getElementById('lightbox-img');
+  const src = lightboxImages[lightboxIndex];
   img.src = src;
-  img.alt = alt || '';
+  img.alt = '';
+
+  const multi = lightboxImages.length > 1;
+  document.getElementById('lightbox-prev').style.display = multi ? 'flex' : 'none';
+  document.getElementById('lightbox-next').style.display = multi ? 'flex' : 'none';
+  document.getElementById('lightbox-counter').textContent = multi ? `${lightboxIndex + 1} / ${lightboxImages.length}` : '';
+}
+
+function openLightbox(images, startIndex, alt){
+  const overlay = document.getElementById('lightbox-overlay');
+  lightboxImages = images;
+  lightboxIndex = startIndex || 0;
+  updateLightboxImage();
   overlay.classList.add('open');
 }
 function closeLightbox(){
   document.getElementById('lightbox-overlay').classList.remove('open');
 }
+function lightboxPrev(){
+  if(lightboxImages.length < 2) return;
+  lightboxIndex = (lightboxIndex - 1 + lightboxImages.length) % lightboxImages.length;
+  updateLightboxImage();
+}
+function lightboxNext(){
+  if(lightboxImages.length < 2) return;
+  lightboxIndex = (lightboxIndex + 1) % lightboxImages.length;
+  updateLightboxImage();
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+  document.getElementById('lightbox-prev').addEventListener('click', (e) => { e.stopPropagation(); lightboxPrev(); });
+  document.getElementById('lightbox-next').addEventListener('click', (e) => { e.stopPropagation(); lightboxNext(); });
   document.getElementById('lightbox-overlay').addEventListener('click', (e) => {
     if(e.target.id === 'lightbox-overlay') closeLightbox();
   });
+
+  // 手機滑動切換
+  const overlay = document.getElementById('lightbox-overlay');
+  let touchStartX = null;
+  overlay.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; }, { passive:true });
+  overlay.addEventListener('touchend', (e) => {
+    if(touchStartX === null) return;
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    if(Math.abs(dx) > 40){
+      if(dx > 0) lightboxPrev(); else lightboxNext();
+    }
+    touchStartX = null;
+  });
 });
 document.addEventListener('keydown', (e) => {
+  if(!document.getElementById('lightbox-overlay').classList.contains('open')) return;
   if(e.key === 'Escape') closeLightbox();
+  if(e.key === 'ArrowLeft') lightboxPrev();
+  if(e.key === 'ArrowRight') lightboxNext();
 });
 
 function attachLightboxWithin(container){
   container.querySelectorAll('img[data-full]').forEach(img => {
-    img.addEventListener('click', () => openLightbox(img.dataset.full, img.alt));
+    img.addEventListener('click', () => {
+      const gallery = img.closest('.product-thumb') || img.closest('.featured-thumb') || container;
+      const imgs = Array.from(gallery.querySelectorAll('img[data-full]'));
+      const images = imgs.map(el => el.dataset.full);
+      const startIndex = imgs.indexOf(img);
+      openLightbox(images, startIndex, img.alt);
+    });
   });
 }
 
@@ -2201,7 +2268,10 @@ render();
 
 <div id="lightbox-overlay" class="lightbox-overlay">
   <button type="button" class="lightbox-close" id="lightbox-close">✕</button>
+  <button type="button" class="lightbox-nav lightbox-prev" id="lightbox-prev">‹</button>
   <img id="lightbox-img" src="" alt="">
+  <button type="button" class="lightbox-nav lightbox-next" id="lightbox-next">›</button>
+  <div class="lightbox-counter" id="lightbox-counter"></div>
 </div>
 
 </body>

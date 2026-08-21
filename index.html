@@ -607,10 +607,10 @@ const PRODUCTS = [
   {
     id:'innihioshanshi',
     category:'granule',
-    name:'印尼黃火山石',
+    name:'印尼黃火山石 介質 石頭 玉土石',
     description:'填充時約25kg，會因水分蒸發而減輕',
     image:'images/innihioshanshi.jpg',
-    images:['images/innihioshanshi.jpg', 'images/innihioshanshi.jpg'],
+    images:['images/innihioshanshi.jpg', 'images/innihioshanshi2.jpg'],
     unit:'25kg/包',
     variants:[
       { label:'1-3mm',   basePrice:350, discounts:{ TTFF:325, LACS:325, TCGH:350, ESWS:350 } },
@@ -672,7 +672,7 @@ const PRODUCTS = [
   {
     id:'dunpai',
     category:'granule',
-    name:'盾牌赤玉土',
+    name:'赤玉土 盾牌赤玉土 18L紅邊赤玉土',
     description:'價格便宜的盾牌赤玉土14L 硬度僅次於三本的紅袋赤玉土18L',
     image:'images/dunpai.jpg',
     images:['images/dunpai.jpg', 'images/dunpai2.jpg'],
@@ -706,7 +706,7 @@ const PRODUCTS = [
   {
     id:'lvfeishi',
     category:'granule',
-    name:'綠沸石',
+    name:'綠沸石 保肥 顆粒石',
     description:'25kg進口原包裝',
     image:'images/lvfeishi.jpg',
     images:['images/lvfeishi.jpg', 'images/lvfeishi2.jpg'],
@@ -791,6 +791,18 @@ const PRODUCTS = [
       { label:'3L',   basePrice:80, discounts:{ TTFF:80, LACS:80, TCGH:80, ESWS:80 } },
     ]
   },
+    {
+    id:'granule-perlite',
+    category:'granule',
+    name:'珍珠石原裝包60-70L 真珠石',
+    description:'CP質高，貨櫃剛到優惠中',
+    image:'images/perlite.jpg',
+    unit:'60-70L/ 包',
+    variants:[
+      { label:'1-2mm',   basePrice:370, discounts:{ TTFF:370, LACS:370, TCGH:370, ESWS:350 } },
+      { label:'3-6mm',   basePrice:370, discounts:{ TTFF:370, LACS:370, TCGH:370, ESWS:350 } }
+    ]
+  },  
   {
     id:'caisetaoli',
     category:'granule',
@@ -939,7 +951,7 @@ const PRODUCTS = [
     id:'shupi',
     category:'nonGranule',
     name:'樹皮 經典樹皮 山大王 知更 樹塊 樹皮塊',
-    description:'印尼 樹皮',
+    description:'印尼 樹皮 40-50公升',
     image:'images/shupi.jpg',
     images:['images/shupi.jpg', 'images/shupi2.jpg', 'images/shupi3.jpg', 'images/shupi4.jpg'],
     unit:'個',
@@ -960,6 +972,33 @@ const PRODUCTS = [
     unit:'個',
     variants:[
       { label:'100L麻布袋',   basePrice:300, discounts:{ TTFF:300, LACS:300, TCGH:300, ESWS:300 } },
+    ]
+  },
+  {
+    id:'chenshuitaoli',
+    category:'granule',
+    name:'沉水陶粒 20kg原裝包',
+    description:'3號-小粒(1-5mm)  2號中粒(5-10mm) 1號中大粒(5-15mm)',
+    image:'images/chenshuitaoli.jpg',
+    images:['images/chenshuitaoli.jpg', 'images/chenshuitaoli2.jpg'],
+    unit:'個',
+    variants:[
+      { label:'3號-小粒(1-5mm)',   basePrice:220, discounts:{ TTFF:220, LACS:220, TCGH:220, ESWS:220 } },
+      { label:'2號中粒(5-10mm)',   basePrice:220, discounts:{ TTFF:220, LACS:220, TCGH:220, ESWS:220 } },
+      { label:'1號中大粒(5-15mm)',   basePrice:220, discounts:{ TTFF:220, LACS:220, TCGH:220, ESWS:220 } },
+      { label:'小包3L',   basePrice:100, discounts:{ TTFF:100, LACS:100, TCGH:100, ESWS:100 } },
+    ]
+  },
+  {
+    id:'meiguishi',
+    category:'granule',
+    name:'玫瑰石 粉紅石 鋪面石',
+    description:'1分 約3-6mm',
+    image:'images/meiguishi.jpg',
+    images:['images/meiguishi.jpg', 'images/meiguishi2.jpg'],
+    unit:'個',
+    variants:[
+      { label:'原裝包20kg',   basePrice:290, discounts:{ TTFF:290, LACS:290, TCGH:290, ESWS:290 } },
     ]
   },
   {
@@ -1022,7 +1061,7 @@ const PRODUCTS = [
     unit:'1個',
     variants:[
       { label:'植牆壁掛一般款',   basePrice:10, discounts:{ TTFF:9, LACS:9, TCGH:9, ESWS:9 } },
-    ]
+      { label:'植牆壁掛一般款(200個))',   basePrice:1400, discounts:{ TTFF:1400, LACS:1400, TCGH:1400, ESWS:1400 } },]
   },
 {
     id:'yexianyuandiao',
@@ -1054,18 +1093,6 @@ const PRODUCTS = [
     ]
   },
   {
-    id:'granule-perlite',
-    category:'granule',
-    name:'珍珠石原裝包60-70L 真珠石',
-    description:'CP質高，貨櫃剛到優惠中',
-    image:'images/perlite.jpg',
-    unit:'60-70L/ 包',
-    variants:[
-      { label:'1-2mm',   basePrice:370, discounts:{ TTFF:370, LACS:370, TCGH:370, ESWS:350 } },
-      { label:'3-6mm',   basePrice:370, discounts:{ TTFF:370, LACS:370, TCGH:370, ESWS:350 } }
-    ]
-  },
-  {
     id:'fernboard',
     category:'nonGranule',
     name:'蛇木板(貨櫃合法進口))',
@@ -1092,6 +1119,22 @@ const PRODUCTS = [
       { label:'200ml',   basePrice:400, discounts:{ TTFF:400, LACS:400, TCGH:400, ESWS:400 } },
       { label:'500ml',   basePrice:800, discounts:{ TTFF:800, LACS:800, TCGH:800, ESWS:800 } },
       { label:'2L',   basePrice:1950, discounts:{ TTFF:1950, LACS:1950, TCGH:1950, ESWS:1950 } },
+    ]
+  },
+  {
+    id:'huabao',
+    category:'fertilizer',
+    name:'花寶 水溶性肥料',
+    description:'花寶50g/150g/400g/2kg   號碼:1號 室內植物7-6-19/2號 一般植物 20-20-20/3號 開花植物 10-23-20/4號 觀葉植物 25-5-20/5號 幼苗成長 25-5-20',
+    image:'images/huabao.jpg',
+    images:['images/huabao.jpg', 'images/huabao2.jpg'],
+    unit:'個',
+    variants:[
+      { label:'50g',   basePrice:60, discounts:{ TTFF:60, LACS:60, TCGH:60, ESWS:60 } },
+      { label:'150g',   basePrice:150, discounts:{ TTFF:150, LACS:150, TCGH:150, ESWS:150 } },
+      { label:'400g',   basePrice:300, discounts:{ TTFF:300, LACS:300, TCGH:300, ESWS:300 } },
+      { label:'2kg',   basePrice:1200, discounts:{ TTFF:1200, LACS:1200, TCGH:1200, ESWS:1200 } },
+      { label:'2kg-5號特價',   basePrice:900, discounts:{ TTFF:900, LACS:900, TCGH:900, ESWS:900 } },
     ]
   },
   {
@@ -1609,7 +1652,7 @@ const PRODUCTS = [
     name:'萬能多肉介質 喜多肉介質 顆粒介質 塊根仙人掌多肉植物',
     description:'喜多肉10L，3L，溫室自用40L',
     image:'images/xiduorou.jpg',
-    images:['images/xiduorou.jpg', 'images/xiduorou2.jpg'],
+    images:['images/xiduorou.jpg', 'images/xiduorou2.jpg', 'images/xiduorou3.jpg', 'images/xiduorou4.jpg'],
     unit:'個',
     variants:[
       { label:'喜多肉10L細粒(1-6mm)',   basePrice:200, discounts:{ TTFF:200, LACS:200, TCGH:200, ESWS:200 } },
@@ -1618,6 +1661,7 @@ const PRODUCTS = [
       { label:'小包裝3L小粒',   basePrice:90, discounts:{ TTFF:90, LACS:90, TCGH:90, ESWS:90 } },
       { label:'麻布袋40L細粒',   basePrice:600, discounts:{ TTFF:600, LACS:600, TCGH:600, ESWS:600 } },
       { label:'麻布袋40L小粒',   basePrice:600, discounts:{ TTFF:600, LACS:600, TCGH:600, ESWS:600 } },
+      { label:'易植樂',   basePrice:180, discounts:{ TTFF:180, LACS:180, TCGH:180, ESWS:180 } },
     ]
   },
   {

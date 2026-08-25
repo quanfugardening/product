@@ -181,7 +181,7 @@ color:#fff; font-weight:600; font-size:13px; cursor:pointer;
     color:var(--stone-500);
     overflow:hidden;
   }
-  .featured-thumb img{width:100%; height:100%; object-fit:cover; cursor:zoom-in;}
+  .featured-thumb img{width:100%; height:100%; object-fit:cover; cursor:pointer;}
   .featured-name{
     font-size:12px;
     font-weight:600;
@@ -1972,13 +1972,6 @@ function renderFeaturedSection(showHomepage){
       <div class="featured-name">${p.name}</div>
     </div>`;
   }).join('');
-
-  listEl.querySelectorAll('.featured-thumb img').forEach(img => {
-    img.addEventListener('click', (e) => {
-      e.stopPropagation();
-      openLightbox([img.dataset.full], 0, img.alt);
-    });
-  });
 
   listEl.querySelectorAll('.featured-card').forEach(card => {
     card.addEventListener('click', () => {

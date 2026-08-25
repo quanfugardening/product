@@ -506,8 +506,8 @@ color:#fff; font-weight:600; font-size:13px; cursor:pointer;
    商品資料區 — 之後新增商品只需要在對應分類陣列裡加物件即可
    ========================================================= */
 const CATEGORIES = [
-  { id:'granule',     name:'顆粒介質(火山石、赤玉土)' },
-  { id:'nonGranule',  name:'非顆粒介質(泥炭土、椰塊)' },
+  { id:'granule',     name:'顆粒介質(赤玉土)' },
+  { id:'nonGranule',  name:'非顆粒介質(泥炭椰塊)' },
   { id:'roundPot',    name:'圓形塑膠盆' },
   { id:'nonRoundPot', name:'非圓形塑膠盆' },
   { id:'fertilizer',  name:'肥料' },
@@ -1290,6 +1290,21 @@ const PRODUCTS = [
     { label:'5號黑色(400個$1660)', basePrice:5, discounts:{ TTFF:2, LACS:2, TCGH:2, ESWS:2 } },
     { label:'5號白色(400個$1900)', basePrice:6, discounts:{ TTFF:3, LACS:3, TCGH:3, ESWS:3 } },
   ]
+  },
+  {
+    id:'fangciliujiaopen',
+    category:'nonRoundPot',
+    name:'仿瓷六角盆 6寸 淺盆 質感盆',
+    description:'六寸  邊長10cm/對邊約17.5cm/對角約19.5cm 高約8cm',
+    image:'images/fangciliujiaopen.jpg',
+    images:['images/fangciliujiaopen.jpg', 'images/fangciliujiaopen2.jpg'],
+    unit:'個',
+    variants:[
+      { label:'黑色',   basePrice:25, discounts:{ TTFF:25, LACS:25, TCGH:25, ESWS:25 } },
+      { label:'紅色',   basePrice:25, discounts:{ TTFF:25, LACS:25, TCGH:25, ESWS:25 } },
+      { label:'白色(推薦)',   basePrice:25, discounts:{ TTFF:25, LACS:25, TCGH:25, ESWS:25 } },
+      { label:'一件60個',   basePrice:20, discounts:{ TTFF:19, LACS:19, TCGH:19, ESWS:19 } },
+    ]
   },
   {
     id:'qianbajiao',

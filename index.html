@@ -510,8 +510,8 @@ const CATEGORIES = [
   { id:'nonGranule',  name:'非顆粒介質(泥炭椰塊)' },
   { id:'roundPot',    name:'圓形塑膠盆' },
   { id:'nonRoundPot', name:'非圓形塑膠盆' },
-  { id:'fertilizer',  name:'肥料' },
-  { id:'hardware',    name:'五金與其他周邊' }
+  { id:'fertilizer',  name:'肥料 有機 液態 緩校' },
+  { id:'hardware',    name:'端盤水盤、五金與其他' }
 ];
 
 // discounts: 對應客戶代碼 -> 該規格的折扣後價格(留空/不寫該代碼 = 該代碼無折扣,顯示原價)
@@ -1063,7 +1063,7 @@ const PRODUCTS = [
       { label:'植牆壁掛一般款',   basePrice:10, discounts:{ TTFF:9, LACS:9, TCGH:9, ESWS:9 } },
       { label:'植牆壁掛一般款(200個))',   basePrice:1400, discounts:{ TTFF:1400, LACS:1400, TCGH:1400, ESWS:1400 } },]
   },
-{
+  {
     id:'yexianyuandiao',
     category:'hardware',
     name:'硬質椰纖圓吊組 椰纖壁盆 椰纖系列',
@@ -1078,6 +1078,106 @@ const PRODUCTS = [
       { label:'10吋硬椰纖半壁組',   basePrice:220, discounts:{ TTFF:220, LACS:220, TCGH:220, ESWS:220 } },
       { label:'12吋硬椰纖半壁組',   basePrice:275, discounts:{ TTFF:275, LACS:275, TCGH:275, ESWS:275 } },
       { label:'14吋硬椰纖半壁組',   basePrice:315, discounts:{ TTFF:315, LACS:315, TCGH:315, ESWS:315 } },
+    ]
+  },
+  //水盤類、端盤
+  {
+    id:'yuanshuipan',
+    category:'hardware',
+    name:'圓水盤 水皿 底盤 接水',
+    description:'各尺寸 紅 白 金 咖 四色',
+    image:'images/yuanshuipan.jpg',
+    images:['images/yuanshuipan.jpg', 'images/yuanshuipan2.jpg'],
+    unit:'個',
+    variants:[
+      { label:'7號(三寸):內徑8.5cm',   basePrice:5, discounts:{ TTFF:5, LACS:5, TCGH:5, ESWS:5 } },
+      { label:'6號:內徑10cm',   basePrice:6, discounts:{ TTFF:6, LACS:6, TCGH:6, ESWS:6 } },
+      { label:'5號:內徑13cm',   basePrice:7, discounts:{ TTFF:7, LACS:7, TCGH:7, ESWS:7 } },
+      { label:'4號:內徑15.5cm ，外徑20m',   basePrice:10, discounts:{ TTFF:10, LACS:10, TCGH:10, ESWS:10 } },
+      { label:'3號:內徑19cm',   basePrice:14, discounts:{ TTFF:14, LACS:14, TCGH:14, ESWS:14 } },
+      { label:'2號:內徑22cm ',   basePrice:18, discounts:{ TTFF:18, LACS:18, TCGH:18, ESWS:18 } },
+      { label:'1號:(一尺三):內徑24cm',   basePrice:22, discounts:{ TTFF:22, LACS:22, TCGH:22, ESWS:22 } },
+      { label:'大二:內徑29cm ，外徑35.5cm',   basePrice:25, discounts:{ TTFF:25, LACS:25, TCGH:25, ESWS:25 } },
+      { label:'大一',   basePrice:46, discounts:{ TTFF:46, LACS:46, TCGH:46, ESWS:46 } },
+      { label:'一尺七',   basePrice:65, discounts:{ TTFF:65, LACS:65, TCGH:65, ESWS:65 } },
+    ]
+  },  
+  {
+    id:'sancunsanshiwukong',
+    category:'hardware',
+    name:'3寸 35孔端盤',
+    description:'3寸 35孔端盤 放透氣盆/方盆3號',
+    image:'images/sancunsanshiwukong.jpg',
+    images:['images/sancunsanshiwukong.jpg', 'images/sancunsanshiwukong2.jpg'],
+    unit:'個',
+    variants:[
+      { label:'3寸 35孔端盤',   basePrice:45, discounts:{ TTFF:45, LACS:45, TCGH:45, ESWS:45 } },
+    ]
+  },
+  {
+    id:'sancunershisikong',
+    category:'hardware',
+    name:'3寸 24孔端盤',
+    description:'3寸 35孔端盤 放3寸圓盆',
+    image:'images/sancunershisikong.jpg',
+    images:['images/sancunershisikong.jpg', 'images/sancunershisikong2.jpg'],
+    unit:'個',
+    variants:[
+      { label:'3寸 24孔端盤',   basePrice:30, discounts:{ TTFF:30, LACS:30, TCGH:30, ESWS:30 } },
+    ]
+  },
+  {
+    id:'miziduanpan',
+    category:'hardware',
+    name:'米字端盤 小米 大米 端盤',
+    description:'米字端盤 小米 大米 端盤',
+    image:'images/miziduanpan.jpg',
+    images:['images/miziduanpan.jpg', 'images/miziduanpan2.jpg'],
+    unit:'個',
+    variants:[
+      { label:'小米字端盤(29*49.5*7cm) 一綑25個',   basePrice:20, discounts:{ TTFF:17, LACS:17, TCGH:17, ESWS:17 } },
+      { label:'大米字端盤(40.5*56.5*7.5cm) 一綑20個',   basePrice:30, discounts:{ TTFF:27, LACS:27, TCGH:27, ESWS:27 } },
+    ]
+  },
+  {
+    id:'ercunershibakong',
+    category:'hardware',
+    name:'2寸28孔端盤 圓盆 開口盆',
+    description:'50*30*4cm',
+    image:'images/ercunershibakong.jpg',
+    images:['images/ercunershibakong.jpg', 'images/ercunershibakong2.jpg'],
+    unit:'個',
+    variants:[
+      { label:'小米字端盤(29*49.5*7cm) 一綑25個',   basePrice:30, discounts:{ TTFF:28, LACS:28, TCGH:28, ESWS:28 } },
+    ]
+  },
+  {
+    id:'seedingtray',
+    category:'hardware',
+    name:'育苗盤 網格/加高',
+    description:'育苗盤29*49.5*6.5cm',
+    image:'images/yumiaopan.jpg',
+    images:['images/yumiaopan.jpg', 'images/yumiaopan2.jpg'],
+    unit:'20個/捆',
+    variants:[
+      { label:'育苗盤黑色',   basePrice:28, discounts:{ TTFF:28, LACS:28, TCGH:28, ESWS:28 } },
+      { label:'育苗盤白色',   basePrice:38, discounts:{ TTFF:38, LACS:38, TCGH:38, ESWS:38 } },
+    ]
+  },
+  {
+    id:'seedingtray',
+    category:'hardware',
+    name:'育苗盤 網格/加高',
+    description:'育苗盤29*49.5*6.5cm 網格育苗盤29*49.5*6.5cm 加高育苗盤加高至11cm',
+    image:'images/seedingtray.jpg',
+    images:['images/seedingtray.jpg', 'images/seedingtray2.jpg'],
+    unit:'20個/捆',
+    variants:[
+      { label:'育苗盤黑色',   basePrice:28, discounts:{ TTFF:28, LACS:28, TCGH:28, ESWS:28 } },
+      { label:'育苗盤白色',   basePrice:38, discounts:{ TTFF:38, LACS:38, TCGH:38, ESWS:38 } },
+      { label:'網格育苗盤黑色',   basePrice:30, discounts:{ TTFF:30, LACS:30, TCGH:30, ESWS:30 } },
+      { label:'網格育苗盤白色',   basePrice:40, discounts:{ TTFF:40, LACS:40, TCGH:40, ESWS:40 } },
+      { label:'加高育苗盤黑色',   basePrice:50, discounts:{ TTFF:50, LACS:50, TCGH:50, ESWS:50 } },
     ]
   },
   {
@@ -1119,6 +1219,22 @@ const PRODUCTS = [
       { label:'200ml',   basePrice:400, discounts:{ TTFF:400, LACS:400, TCGH:400, ESWS:400 } },
       { label:'500ml',   basePrice:800, discounts:{ TTFF:800, LACS:800, TCGH:800, ESWS:800 } },
       { label:'2L',   basePrice:1950, discounts:{ TTFF:1950, LACS:1950, TCGH:1950, ESWS:1950 } },
+    ]
+  },
+  {
+    id:'b1huolisu',
+    category:'fertilizer',
+    name:'B1活力素/B2/B3/B4',
+    description:'液態300cc  **B1有1加侖/5加侖',
+    image:'images/b1huolisu.jpg',
+    images:['images/b1huolisu.jpg', 'images/b1huolisu2.jpg'],
+    unit:'個',
+    variants:[
+      { label:'B1植物活力素 維他命B 牌價150',   basePrice:140, discounts:{ TTFF:140, LACS:140, TCGH:140, ESWS:140 } },
+      { label:'B2成長 5-4-5',   basePrice:140, discounts:{ TTFF:140, LACS:140, TCGH:140, ESWS:140 } },
+      { label:'B3開花 0-10-10',   basePrice:140, discounts:{ TTFF:140, LACS:140, TCGH:140, ESWS:140 } },
+      { label:'B4養葉 7-3-3',   basePrice:140, discounts:{ TTFF:140, LACS:140, TCGH:140, ESWS:140 } },
+      { label:'整箱24瓶',   basePrice:105, discounts:{ TTFF:105, LACS:105, TCGH:105, ESWS:105 } },
     ]
   },
   {
@@ -1226,27 +1342,7 @@ const PRODUCTS = [
       { label:'蝸牛驅除',   basePrice:198, discounts:{} }
     ]
   },
-  {
-    id:'yuanshuipan',
-    category:'nonRoundPot',
-    name:'圓水盤 水皿 底盤 接水',
-    description:'各尺寸 紅 白 金 咖 四色',
-    image:'images/yuanshuipan.jpg',
-    images:['images/yuanshuipan.jpg', 'images/yuanshuipan2.jpg'],
-    unit:'個',
-    variants:[
-      { label:'7號(三寸):內徑8.5cm',   basePrice:5, discounts:{ TTFF:5, LACS:5, TCGH:5, ESWS:5 } },
-      { label:'6號:內徑10cm',   basePrice:6, discounts:{ TTFF:6, LACS:6, TCGH:6, ESWS:6 } },
-      { label:'5號:內徑13cm',   basePrice:7, discounts:{ TTFF:7, LACS:7, TCGH:7, ESWS:7 } },
-      { label:'4號:內徑15.5cm ，外徑20m',   basePrice:10, discounts:{ TTFF:10, LACS:10, TCGH:10, ESWS:10 } },
-      { label:'3號:內徑19cm',   basePrice:14, discounts:{ TTFF:14, LACS:14, TCGH:14, ESWS:14 } },
-      { label:'2號:內徑22cm ',   basePrice:18, discounts:{ TTFF:18, LACS:18, TCGH:18, ESWS:18 } },
-      { label:'1號:(一尺三):內徑24cm',   basePrice:22, discounts:{ TTFF:22, LACS:22, TCGH:22, ESWS:22 } },
-      { label:'大二:內徑29cm ，外徑35.5cm',   basePrice:25, discounts:{ TTFF:25, LACS:25, TCGH:25, ESWS:25 } },
-      { label:'大一',   basePrice:46, discounts:{ TTFF:46, LACS:46, TCGH:46, ESWS:46 } },
-      { label:'一尺七',   basePrice:65, discounts:{ TTFF:65, LACS:65, TCGH:65, ESWS:65 } },
-    ]
-  },
+
   {
     id:'fangpen',
     category:'nonGranule',
@@ -1382,21 +1478,6 @@ const PRODUCTS = [
     ]
   },
 
-  {
-    id:'seedingtray',
-    category:'nonRoundPot',
-    name:'育苗盤 網格/加高',
-    description:'育苗盤29*49.5*6.5cm 網格育苗盤29*49.5*6.5cm 加高育苗盤加高至11cm',
-    image:'images/seedingtray.jpg',
-    unit:'20個/捆',
-    variants:[
-      { label:'育苗盤黑色',   basePrice:28, discounts:{ TTFF:28, LACS:28, TCGH:28, ESWS:28 } },
-      { label:'育苗盤白色',   basePrice:38, discounts:{ TTFF:38, LACS:38, TCGH:38, ESWS:38 } },
-      { label:'網格育苗盤黑色',   basePrice:30, discounts:{ TTFF:30, LACS:30, TCGH:30, ESWS:30 } },
-      { label:'網格育苗盤白色',   basePrice:40, discounts:{ TTFF:40, LACS:40, TCGH:40, ESWS:40 } },
-      { label:'加高育苗盤黑色',   basePrice:50, discounts:{ TTFF:50, LACS:50, TCGH:50, ESWS:50 } },
-    ]
-  },
   {
     id:'moss5kg',
     category:'nonGranule',

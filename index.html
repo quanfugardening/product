@@ -119,16 +119,16 @@ color:#fff; font-weight:600; font-size:13px; cursor:pointer;
   main{max-width:720px; margin:0 auto; padding:18px 16px 0;}
 
   .cat-grid{
-    display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin-bottom:18px;
+    display:grid; grid-template-columns:repeat(2,1fr); gap:8px; margin-bottom:14px;
   }
   .cat-card{
     background:var(--stone-100); border:1px solid var(--stone-200); border-radius:var(--radius);
-    padding:16px 14px; cursor:pointer; text-align:left;
+    padding:10px 12px; cursor:pointer; text-align:left;
   }
   .cat-card:hover{border-color:var(--basalt);}
   .cat-card.active{border-color:var(--basalt); background:#fff; box-shadow:0 0 0 2px var(--basalt) inset;}
-  .cat-card h3{font-size:15px; margin-bottom:4px;}
-  .cat-card .count{font-size:12px; color:var(--stone-500);}
+  .cat-card h3{font-size:13px; margin-bottom:2px;}
+  .cat-card .count{font-size:11px; color:var(--stone-500);}
 
   .section-title{
     display:flex; align-items:center; justify-content:space-between; margin-bottom:12px;
@@ -433,14 +433,14 @@ color:#fff; font-weight:600; font-size:13px; cursor:pointer;
 
 <main>
 
+  <div id="category-grid" class="cat-grid"></div>
+
   <div id="featured-section" style="display:none;">
     <div class="section-title">
       <h2>✨ 推薦or最新(可右滑，點文字可進入下單區)</h2>
     </div>
     <div id="featured-list" class="featured-scroll"></div>
   </div>
-
-  <div id="category-grid" class="cat-grid"></div>
 
   <div id="product-view">
     <div class="section-title">

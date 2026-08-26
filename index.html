@@ -550,6 +550,52 @@ const CATEGORIES = [
 
 // discounts: 對應客戶代碼 -> 該規格的折扣後價格(留空/不寫該代碼 = 該代碼無折扣,顯示原價)
 const PRODUCTS = [
+//熱銷產品移到最上方
+  {
+    id:'xiduorou',
+    category:'granule',
+    name:'萬能多肉介質 喜多肉介質 顆粒介質 塊根仙人掌多肉植物',
+    isHot:true, 
+    description:'喜多肉10L，3L，溫室自用40L',
+    image:'images/xiduorou.jpg',
+    images:['images/xiduorou.jpg', 'images/xiduorou2.jpg', 'images/xiduorou3.jpg', 'images/xiduorou4.jpg'],
+    unit:'個',
+    variants:[
+      { label:'喜多肉10L細粒(1-6mm)',   basePrice:200, discounts:{ TTFF:200, LACS:200, TCGH:200, ESWS:200 } },
+      { label:'喜多肉10L小粒(3-10mm)',   basePrice:200, discounts:{ TTFF:200, LACS:200, TCGH:200, ESWS:200 } },
+      { label:'小包裝3L細粒',   basePrice:90, discounts:{ TTFF:90, LACS:90, TCGH:90, ESWS:90 } },
+      { label:'小包裝3L小粒',   basePrice:90, discounts:{ TTFF:90, LACS:90, TCGH:90, ESWS:90 } },
+      { label:'麻布袋40L細粒',   basePrice:600, discounts:{ TTFF:600, LACS:600, TCGH:600, ESWS:600 } },
+      { label:'麻布袋40L小粒',   basePrice:600, discounts:{ TTFF:600, LACS:600, TCGH:600, ESWS:600 } },
+      { label:'易植樂',   basePrice:180, discounts:{ TTFF:180, LACS:180, TCGH:180, ESWS:180 } },
+    ]
+  },
+  {
+    id:'fudiaohuapen',
+    category:'roundPot',
+    name:'浮雕花盆 忠興 大花盆 圓盆',
+    isHot:true,
+    description:'各尺寸 紅色 黑色 米白 三色 台製耐撞塑膠材質',
+    image:'images/fudiaohuapen.jpg',
+    images:['images/fudiaohuapen.jpg', 'images/fudiaohuapen2.jpg'],
+    unit:'個',
+    variants:[
+      { label:'8寸:24*17.2cm 牌價',   basePrice:55, discounts:{ TTFF:55, LACS:55, TCGH:55, ESWS:55 } },
+      { label:'1尺:30*22.2cm',   basePrice:75, discounts:{ TTFF:75, LACS:75, TCGH:75, ESWS:75 } },
+      { label:'1尺2:36*26.5cm',   basePrice:95, discounts:{ TTFF:95, LACS:95, TCGH:95, ESWS:95 } },
+      { label:'1尺4:42.3*31.5cm',   basePrice:130, discounts:{ TTFF:130, LACS:130, TCGH:130, ESWS:130 } },
+      { label:'1尺6:47.8*33.6cm',   basePrice:190, discounts:{ TTFF:190, LACS:190, TCGH:190, ESWS:190 } },
+      { label:'1尺8:54*37.7cm',   basePrice:280, discounts:{ TTFF:280, LACS:280, TCGH:280, ESWS:280 } },
+      { label:'2尺1:62.5*41cm',   basePrice:550, discounts:{ TTFF:550, LACS:550, TCGH:550, ESWS:550 } },
+      { label:'65cm:65*50cm',   basePrice:750, discounts:{ TTFF:750, LACS:750, TCGH:750, ESWS:750 } },
+      { label:'70cm:70*55cm',   basePrice:1100, discounts:{ TTFF:1100, LACS:1100, TCGH:1100, ESWS:1100 } },
+      { label:'2尺4:73*44.5cm',   basePrice:950, discounts:{ TTFF:950, LACS:950, TCGH:950, ESWS:950 } },
+      { label:'75cm:75*60cm',   basePrice:1500, discounts:{ TTFF:1500, LACS:1500, TCGH:1500, ESWS:1500 } },
+      { label:'2尺7:82.7*47.5cm',   basePrice:1400, discounts:{ TTFF:1400, LACS:1400, TCGH:1400, ESWS:1400 } },
+      { label:'88cm:88*70cm',   basePrice:2300, discounts:{ TTFF:2300, LACS:2300, TCGH:2300, ESWS:2300 } },
+      { label:'3尺6:109cm*52cm',   basePrice:3700, discounts:{ TTFF:3700, LACS:3700, TCGH:3700, ESWS:3700 } },
+    ]
+  },
   {
     id:'soiltenkg',
     category:'nonGranule',
@@ -1623,32 +1669,7 @@ const PRODUCTS = [
     ]
   },
  //圓形塑膠盆
-  {
-    id:'fudiaohuapen',
-    category:'roundPot',
-    name:'浮雕花盆 忠興 大花盆 圓盆',
-    isHot:true,
-    description:'各尺寸 紅色 黑色 米白 三色 台製耐撞塑膠材質',
-    image:'images/fudiaohuapen.jpg',
-    images:['images/fudiaohuapen.jpg', 'images/fudiaohuapen2.jpg'],
-    unit:'個',
-    variants:[
-      { label:'8寸:24*17.2cm 牌價',   basePrice:55, discounts:{ TTFF:55, LACS:55, TCGH:55, ESWS:55 } },
-      { label:'1尺:30*22.2cm',   basePrice:75, discounts:{ TTFF:75, LACS:75, TCGH:75, ESWS:75 } },
-      { label:'1尺2:36*26.5cm',   basePrice:95, discounts:{ TTFF:95, LACS:95, TCGH:95, ESWS:95 } },
-      { label:'1尺4:42.3*31.5cm',   basePrice:130, discounts:{ TTFF:130, LACS:130, TCGH:130, ESWS:130 } },
-      { label:'1尺6:47.8*33.6cm',   basePrice:190, discounts:{ TTFF:190, LACS:190, TCGH:190, ESWS:190 } },
-      { label:'1尺8:54*37.7cm',   basePrice:280, discounts:{ TTFF:280, LACS:280, TCGH:280, ESWS:280 } },
-      { label:'2尺1:62.5*41cm',   basePrice:550, discounts:{ TTFF:550, LACS:550, TCGH:550, ESWS:550 } },
-      { label:'65cm:65*50cm',   basePrice:750, discounts:{ TTFF:750, LACS:750, TCGH:750, ESWS:750 } },
-      { label:'70cm:70*55cm',   basePrice:1100, discounts:{ TTFF:1100, LACS:1100, TCGH:1100, ESWS:1100 } },
-      { label:'2尺4:73*44.5cm',   basePrice:950, discounts:{ TTFF:950, LACS:950, TCGH:950, ESWS:950 } },
-      { label:'75cm:75*60cm',   basePrice:1500, discounts:{ TTFF:1500, LACS:1500, TCGH:1500, ESWS:1500 } },
-      { label:'2尺7:82.7*47.5cm',   basePrice:1400, discounts:{ TTFF:1400, LACS:1400, TCGH:1400, ESWS:1400 } },
-      { label:'88cm:88*70cm',   basePrice:2300, discounts:{ TTFF:2300, LACS:2300, TCGH:2300, ESWS:2300 } },
-      { label:'3尺6:109cm*52cm',   basePrice:3700, discounts:{ TTFF:3700, LACS:3700, TCGH:3700, ESWS:3700 } },
-    ]
-  },
+  
   {
     id:'qingshanpen',
     category:'roundPot',
@@ -1884,25 +1905,7 @@ const PRODUCTS = [
     ]
   },
    //以下最新產品，左上1，左下1，左上2，左下2，右上1，右下1，右上2，右下2..這樣排12個)
-  {
-    id:'xiduorou',
-    category:'granule',
-    name:'萬能多肉介質 喜多肉介質 顆粒介質 塊根仙人掌多肉植物',
-    isHot:true, 
-    description:'喜多肉10L，3L，溫室自用40L',
-    image:'images/xiduorou.jpg',
-    images:['images/xiduorou.jpg', 'images/xiduorou2.jpg', 'images/xiduorou3.jpg', 'images/xiduorou4.jpg'],
-    unit:'個',
-    variants:[
-      { label:'喜多肉10L細粒(1-6mm)',   basePrice:200, discounts:{ TTFF:200, LACS:200, TCGH:200, ESWS:200 } },
-      { label:'喜多肉10L小粒(3-10mm)',   basePrice:200, discounts:{ TTFF:200, LACS:200, TCGH:200, ESWS:200 } },
-      { label:'小包裝3L細粒',   basePrice:90, discounts:{ TTFF:90, LACS:90, TCGH:90, ESWS:90 } },
-      { label:'小包裝3L小粒',   basePrice:90, discounts:{ TTFF:90, LACS:90, TCGH:90, ESWS:90 } },
-      { label:'麻布袋40L細粒',   basePrice:600, discounts:{ TTFF:600, LACS:600, TCGH:600, ESWS:600 } },
-      { label:'麻布袋40L小粒',   basePrice:600, discounts:{ TTFF:600, LACS:600, TCGH:600, ESWS:600 } },
-      { label:'易植樂',   basePrice:180, discounts:{ TTFF:180, LACS:180, TCGH:180, ESWS:180 } },
-    ]
-  },
+  
   {
     id:'lvxian',
     category:'hardware',

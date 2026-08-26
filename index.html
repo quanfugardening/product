@@ -159,6 +159,27 @@ color:#fff; font-weight:600; font-size:13px; cursor:pointer;
     margin-bottom:18px;
     -webkit-overflow-scrolling:touch;
    }
+  .featured-scroll-wrap{ position:relative; }
+  .featured-scroll-wrap::after{
+    content:'';
+    position:absolute; top:0; right:0; bottom:6px; width:44px;
+    background:linear-gradient(to right, rgba(237,234,226,0), var(--stone-50) 85%);
+    pointer-events:none;
+  }
+  .scroll-hint{
+    position:absolute; right:4px; top:calc(50% - 6px); transform:translateY(-50%);
+    width:26px; height:26px; border-radius:50%;
+    background:rgba(44,42,36,0.55); color:#fff;
+    display:flex; align-items:center; justify-content:center;
+    font-size:16px; line-height:1; pointer-events:none;
+    animation:scroll-hint-bounce 1.4s ease-in-out infinite;
+    transition:opacity 0.3s ease;
+  }
+  .scroll-hint.hide{ opacity:0; }
+  @keyframes scroll-hint-bounce{
+    0%, 100% { transform:translateY(-50%) translateX(0); }
+    50% { transform:translateY(-50%) translateX(5px); }
+  }
   .featured-card{
     flex:0 0 auto;
     width:120px;
@@ -439,7 +460,20 @@ color:#fff; font-weight:600; font-size:13px; cursor:pointer;
     <div class="section-title">
       <h2>✨ 推薦or最新(可右滑，點文字可進入下單區)</h2>
     </div>
-    <div id="featured-list" class="featured-scroll"></div>
+    <div class="featured-scroll-wrap">
+      <div id="featured-list" class="featured-scroll"></div>
+      <div class="scroll-hint" id="scroll-hint">›</div>
+    </div>
+  </div>
+
+  <div id="hot-section" style="display:none;">
+    <div class="section-title">
+      <h2>🔥 熱銷產品(可右滑，點文字可進入下單區)</h2>
+    </div>
+    <div class="featured-scroll-wrap">
+      <div id="hot-list" class="featured-scroll"></div>
+      <div class="scroll-hint" id="hot-scroll-hint">›</div>
+    </div>
   </div>
 
   <div id="product-view">
@@ -523,6 +557,7 @@ const PRODUCTS = [
     description:'CP值高，戶外土',
     image:'images/soiltenkg.jpg',
     images:['images/soiltenkg.jpg', 'images/soil23kg.jpg'],
+    isHot:true,
     unit:'10/23kg 包',
     variants:[
       { label:'培養土10kg',   basePrice:60, discounts:{ TTFF:60, LACS:60, TCGH:60, ESWS:55 } },
@@ -2077,24 +2112,17 @@ function renderCategoryGrid(){
 }
 
 /* ---------- 最新產品專區(只在首頁顯示,僅照片+名稱) ---------- */
-function renderFeaturedSection(showHomepage){
-  const section = document.getElementById('featured-section');
-  const listEl = document.getElementById('featured-list');
+function renderScrollSection(showHomepage, sectionId, listId, hintId, items){
+  const section = document.getElementById(sectionId);
+  const listEl = document.getElementById(listId);
 
-  if(!showHomepage){
-    section.style.display = 'none';
-    return;
-  }
-
-  // 取「最新加入」的商品:PRODUCTS 陣列裡越後面新增的越新,最多顯示6項,不足6項就全部顯示
-  const featured = PRODUCTS.slice(-12);
-  if(featured.length === 0){
+  if(!showHomepage || items.length === 0){
     section.style.display = 'none';
     return;
   }
 
   section.style.display = 'block';
-  listEl.innerHTML = featured.map(p => {
+  listEl.innerHTML = items.map(p => {
     const thumb = p.image ? `<img src="${p.image}" alt="${p.name}" data-full="${p.image}">` : '📦';
     return `
     <div class="featured-card" data-cat="${p.category}" data-product="${p.id}">
@@ -2113,6 +2141,31 @@ function renderFeaturedSection(showHomepage){
       render();
     });
   });
+
+  // 右滑提示:只有內容真的超出可視範圍才顯示;使用者開始滑動後淡出,滾回最左邊再重新出現
+  const hintEl = document.getElementById(hintId);
+  if(hintEl){
+    const updateHint = () => {
+      const canScroll = listEl.scrollWidth > listEl.clientWidth + 4;
+      const atStart = listEl.scrollLeft < 20;
+      hintEl.classList.toggle('hide', !(canScroll && atStart));
+    };
+    updateHint();
+    listEl.removeEventListener('scroll', listEl._scrollHintHandler || (()=>{}));
+    listEl._scrollHintHandler = updateHint;
+    listEl.addEventListener('scroll', updateHint);
+    window.addEventListener('resize', updateHint);
+  }
+}
+
+function renderFeaturedSection(showHomepage){
+  // 「最新產品」:取 PRODUCTS 陣列裡最後加入的商品,最多顯示12項
+  const featured = PRODUCTS.slice(-12);
+  renderScrollSection(showHomepage, 'featured-section', 'featured-list', 'scroll-hint', featured);
+
+  // 「熱銷產品」:只顯示商品資料裡有標記 isHot:true 的商品,順序依 PRODUCTS 陣列原本順序
+  const hot = PRODUCTS.filter(p => p.isHot);
+  renderScrollSection(showHomepage, 'hot-section', 'hot-list', 'hot-scroll-hint', hot);
 }
 
 /* ---------- 商品列表(分類或搜尋結果) ---------- */
@@ -2203,7 +2256,6 @@ function renderProductCard(product){
       <div class="product-thumb">${thumb}</div>
       <div class="product-title-wrap">
         <div class="product-name">${product.name}</div>
-        <div class="product-cat-tag">${CATEGORIES.find(c => c.id === product.category).name}</div>
       </div>
     </div>
     ${descHtml}

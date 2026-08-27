@@ -2181,6 +2181,34 @@ let currentCode = null;
 let pendingScrollProductId = null; // 從「最新產品」點進來時,要捲動並高亮的商品id
 const cart = {}; // key: variantKey -> qty
 
+/* ---------- 購物車自動記住(存在使用者手機本機,不用登入、不會同步到別人裝置) ---------- */
+const CART_STORAGE_KEY = 'cfgardening_cart_v1';
+
+function saveCartToStorage(){
+  try{
+    localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cart));
+  }catch(e){
+    // 手機瀏覽器關閉儲存權限、或無痕模式時可能會失敗,不影響其他功能,直接略過即可
+  }
+}
+
+function loadCartFromStorage(){
+  try{
+    const raw = localStorage.getItem(CART_STORAGE_KEY);
+    if(!raw) return;
+    const saved = JSON.parse(raw);
+    Object.keys(saved).forEach(key => {
+      const qty = Number(saved[key]);
+      const info = getVariantInfo(key); // 確認商品/規格仍然存在,避免商品下架後殘留無效資料
+      if(info && Number.isFinite(qty) && qty > 0){
+        cart[key] = Math.max(0, Math.min(999, Math.floor(qty)));
+      }
+    });
+  }catch(e){
+    // 讀取失敗(例如資料格式壞掉)時,直接視同空購物車,不影響網站正常使用
+  }
+}
+
 function variantKey(productId, label){ return productId + '::' + label; }
 
 function getVariantInfo(key){
@@ -2468,6 +2496,7 @@ function attachLightboxWithin(container){
 function setQty(key, val){
   val = Math.max(0, Math.min(999, Math.floor(Number(val) || 0)));
   if(val === 0){ delete cart[key]; } else { cart[key] = val; }
+  saveCartToStorage();
   render();
 }
 
@@ -2656,6 +2685,7 @@ function render(){
 }
 
 renderCategoryGrid();
+loadCartFromStorage();
 render();
 </script>
 

@@ -581,6 +581,7 @@ const PRODUCTS = [
     id:'jiubeipen',
     category:'roundPot',
     name:'酒杯盆 蓮花盆 無孔盆 宮廷風',
+    isHot:true, 
     description:'台製 無孔用剪刀剪即可變有孔',
     image:'images/jiubeipen.jpg',
     images:['images/jiubeipen.jpg', 'images/jiubeipen2.jpg'],
@@ -605,10 +606,26 @@ const PRODUCTS = [
       { label:'草木灰20kg',   basePrice:700, discounts:{ TTFF:700, LACS:700, TCGH:700, ESWS:700 } },
     ]
   },
+    {
+    id:'fertilizer-huoqubing',
+    category:'fertilizer',
+    name:'豁去病(殺菌原液)',
+    isHot:true, 
+    description:'CP值高，防治白粉病、炭疽病、鏽病、殺菌...',
+    image:'images/huoqubing.jpg',
+    unit:'瓶',
+    variants:[
+      { label:'500ml(效期6個月)',      basePrice:160, discounts:{} },
+      { label:'1L(效期6個月)',         basePrice:180, discounts:{} },
+      { label:'500ml將軍(效期18個月)', basePrice:260, discounts:{} },
+      { label:'1L將軍(效期18個月)',    basePrice:280, discounts:{} }
+    ]
+  },  
   {
     id:'zhiyuepen',
     category:'roundPot',
     name:'植月盆 如意盆 觀葉盆 圓盆 室內 質感',
+    isHot:true, 
     description:'高款 矮款 質感',
     image:'images/zhiyuepen.jpg',
     images:['images/zhiyuepen.jpg', 'images/zhiyuepen2.jpg'],
@@ -2076,19 +2093,30 @@ const PRODUCTS = [
       { label:' 加高有旋轉孔',   basePrice:160, discounts:{ TTFF:160, LACS:160, TCGH:160, ESWS:160 } },
     ]
   },
+//殺蟲系列
+
   {
-    id:'fertilizer-huoqubing',
+    id:'cike',
     category:'fertilizer',
-    name:'豁去病(殺菌原液)',
-    isNew:true,
-    description:'CP值高，防治白粉病、炭疽病、鏽病、殺菌...',
-    image:'images/huoqubing.jpg',
-    unit:'瓶',
+    name:'刺剋 殺蟲 天然萃取 殺菌 白粉 薊馬 蚜蟲',
+    description:'脂肪酸鉀鹽 500ml可直接使用 免登記資材',
+    image:'images/cike.jpg',
+    images:['images/cike.jpg', 'images/cike2.jpg'],
+    unit:'個',
     variants:[
-      { label:'500ml(效期6個月)',      basePrice:160, discounts:{} },
-      { label:'1L(效期6個月)',         basePrice:180, discounts:{} },
-      { label:'500ml將軍(效期18個月)', basePrice:260, discounts:{} },
-      { label:'1L將軍(效期18個月)',    basePrice:280, discounts:{} }
+      { label:'刺剋 殺蟲500ml免稀釋直接使用',   basePrice:160, discounts:{ TTFF:155, LACS:155, TCGH:155, ESWS:155 } },
+    ]
+  },
+  {
+    id:'liangguangji',
+    category:'fertilizer',
+    name:'亮光劑 750ml荷蘭進口',
+    description:'老品牌 品質穩定 店面愛用',
+    image:'images/liangguangji.jpg',
+    images:['images/liangguangji.jpg', 'images/liangguangji2.jpg'],
+    unit:'個',
+    variants:[
+      { label:'亮光劑750ml直接使用',   basePrice:240, discounts:{ TTFF:220, LACS:220, TCGH:220, ESWS:220 } },
     ]
   },
   {

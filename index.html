@@ -295,6 +295,23 @@ color:#fff; font-weight:600; font-size:13px; cursor:pointer;
   .summary-row{display:flex; justify-content:space-between; font-size:14px; padding:6px 0; color:var(--stone-500);}
   .summary-row.total{border-top:1px solid var(--stone-200); margin-top:6px; padding-top:12px; font-size:18px; font-weight:600; color:var(--stone-800);}
   .summary-row.total .mono{color:var(--ochre);}
+  .summary-item{
+    border-bottom:1px solid var(--stone-200); padding:10px 0;
+  }
+  .summary-item:first-child{ padding-top:0; }
+  .summary-item-top{
+    display:flex; align-items:flex-start; justify-content:space-between; gap:8px; margin-bottom:8px;
+  }
+  .summary-item-name{ font-size:14px; color:var(--stone-800); }
+  .summary-delete{
+    flex:0 0 auto; width:24px; height:24px; border-radius:50%; border:none;
+    background:var(--stone-200); color:var(--stone-500); font-size:13px; line-height:1; cursor:pointer;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .summary-delete:hover{ background:var(--error); color:#fff; }
+  .summary-item-bottom{
+    display:flex; align-items:center; justify-content:space-between;
+  }
   .savings-badge{display:inline-block; background:var(--moss-soft); color:var(--moss); font-size:11px; font-weight:600; padding:3px 9px; border-radius:999px; margin-left:6px;}
 
   .field{margin-bottom:12px;}
@@ -2634,10 +2651,29 @@ function recomputeCart(){
     const lineTotal = price * qty;
     grandTotal += lineTotal;
     itemCount += qty;
-    summaryHtml += `<div class="summary-row"><span>${info.product.name}(${info.variant.label})× ${qty}</span><span class="mono">NT$${lineTotal.toLocaleString()}</span></div>`;
+    summaryHtml += `
+    <div class="summary-item" data-key="${key}">
+      <div class="summary-item-top">
+        <span class="summary-item-name">${info.product.name}(${info.variant.label})</span>
+        <button type="button" class="summary-delete" data-key="${key}" aria-label="刪除此項">✕</button>
+      </div>
+      <div class="summary-item-bottom">
+        <div class="qty">
+          <button type="button" class="qty-minus" data-key="${key}">−</button>
+          <input type="text" inputmode="numeric" value="${qty}" data-key="${key}" class="qty-input">
+          <button type="button" class="qty-plus" data-key="${key}">+</button>
+        </div>
+        <span class="mono">NT$${lineTotal.toLocaleString()}</span>
+      </div>
+    </div>`;
   });
 
-  document.getElementById('summary-lines').innerHTML = summaryHtml || '<div class="summary-row"><span>尚未選購商品</span><span></span></div>';
+  const summaryLinesEl = document.getElementById('summary-lines');
+  summaryLinesEl.innerHTML = summaryHtml || '<div class="summary-row"><span>尚未選購商品</span><span></span></div>';
+  attachListenersWithin(summaryLinesEl);
+  summaryLinesEl.querySelectorAll('.summary-delete').forEach(btn => {
+    btn.addEventListener('click', () => setQty(btn.dataset.key, 0));
+  });
   document.getElementById('grand-total').textContent = 'NT$ ' + grandTotal.toLocaleString();
 
   const hasItems = itemCount > 0;

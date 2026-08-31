@@ -509,10 +509,10 @@ color:#fff; font-weight:600; font-size:13px; cursor:pointer;
   </div>
 
   <div class="card" id="cart-summary-card" style="display:none;">
-    <h2 style="font-size:16px; margin-bottom:10px;">訂單小計</h2>
+    <h2 style="font-size:16px; margin-bottom:10px;">購物車內容</h2>
     <div id="summary-lines"></div>
     <div class="summary-row total">
-      <span>總金額</span>
+      <span>未稅總金額</span>
       <span class="mono" id="grand-total">NT$ 0</span>
     </div>
   </div>
@@ -549,7 +549,7 @@ color:#fff; font-weight:600; font-size:13px; cursor:pointer;
 <div class="cart-bar" id="cart-bar">
   <div class="info">已選購 <span id="cart-count">0</span> 項</div>
   <div class="total mono" id="cart-total">NT$ 0</div>
-  <button id="goto-checkout">前往結帳</button>
+  <button id="goto-checkout">購物車結帳</button>
 </div>
 
 <footer>Line:d409122001 有問題可加賴聯絡或播電話0963557051。
@@ -1746,7 +1746,7 @@ const PRODUCTS = [
     name:'日式植生板 植享板 鹿角蕨板 蘭花板 板子',
     description:'台製(18*13*1.3cm)',
     image:'images/zhishenban.jpg',
-    images:['images/zhishenban.jpg', 'images/zhishenban2.jpg'],
+    images:['images/zhishenban.jpg', 'images/zhishenban2.jpg', 'images/zhishenban3.jpg'],
     unit:'185個/箱',
     variants:[
       { label:'白色',   basePrice:15, discounts:{ TTFF:15, LACS:15, TCGH:15, ESWS:15 } },

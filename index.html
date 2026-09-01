@@ -991,6 +991,36 @@ const PRODUCTS = [
       { label:'3L',   basePrice:90, discounts:{ TTFF:90, LACS:90, TCGH:90, ESWS:90 } },
     ]
   },
+    {
+    id:'heimaifanshi',
+    category:'granule',
+    name:'黑色麥飯石 中華麥飯石',
+    description:'3-6mm/6-9mm/10-20mm/2-4mm',
+    image:'images/heimaifanshi.jpg',
+    images:['images/heimaifanshi.jpg', 'images/heimaifanshi2.jpg'],
+    unit:'個',
+    variants:[
+      { label:'25kg 3-6mm 約一分',   basePrice:500, discounts:{ TTFF:500, LACS:500, TCGH:500, ESWS:500 } },
+      { label:'25kg 6-9mm 約二分',   basePrice:500, discounts:{ TTFF:500, LACS:500, TCGH:500, ESWS:500 } },
+      { label:'25kg 10-20mm 約三分多',   basePrice:500, discounts:{ TTFF:500, LACS:500, TCGH:500, ESWS:500 } },
+      { label:'20kg 0.7厘',   basePrice:500, discounts:{ TTFF:500, LACS:500, TCGH:500, ESWS:500 } },
+      { label:'20kg 正3分',   basePrice:500, discounts:{ TTFF:500, LACS:500, TCGH:500, ESWS:500 } },
+    ]
+  },
+  {
+    id:'huangjingmaifanshi',
+    category:'granule',
+    name:'黃金麥飯石25kg',
+    description:'2-4mm/3-5mm/4-6mm',
+    image:'images/huangjingmaifanshi.jpg',
+    images:['images/huangjingmaifanshi.jpg', 'images/huangjingmaifanshi2.jpg'],
+    unit:'個',
+    variants:[
+      { label:'2-4mm',   basePrice:400, discounts:{ TTFF:400, LACS:400, TCGH:400, ESWS:400 } },
+      { label:'3-5mm',   basePrice:400, discounts:{ TTFF:400, LACS:400, TCGH:400, ESWS:400 } },
+      { label:'4-6mm',   basePrice:400, discounts:{ TTFF:400, LACS:400, TCGH:400, ESWS:400 } },
+    ]
+  },
   {
     id:'tongshengsha',
     category:'granule',
@@ -2855,6 +2885,13 @@ text += `電話:${phone}\n`;
     statusEl.textContent = '✓ 訂單已自動送出,我們會盡快與您聯繫!';
     statusEl.className = 'send-status ok';
     submitBtn.disabled = false;
+
+        // ★ 送出成功後清空購物車
+    Object.keys(cart).forEach(key => delete cart[key]);   // 清空購物車資料
+    saveCartToStorage();                                    // 同步清空 localStorage
+    render();                                               // 重新渲染畫面(數量歸零、購物車列表清空)
+    document.getElementById('order-result').classList.add('show'); // 保留剛剛顯示的訂單明細
+    
   })
   .catch(() => {
     statusEl.textContent = '⚠ 自動送出失敗,請按下方「複製訂單內容」後傳給我們。';

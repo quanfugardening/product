@@ -486,31 +486,35 @@ color:#fff; font-weight:600; font-size:13px; cursor:pointer;
 
 <main>
 
-  <div class="cat-grid-label">六大分類</div>
-  <div id="category-grid" class="cat-grid"></div>
+  <div id="cat-grid-section">
+    <div class="cat-grid-label">六大分類</div>
+    <div id="category-grid" class="cat-grid"></div>
+  </div>
 
-  <div class="cat-grid-label">關鍵字查詢</div>
-  <div class="keyword-chips" id="keyword-chips">
-    <span class="kw-link keyword-chip" data-q="火山石">白紅黑火山石</span>
-    <span class="kw-link keyword-chip" data-q="沸石">白綠沸石</span>
-    <span class="kw-link keyword-chip" data-q="麥飯石">麥飯石</span>
-    <span class="kw-link keyword-chip" data-q="竹炭">竹炭</span>
-    <span class="kw-link keyword-chip" data-q="泥炭土">泥炭土</span>
-    <span class="kw-link keyword-chip" data-q="椰塊">椰塊</span>
-    <span class="kw-link keyword-chip" data-q="赤玉土">赤玉土</span>
-    <span class="kw-link keyword-chip" data-q="樹皮">樹皮</span>
-    <span class="kw-link keyword-chip" data-q="蛇木">蛇木屑</span>
-    <span class="kw-link keyword-chip" data-q="蛇木">蛇木板</span>
-    <span class="kw-link keyword-chip" data-q="稻殼">稻殼</span>
-    <span class="kw-link keyword-chip" data-q="珍珠石">珍珠石</span>
-    <span class="kw-link keyword-chip" data-q="蛭石">蛭石</span>
-    <span class="kw-link keyword-chip" data-q="喜多肉">喜多肉</span>
-    <span class="kw-link keyword-chip" data-q="蘭美樂">蘭美樂</span>
-    <span class="kw-link keyword-chip" data-q="塑膠盆">塑膠盆</span>
-    <span class="kw-link keyword-chip" data-q="肥料">肥料</span>
-    <span class="kw-link keyword-chip" data-q="殺菌">殺菌</span>
-    <span class="kw-link keyword-chip" data-q="殺蟲">殺蟲</span>
-    <span class="kw-link keyword-chip" data-q="名牌">名牌</span>
+  <div id="keyword-section">
+    <div class="cat-grid-label">關鍵字查詢</div>
+    <div class="keyword-chips" id="keyword-chips">
+      <span class="kw-link keyword-chip" data-q="火山石">白紅黑火山石</span>
+      <span class="kw-link keyword-chip" data-q="沸石">白綠沸石</span>
+      <span class="kw-link keyword-chip" data-q="麥飯石">麥飯石</span>
+      <span class="kw-link keyword-chip" data-q="竹炭">竹炭</span>
+      <span class="kw-link keyword-chip" data-q="泥炭土">泥炭土</span>
+      <span class="kw-link keyword-chip" data-q="椰塊">椰塊</span>
+      <span class="kw-link keyword-chip" data-q="赤玉土">赤玉土</span>
+      <span class="kw-link keyword-chip" data-q="樹皮">樹皮</span>
+      <span class="kw-link keyword-chip" data-q="蛇木">蛇木屑</span>
+      <span class="kw-link keyword-chip" data-q="蛇木">蛇木板</span>
+      <span class="kw-link keyword-chip" data-q="稻殼">稻殼</span>
+      <span class="kw-link keyword-chip" data-q="珍珠石">珍珠石</span>
+      <span class="kw-link keyword-chip" data-q="蛭石">蛭石</span>
+      <span class="kw-link keyword-chip" data-q="喜多肉">喜多肉</span>
+      <span class="kw-link keyword-chip" data-q="蘭美樂">蘭美樂</span>
+      <span class="kw-link keyword-chip" data-q="塑膠盆">塑膠盆</span>
+      <span class="kw-link keyword-chip" data-q="肥料">肥料</span>
+      <span class="kw-link keyword-chip" data-q="殺菌">殺菌</span>
+      <span class="kw-link keyword-chip" data-q="殺蟲">殺蟲</span>
+      <span class="kw-link keyword-chip" data-q="名牌">名牌</span>
+    </div>
   </div>
 
   <div id="featured-section" style="display:none;">
@@ -2432,6 +2436,8 @@ function renderProductList(){
   const viewEl = document.getElementById('product-view');
   const titleEl = document.getElementById('view-title');
   const gridEl = document.getElementById('category-grid');
+  const catGridSection = document.getElementById('cat-grid-section');
+  const keywordSection = document.getElementById('keyword-section');
 
   const isSearching = searchQuery.trim() !== '';
   const showHomepage = !isSearching && !activeCategory;
@@ -2440,9 +2446,13 @@ function renderProductList(){
   if(showHomepage){
     viewEl.style.display = 'none';
     gridEl.style.display = 'grid';
+    catGridSection.style.display = 'block';
+    keywordSection.style.display = 'block';
     return;
   }
   gridEl.style.display = 'none';
+  catGridSection.style.display = 'none';
+  keywordSection.style.display = 'none';
   viewEl.style.display = 'block';
 
   let items;

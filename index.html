@@ -2496,7 +2496,7 @@ function attachListenersWithin(container){
     btn.addEventListener('click', () => setQty(btn.dataset.key, (cart[btn.dataset.key] || 0) - 1));
   });
   container.querySelectorAll('.qty-input').forEach(input => {
-    input.addEventListener('input', () => setQty(input.dataset.key, input.value));
+    input.addEventListener('input', () => setQty(input.dataset.key, input.value, input));
   });
   attachLightboxWithin(container);
 }
@@ -2578,11 +2578,19 @@ function attachLightboxWithin(container){
   });
 }
 
-function setQty(key, val){
+function setQty(key, val, sourceEl){
   val = Math.max(0, Math.min(999, Math.floor(Number(val) || 0)));
   if(val === 0){ delete cart[key]; } else { cart[key] = val; }
   saveCartToStorage();
-  render();
+
+  // 同步更新畫面上「同一個商品規格」可能出現的所有數量欄位(商品列表、訂單小計都可能各有一份)
+  // 但跳過使用者正在輸入的那一個,避免打字打到一半游標被重置、畫面跳動
+  document.querySelectorAll('.qty-input[data-key="' + key + '"]').forEach(input => {
+    if(input !== sourceEl) input.value = val;
+  });
+
+  // 不再整個重畫商品列表,只更新購物車小計/總金額,這樣輸入框不會被摧毀重建,打字才不會被打斷、畫面也不會跳動
+  recomputeCart();
 }
 
 /* ---------- 折扣代碼 ---------- */

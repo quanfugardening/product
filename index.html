@@ -642,10 +642,24 @@ const PRODUCTS = [
       { label:'紅色',   basePrice:190, discounts:{ TTFF:170, LACS:170, TCGH:170, ESWS:170 } },
     ]
   },
+      {
+    id:'haohuatu',
+    category:'nonGranule',
+    name:'好花土',
+    isHot:true, 
+    description:'台灣產，30L約20kg/麻布袋，乾淨適合蓮花植物 蔬菜花果',
+    image:'images/haohuatu.jpg',
+    images:['images/haohuatu.jpg', 'images/haohuatu2.jpg'],
+    unit:'個',
+    variants:[
+      { label:'原包裝',   basePrice:180, discounts:{ TTFF:180, LACS:180, TCGH:180, ESWS:180 } },
+    ]
+  },
   {
     id:'caomuhui',
     category:'nonGranule',
     name:'草木灰 高鉀30%',
+    isHot:true, 
     description:'市面有些草木灰 鉀含量不到10%，本款嚴選30%進口草木灰',
     image:'images/caomuhui.jpg',
     images:['images/caomuhui.jpg', 'images/caomuhui2.jpg'],
@@ -689,6 +703,24 @@ const PRODUCTS = [
       { label:'植月盆(A)-高款 8寸 白色',   basePrice:96, discounts:{ TTFF:550, LACS:550, TCGH:550, ESWS:550 } },
       { label:'植月盆(A)-高款 1尺 白色',   basePrice:144, discounts:{ TTFF:750, LACS:750, TCGH:750, ESWS:750 } },
     ]
+  },
+    {
+  id:'yuanjiao',
+  category:'nonRoundPot',
+  name:'圓角盆',
+  isHot:true,
+  description:'圓角設計，質感加分',
+  image:'images/yuanjiao.jpg',
+  images:['images/yuanjiao.jpg', 'images/yuanjiao2.jpg', 'images/yuanjiao3.jpg'],
+  unit:'1個',
+  variants:[
+    { label:'3號黑色(800個$1200)', basePrice:2, discounts:{ TTFF:2, LACS:2, TCGH:2, ESWS:2 } },
+    { label:'3號白色(800個$1440)', basePrice:3, discounts:{ TTFF:3, LACS:3, TCGH:3, ESWS:3 } },
+    { label:'4號黑色(400個$1080)', basePrice:3, discounts:{ TTFF:2, LACS:2, TCGH:2, ESWS:2 } },
+    { label:'4號白色(400個$1280)', basePrice:4, discounts:{ TTFF:3, LACS:3, TCGH:3, ESWS:3 } },
+    { label:'5號黑色(400個$1660)', basePrice:5, discounts:{ TTFF:2, LACS:2, TCGH:2, ESWS:2 } },
+    { label:'5號白色(400個$1900)', basePrice:6, discounts:{ TTFF:3, LACS:3, TCGH:3, ESWS:3 } },
+  ]
   },
   {
     id:'fudiaohuapen',
@@ -818,18 +850,6 @@ const PRODUCTS = [
       { label:'9-12mm',   basePrice:700, discounts:{ TTFF:700, LACS:700, TCGH:700, ESWS:700 } },
       { label:'12-18mm',   basePrice:700, discounts:{ TTFF:700, LACS:700, TCGH:700, ESWS:700 } },
       { label:'18-25mm',   basePrice:700, discounts:{ TTFF:700, LACS:700, TCGH:700, ESWS:700 } },
-    ]
-  },
-  {
-    id:'fern4layer',
-    category:'nonGranule',
-    name:'蛇木圓柱(4層))',
-    description:'限量',
-    image:'images/fern4layer.jpg',
-    images:['images/fern4layer.jpg'],
-    unit:'8個/件',
-    variants:[
-      { label:'蛇木圓柱4層)',   basePrice:400, discounts:{ TTFF:400, LACS:400, TCGH:400, ESWS:400 } },
     ]
   },
   {
@@ -1264,18 +1284,6 @@ const PRODUCTS = [
     unit:'個',
     variants:[
       { label:'原包裝',   basePrice:150, discounts:{ TTFF:140, LACS:140, TCGH:140, ESWS:140 } },
-    ]
-  },
-    {
-    id:'haohuatu',
-    category:'nonGranule',
-    name:'好花土',
-    description:'台灣產，30L約20kg/麻布袋，乾淨適合蓮花植物 蔬菜花果',
-    image:'images/haohuatu.jpg',
-    images:['images/haohuatu.jpg', 'images/haohuatu2.jpg'],
-    unit:'個',
-    variants:[
-      { label:'原包裝',   basePrice:180, discounts:{ TTFF:180, LACS:180, TCGH:180, ESWS:180 } },
     ]
   },
   {
@@ -2352,7 +2360,18 @@ const PRODUCTS = [
       { label:'白色 1尺',   basePrice:40, discounts:{ TTFF:30, LACS:30, TCGH:40, ESWS:40 } },
     ]
   },
-  
+    {
+    id:'fern4layer',
+    category:'nonGranule',
+    name:'蛇木圓柱(4層))',
+    description:'限量',
+    image:'images/fern4layer.jpg',
+    images:['images/fern4layer.jpg'],
+    unit:'8個/件',
+    variants:[
+      { label:'蛇木圓柱4層)',   basePrice:400, discounts:{ TTFF:400, LACS:400, TCGH:400, ESWS:400 } },
+    ]
+  },
   {
     id:'yexianbang',
     category:'nonGranule',

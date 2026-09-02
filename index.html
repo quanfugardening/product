@@ -37,7 +37,7 @@
     position:relative;
     background:linear-gradient(135deg,#ffd83d 0%,#f7a71b 55%,#ef7b1a 100%);
     color:#fff;
-    padding:8px 16px 40px;
+    padding:8px 16px;
     box-shadow:0 3px 12px rgba(0,0,0,.15);
 }
   .top-bar-inner{
@@ -228,19 +228,18 @@ color:#fff; font-weight:600; font-size:13px; cursor:pointer;
     padding:8px 8px 10px;
     line-height:1.3;
   }
-  .product-head{display:flex; gap:12px; margin-bottom:6px;}
   .product-thumb{
-    display:flex; gap:4px; flex-shrink:0;
+    display:flex; gap:4px; flex-shrink:0; margin-bottom:8px;
   }
   .product-thumb-item{
     width:52px; height:52px; border-radius:8px; background:var(--stone-200);
     display:flex; align-items:center; justify-content:center; overflow:hidden; font-size:20px; color:var(--stone-500);
   }
   .product-thumb-item img{width:100%; height:100%; object-fit:cover; cursor:zoom-in;}
-  .product-title-wrap{flex:1;}
+  .product-title-row{display:flex; align-items:baseline; flex-wrap:wrap; gap:8px; margin-bottom:6px;}
   .product-name{font-size:15px; font-weight:600;}
   .product-cat-tag{font-size:11px; color:var(--stone-500); margin-top:2px;}
-  .product-desc{font-size:13px; color:var(--stone-500); line-height:1.5; margin:8px 0 10px;}
+  .product-desc{font-size:13px; color:var(--stone-500); line-height:1.5; margin:0;}
   .product-card.highlight{box-shadow:0 0 0 2px var(--ochre); border-color:var(--ochre);}
 
   /* ---------- 照片燈箱(點擊放大) ---------- */
@@ -382,7 +381,7 @@ color:#fff; font-weight:600; font-size:13px; cursor:pointer;
     display:none;
     position:fixed;
     left:50%;
-    top:44px;
+    top:16px;
     transform:translateX(-50%);
     z-index:30;
     border:none;
@@ -2589,13 +2588,11 @@ function renderProductCard(product){
 
   return `
   <div class="product-card" id="product-${product.id}">
-    <div class="product-head">
-      <div class="product-thumb">${thumb}</div>
-      <div class="product-title-wrap">
-        <div class="product-name">${product.name}</div>
-      </div>
+    <div class="product-thumb">${thumb}</div>
+    <div class="product-title-row">
+      <div class="product-name">${product.name}</div>
+      ${descHtml}
     </div>
-    ${descHtml}
     ${rows}
   </div>`;
 }
@@ -2609,6 +2606,10 @@ function attachListenersWithin(container){
   });
   container.querySelectorAll('.qty-input').forEach(input => {
     input.addEventListener('input', () => setQty(input.dataset.key, input.value, input));
+    input.addEventListener('focus', () => input.select());
+    input.addEventListener('blur', () => {
+      input.value = Math.max(0, Math.min(999, Math.floor(Number(input.value) || 0)));
+    });
   });
   attachLightboxWithin(container);
 }
@@ -2701,8 +2702,38 @@ function setQty(key, val, sourceEl){
     if(input !== sourceEl) input.value = val;
   });
 
-  // 不再整個重畫商品列表,只更新購物車小計/總金額,這樣輸入框不會被摧毀重建,打字才不會被打斷、畫面也不會跳動
-  recomputeCart();
+  // 如果正在輸入的欄位本身就在「訂單小計」裡,且商品還在(不是刪到0),
+  // 只更新金額數字,不要整個重建小計區塊,不然輸入框連自己都被摧毀重建,會導致打字被打斷、頁面跳動
+  const typingInSummary = sourceEl && sourceEl.closest('#summary-lines') && val > 0;
+  if(typingInSummary){
+    updateCartTotalsOnly();
+  } else {
+    // 不再整個重畫商品列表,只更新購物車小計/總金額,這樣輸入框不會被摧毀重建,打字才不會被打斷、畫面也不會跳動
+    recomputeCart();
+  }
+}
+
+// 輕量更新:只重新計算並更新金額顯示,不重建任何 HTML 結構(用於訂單小計裡打字時)
+function updateCartTotalsOnly(){
+  let grandTotal = 0;
+  let itemCount = 0;
+
+  Object.keys(cart).forEach(key => {
+    const qty = cart[key];
+    const info = getVariantInfo(key);
+    if(!info || qty <= 0) return;
+    const price = currentPriceFor(info.variant);
+    const lineTotal = price * qty;
+    grandTotal += lineTotal;
+    itemCount += qty;
+
+    const lineTotalEl = document.querySelector('.summary-item[data-key="' + key + '"] .mono');
+    if(lineTotalEl) lineTotalEl.textContent = 'NT$' + lineTotal.toLocaleString();
+  });
+
+  document.getElementById('grand-total').textContent = 'NT$ ' + grandTotal.toLocaleString();
+  document.getElementById('cart-count').textContent = itemCount;
+  document.getElementById('cart-total').textContent = 'NT$ ' + grandTotal.toLocaleString();
 }
 
 /* ---------- 折扣代碼 ---------- */

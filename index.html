@@ -305,7 +305,7 @@ color:#fff; font-weight:600; font-size:13px; cursor:pointer;
   .qty{display:flex; align-items:center; border:1px solid var(--stone-200); border-radius:8px; overflow:hidden; background:#fff;}
   .qty button{width:30px; height:30px; border:none; background:var(--stone-100); font-size:15px; cursor:pointer;}
   .qty button:hover{background:var(--stone-200);}
-  .qty input{width:34px; text-align:center; border:none; font-family:'IBM Plex Mono',monospace; font-size:14px; padding:0;}
+  .qty input{width:44px; text-align:center; border:none; font-family:'IBM Plex Mono',monospace; font-size:14px; padding:0;}
   .qty input:focus{outline:none;}
 
   .card{background:var(--moss-soft); border:1px solid #C9D9B4; border-radius:var(--radius); padding:16px; margin-bottom:14px;}
@@ -2525,7 +2525,7 @@ function loadCartFromStorage(){
       const qty = Number(saved[key]);
       const info = getVariantInfo(key); // 確認商品/規格仍然存在,避免商品下架後殘留無效資料
       if(info && Number.isFinite(qty) && qty > 0){
-        cart[key] = Math.max(0, Math.min(999, Math.floor(qty)));
+        cart[key] = Math.max(0, Math.min(9999, Math.floor(qty)));
       }
     });
   }catch(e){
@@ -2832,7 +2832,7 @@ function attachLightboxWithin(container){
 }
 
 function setQty(key, val, sourceEl, isFinal){
-  val = Math.max(0, Math.min(999, Math.floor(Number(val) || 0)));
+  val = Math.max(0, Math.min(9999, Math.floor(Number(val) || 0)));
 
   // 還在輸入框裡打字(還沒離開輸入框)時,如果暫時清空或變成0,
   // 先不要真的把商品從購物車刪除,避免商品憑空消失、輸入框跟著被摧毀,導致打不完想要的數字

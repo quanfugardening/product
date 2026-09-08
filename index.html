@@ -152,7 +152,10 @@ color:#fff; font-weight:600; font-size:13px; cursor:pointer;
     cursor:pointer; text-align:left;
     color:#fff;
     display:flex; flex-direction:column;
-    background-image:var(--cat-image);
+    justify-content:center;
+    background-image:
+      linear-gradient(100deg, var(--cat-color) 0%, var(--cat-color) 42%, rgba(0,0,0,0.05) 100%),
+      var(--cat-image);
     background-size:cover;
     background-position:var(--cat-pos, center);
     background-repeat:no-repeat;
@@ -160,7 +163,7 @@ color:#fff; font-weight:600; font-size:13px; cursor:pointer;
   }
   .cat-card:active{ transform:scale(0.98); }
   .cat-card-title{
-    font-size:14px; font-weight:700; line-height:1.35;
+    font-size:19px; font-weight:700; line-height:1.35;
     text-shadow:0 1px 4px rgba(0,0,0,0.6), 0 1px 2px rgba(0,0,0,0.6);
   }
   .cat-card .count{
@@ -2595,7 +2598,7 @@ function renderCategoryGrid(){
   grid.innerHTML = CATEGORIES.map(c => {
     const count = countByCategory(c.id);
     const displayName = c.name.includes('(') ? c.name.replace('(', '<br>(') : c.name;
-    return `<button class="cat-card" data-cat="${c.id}" style="--cat-image:url('${c.image}'); --cat-pos:${c.imagePos || 'center'}">
+    return `<button class="cat-card" data-cat="${c.id}" style="--cat-color:${c.color}; --cat-image:url('${c.image}'); --cat-pos:${c.imagePos || 'center'}">
       <span class="cat-card-title">${displayName}</span>
       <span class="count">${count > 0 ? count + ' 項商品' : '即將上架'}</span>
     </button>`;

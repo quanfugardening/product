@@ -152,39 +152,22 @@ color:#fff; font-weight:600; font-size:13px; cursor:pointer;
     cursor:pointer; text-align:left;
     color:#fff;
     display:flex; flex-direction:column;
-    background-image:
-      linear-gradient(100deg, var(--cat-color) 0%, var(--cat-color) 42%, rgba(0,0,0,0.05) 100%),
-      var(--cat-image);
+    background-image:var(--cat-image);
     background-size:cover;
-    background-position:center;
+    background-position:var(--cat-pos, center);
     background-repeat:no-repeat;
     box-shadow:0 2px 6px rgba(0,0,0,0.12);
   }
   .cat-card:active{ transform:scale(0.98); }
-  .cat-card-icon{
-    width:36px; height:36px; border-radius:50%; background:#fff;
-    display:flex; align-items:center; justify-content:center; flex-shrink:0;
-    color:var(--cat-color);
-    margin-bottom:10px;
-  }
-  .cat-card-icon svg{ width:18px; height:18px; }
   .cat-card-title{
     font-size:14px; font-weight:700; line-height:1.35;
-    text-shadow:0 1px 3px rgba(0,0,0,0.35);
-    padding-right:34px;
+    text-shadow:0 1px 4px rgba(0,0,0,0.6), 0 1px 2px rgba(0,0,0,0.6);
   }
   .cat-card .count{
     font-size:11px; color:rgba(255,255,255,0.9);
-    text-shadow:0 1px 2px rgba(0,0,0,0.3);
+    text-shadow:0 1px 4px rgba(0,0,0,0.6), 0 1px 2px rgba(0,0,0,0.6);
     margin-top:auto; padding-top:8px;
   }
-  .cat-card-arrow{
-    position:absolute; right:10px; bottom:10px;
-    width:28px; height:28px; border-radius:50%;
-    background:rgba(255,255,255,0.92); color:var(--cat-color);
-    display:flex; align-items:center; justify-content:center;
-  }
-  .cat-card-arrow svg{ width:15px; height:15px; }
 
   .section-title{
     display:flex; align-items:center; justify-content:space-between; margin-bottom:12px;
@@ -639,7 +622,7 @@ color:#fff; font-weight:600; font-size:13px; cursor:pointer;
    商品資料區 — 之後新增商品只需要在對應分類陣列裡加物件即可
    ========================================================= */
 const CATEGORIES = [
-  { id:'granule',     name:'顆粒介質(赤玉土)',        color:'#3E6B45', image:'images/kelimulv.jpg',       icon:'leaf' },
+  { id:'granule',     name:'顆粒介質(赤玉土)',        color:'#3E6B45', image:'images/kelimulv.jpg',       imagePos:'right center', icon:'leaf' },
   { id:'nonGranule',  name:'非顆粒介質(泥炭椰塊)',     color:'#7A5230', image:'images/deguonitantu3.jpg',       icon:'cloud' },
   { id:'roundPot',    name:'圓形塑膠盆',              color:'#5B4B8A', image:'images/kaikopenshengji.jpg',      icon:'pot' },
   { id:'nonRoundPot', name:'非圓形塑膠盆',            color:'#2E6E76', image:'images/sifangpenmulv.jpg',       icon:'box' },
@@ -2612,11 +2595,9 @@ function renderCategoryGrid(){
   grid.innerHTML = CATEGORIES.map(c => {
     const count = countByCategory(c.id);
     const displayName = c.name.includes('(') ? c.name.replace('(', '<br>(') : c.name;
-    return `<button class="cat-card" data-cat="${c.id}" style="--cat-color:${c.color}; --cat-image:url('${c.image}')">
-      <span class="cat-card-icon">${CAT_ICONS[c.icon] || ''}</span>
+    return `<button class="cat-card" data-cat="${c.id}" style="--cat-image:url('${c.image}'); --cat-pos:${c.imagePos || 'center'}">
       <span class="cat-card-title">${displayName}</span>
       <span class="count">${count > 0 ? count + ' 項商品' : '即將上架'}</span>
-      <span class="cat-card-arrow">${CAT_ARROW_SVG}</span>
     </button>`;
   }).join('');
   grid.querySelectorAll('.cat-card').forEach(btn => {

@@ -122,32 +122,69 @@ color:#fff; font-weight:600; font-size:13px; cursor:pointer;
 
   main{max-width:720px; margin:0 auto; padding:18px 16px 0;}
 
-  .cat-grid-label{
-    font-size:12px; font-weight:700; color:var(--stone-500);
-    letter-spacing:0.05em; margin-bottom:6px; text-align:center;
+  .section-divider{
+    display:flex; align-items:center; justify-content:center; gap:8px;
+    margin-bottom:12px;
+  }
+  .section-divider .divider-line{ flex:1; max-width:60px; height:1px; background:var(--stone-200); }
+  .section-divider .divider-icon{ font-size:14px; }
+  .section-divider .divider-text{
+    font-size:15px; font-weight:700; color:var(--stone-800); white-space:nowrap;
   }
   .cat-grid{
-    display:grid; grid-template-columns:repeat(2,1fr); gap:8px; margin-bottom:14px;
+    display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin-bottom:16px;
   }
   .keyword-chips{
     display:flex; flex-wrap:wrap; gap:8px; margin-bottom:18px; justify-content:center;
   }
   .keyword-chip{
-    background:#57713F; border:1px solid #465C33; border-radius:8px;
-    padding:6px 10px; font-size:12px; font-weight:600; color:#fff;
+    background:var(--moss-soft); border:1px solid #C9D9B4; border-radius:999px;
+    padding:6px 12px; font-size:12px; font-weight:600; color:var(--moss);
     cursor:pointer;
   }
-  .keyword-chip:hover{ border-color:var(--basalt); }
+  .keyword-chip:hover{ border-color:var(--moss); }
   .cat-card{
-    background:#57713F; border:1px solid #465C33; border-radius:var(--radius);
-    padding:10px 12px; cursor:pointer; text-align:left;
+    position:relative;
+    overflow:hidden;
+    min-height:108px;
+    border:none; border-radius:14px;
+    padding:14px;
+    cursor:pointer; text-align:left;
+    color:#fff;
+    display:flex; flex-direction:column;
+    background-image:
+      linear-gradient(100deg, var(--cat-color) 0%, var(--cat-color) 42%, rgba(0,0,0,0.05) 100%),
+      var(--cat-image);
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    box-shadow:0 2px 6px rgba(0,0,0,0.12);
   }
-  .cat-card:hover{border-color:var(--basalt);}
-  .cat-card.active{border-color:var(--basalt); background:#fff; box-shadow:0 0 0 2px var(--basalt) inset;}
-  .cat-card.active h3{ color:var(--stone-800); }
-  .cat-card.active .count{ color:var(--stone-500); }
-  .cat-card h3{font-size:13px; margin-bottom:2px; color:#fff;}
-  .cat-card .count{font-size:11px; color:rgba(255,255,255,0.75);}
+  .cat-card:active{ transform:scale(0.98); }
+  .cat-card-icon{
+    width:36px; height:36px; border-radius:50%; background:#fff;
+    display:flex; align-items:center; justify-content:center; flex-shrink:0;
+    color:var(--cat-color);
+    margin-bottom:10px;
+  }
+  .cat-card-icon svg{ width:18px; height:18px; }
+  .cat-card-title{
+    font-size:14px; font-weight:700; line-height:1.35;
+    text-shadow:0 1px 3px rgba(0,0,0,0.35);
+    padding-right:34px;
+  }
+  .cat-card .count{
+    font-size:11px; color:rgba(255,255,255,0.9);
+    text-shadow:0 1px 2px rgba(0,0,0,0.3);
+    margin-top:auto; padding-top:8px;
+  }
+  .cat-card-arrow{
+    position:absolute; right:10px; bottom:10px;
+    width:28px; height:28px; border-radius:50%;
+    background:rgba(255,255,255,0.92); color:var(--cat-color);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .cat-card-arrow svg{ width:15px; height:15px; }
 
   .section-title{
     display:flex; align-items:center; justify-content:space-between; margin-bottom:12px;
@@ -305,7 +342,7 @@ color:#fff; font-weight:600; font-size:13px; cursor:pointer;
   .qty{display:flex; align-items:center; border:1px solid var(--stone-200); border-radius:8px; overflow:hidden; background:#fff;}
   .qty button{width:30px; height:30px; border:none; background:var(--stone-100); font-size:15px; cursor:pointer;}
   .qty button:hover{background:var(--stone-200);}
-  .qty input{width:44px; text-align:center; border:none; font-family:'IBM Plex Mono',monospace; font-size:14px; padding:0;}
+  .qty input{width:34px; text-align:center; border:none; font-family:'IBM Plex Mono',monospace; font-size:14px; padding:0;}
   .qty input:focus{outline:none;}
 
   .card{background:var(--moss-soft); border:1px solid #C9D9B4; border-radius:var(--radius); padding:16px; margin-bottom:14px;}
@@ -493,28 +530,28 @@ color:#fff; font-weight:600; font-size:13px; cursor:pointer;
 <main>
 
   <div id="cat-grid-section">
-    <div class="cat-grid-label">六大分類</div>
+    <div class="section-divider"><span class="divider-line"></span><span class="divider-icon">🌿</span><span class="divider-text">六大分類</span><span class="divider-icon">🌿</span><span class="divider-line"></span></div>
     <div id="category-grid" class="cat-grid"></div>
   </div>
 
   <div id="keyword-section">
-    <div class="cat-grid-label">關鍵字查詢</div>
+    <div class="section-divider"><span class="divider-line"></span><span class="divider-icon">🌿</span><span class="divider-text">關鍵字查詢</span><span class="divider-icon">🌿</span><span class="divider-line"></span></div>
     <div class="keyword-chips" id="keyword-chips">
-      <span class="kw-link keyword-chip" data-q="火山石">火山石</span>
-      <span class="kw-link keyword-chip" data-q="泥炭土">泥炭土</span>
-      <span class="kw-link keyword-chip" data-q="赤玉土">赤玉土</span>
-      <span class="kw-link keyword-chip" data-q="麥飯石">麥飯石</span>
-      <span class="kw-link keyword-chip" data-q="珍珠石">珍珠石</span>
-      <span class="kw-link keyword-chip" data-q="蛇木">蛇木</span>
-      <span class="kw-link keyword-chip" data-q="沸石">沸石</span>
-      <span class="kw-link keyword-chip" data-q="竹炭">竹炭</span>
-      <span class="kw-link keyword-chip" data-q="椰塊">椰塊</span>
-      <span class="kw-link keyword-chip" data-q="蛭石">蛭石</span>
-      <span class="kw-link keyword-chip" data-q="肥料">肥料</span>
-      <span class="kw-link keyword-chip" data-q="殺菌">殺菌</span>
-      <span class="kw-link keyword-chip" data-q="殺蟲">殺蟲</span>
-      <span class="kw-link keyword-chip" data-q="名牌">名牌</span>
-      <span class="kw-link keyword-chip" data-q="介質">綜合介質</span>
+      <span class="kw-link keyword-chip" data-q="火山石">🍃 火山石</span>
+      <span class="kw-link keyword-chip" data-q="泥炭土">🍃 泥炭土</span>
+      <span class="kw-link keyword-chip" data-q="赤玉土">🍃 赤玉土</span>
+      <span class="kw-link keyword-chip" data-q="麥飯石">🍃 麥飯石</span>
+      <span class="kw-link keyword-chip" data-q="珍珠石">🍃 珍珠石</span>
+      <span class="kw-link keyword-chip" data-q="蛇木">🍃 蛇木</span>
+      <span class="kw-link keyword-chip" data-q="沸石">🍃 沸石</span>
+      <span class="kw-link keyword-chip" data-q="竹炭">🍃 竹炭</span>
+      <span class="kw-link keyword-chip" data-q="椰塊">🍃 椰塊</span>
+      <span class="kw-link keyword-chip" data-q="蛭石">🍃 蛭石</span>
+      <span class="kw-link keyword-chip" data-q="肥料">🍃 肥料</span>
+      <span class="kw-link keyword-chip" data-q="殺菌">🍃 殺菌</span>
+      <span class="kw-link keyword-chip" data-q="殺蟲">🍃 殺蟲</span>
+      <span class="kw-link keyword-chip" data-q="名牌">🍃 名牌</span>
+      <span class="kw-link keyword-chip" data-q="介質">🍃 綜合介質</span>
     </div>
   </div>
 
@@ -602,12 +639,12 @@ color:#fff; font-weight:600; font-size:13px; cursor:pointer;
    商品資料區 — 之後新增商品只需要在對應分類陣列裡加物件即可
    ========================================================= */
 const CATEGORIES = [
-  { id:'granule',     name:'顆粒介質(赤玉土)' },
-  { id:'nonGranule',  name:'非顆粒介質(泥炭椰塊)' },
-  { id:'roundPot',    name:'圓形塑膠盆' },
-  { id:'nonRoundPot', name:'非圓形塑膠盆' },
-  { id:'fertilizer',  name:'肥料 有機 液態 緩校' },
-  { id:'hardware',    name:'端盤水盤、五金與其他' }
+  { id:'granule',     name:'顆粒介質(赤玉土)',        color:'#3E6B45', image:'images/xiduorou.jpg',       icon:'leaf' },
+  { id:'nonGranule',  name:'非顆粒介質(泥炭椰塊)',     color:'#7A5230', image:'images/haohuatu.jpg',       icon:'cloud' },
+  { id:'roundPot',    name:'圓形塑膠盆',              color:'#5B4B8A', image:'images/jiubeipen.jpg',      icon:'pot' },
+  { id:'nonRoundPot', name:'非圓形塑膠盆',            color:'#2E6E76', image:'images/yuanjiao.jpg',       icon:'box' },
+  { id:'fertilizer',  name:'肥料 有機 液態 緩校',      color:'#4C7A32', image:'images/huoqubing.jpg',      icon:'sprout' },
+  { id:'hardware',    name:'端盤水盤、五金與其他',     color:'#C97B1E', image:'images/yexianyuandiao.jpg', icon:'droplet' }
 ];
 
 // discounts: 對應客戶代碼 -> 該規格的折扣後價格(留空/不寫該代碼 = 該代碼無折扣,顯示原價)
@@ -2525,7 +2562,7 @@ function loadCartFromStorage(){
       const qty = Number(saved[key]);
       const info = getVariantInfo(key); // 確認商品/規格仍然存在,避免商品下架後殘留無效資料
       if(info && Number.isFinite(qty) && qty > 0){
-        cart[key] = Math.max(0, Math.min(9999, Math.floor(qty)));
+        cart[key] = Math.max(0, Math.min(999, Math.floor(qty)));
       }
     });
   }catch(e){
@@ -2560,13 +2597,26 @@ function countByCategory(catId){
 }
 
 /* ---------- 分類總覽 ---------- */
+const CAT_ICONS = {
+  leaf: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.5 19 2c1 2 2 4.2 2 8 0 5.5-4.8 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>',
+  cloud: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg>',
+  pot: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12l-1.4 11.2A2 2 0 0 1 14.6 21H9.4a2 2 0 0 1-2-1.8Z"/><path d="M4 8h16"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>',
+  box: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8l9 5 9-5Z"/><path d="M3 8v9l9 5 9-5V8"/><path d="M12 13v9"/></svg>',
+  sprout: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 20h10"/><path d="M12 20v-8"/><path d="M12 12A4 4 0 0 0 8 8H4a4 4 0 0 0 4 4Z"/><path d="M12 9a4 4 0 0 1 4-4h4a4 4 0 0 1-4 4Z"/></svg>',
+  droplet: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5S13 5 12 3c-1 2-2 4.2-4 6.5S5 13 5 15a7 7 0 0 0 7 7Z"/></svg>'
+};
+const CAT_ARROW_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>';
+
 function renderCategoryGrid(){
   const grid = document.getElementById('category-grid');
   grid.innerHTML = CATEGORIES.map(c => {
     const count = countByCategory(c.id);
-    return `<button class="cat-card" data-cat="${c.id}">
-      <h3>${c.name}</h3>
-      <div class="count">${count > 0 ? count + ' 項商品' : '即將上架'}</div>
+    const displayName = c.name.includes('(') ? c.name.replace('(', '<br>(') : c.name;
+    return `<button class="cat-card" data-cat="${c.id}" style="--cat-color:${c.color}; --cat-image:url('${c.image}')">
+      <span class="cat-card-icon">${CAT_ICONS[c.icon] || ''}</span>
+      <span class="cat-card-title">${displayName}</span>
+      <span class="count">${count > 0 ? count + ' 項商品' : '即將上架'}</span>
+      <span class="cat-card-arrow">${CAT_ARROW_SVG}</span>
     </button>`;
   }).join('');
   grid.querySelectorAll('.cat-card').forEach(btn => {
@@ -2832,7 +2882,7 @@ function attachLightboxWithin(container){
 }
 
 function setQty(key, val, sourceEl, isFinal){
-  val = Math.max(0, Math.min(9999, Math.floor(Number(val) || 0)));
+  val = Math.max(0, Math.min(999, Math.floor(Number(val) || 0)));
 
   // 還在輸入框裡打字(還沒離開輸入框)時,如果暫時清空或變成0,
   // 先不要真的把商品從購物車刪除,避免商品憑空消失、輸入框跟著被摧毀,導致打不完想要的數字

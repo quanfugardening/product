@@ -35,11 +35,7 @@
 
   .top-bar{
     position:relative;
-    background-image:url('images/top-banner.jpg');
-    background-size:cover;
-    background-position:center 35%;
-    background-repeat:no-repeat;
-    min-height:150px;
+    background:linear-gradient(135deg,#ffd83d 0%,#f7a71b 55%,#ef7b1a 100%);
     color:#fff;
     padding:8px 16px;
     box-shadow:0 3px 12px rgba(0,0,0,.15);
@@ -53,7 +49,7 @@
    }
   .brand-header{
     display:flex;
-    justify-content:flex-end;
+    justify-content:space-between;
     align-items:center;
     gap:12px;
     padding-bottom:8px;
@@ -156,24 +152,31 @@ color:#fff; font-weight:600; font-size:13px; cursor:pointer;
     cursor:pointer; text-align:left;
     color:#fff;
     display:flex; flex-direction:column;
-    justify-content:center;
     background-image:
-      linear-gradient(100deg, var(--cat-color) 0%, var(--cat-color) 26%, rgba(0,0,0,0.05) 100%),
+      linear-gradient(100deg, var(--cat-color) 0%, var(--cat-color) 42%, rgba(0,0,0,0.05) 100%),
       var(--cat-image);
     background-size:cover;
-    background-position:var(--cat-pos, center);
+    background-position:center;
     background-repeat:no-repeat;
     box-shadow:0 2px 6px rgba(0,0,0,0.12);
   }
   .cat-card:active{ transform:scale(0.98); }
+  .cat-card-icon{
+    width:36px; height:36px; border-radius:50%; background:#fff;
+    display:flex; align-items:center; justify-content:center; flex-shrink:0;
+    color:var(--cat-color);
+    margin-bottom:10px;
+  }
+  .cat-card-icon svg{ width:18px; height:18px; }
   .cat-card-title{
-    font-size:22px; font-weight:700; line-height:1.3;
-    text-shadow:0 1px 4px rgba(0,0,0,0.6), 0 1px 2px rgba(0,0,0,0.6);
+    font-size:14px; font-weight:700; line-height:1.35;
+    text-shadow:0 1px 3px rgba(0,0,0,0.35);
+    padding-right:34px;
   }
   .cat-card .count{
     font-size:11px; color:rgba(255,255,255,0.9);
-    text-shadow:0 1px 4px rgba(0,0,0,0.6), 0 1px 2px rgba(0,0,0,0.6);
-    margin-top:4px;
+    text-shadow:0 1px 2px rgba(0,0,0,0.3);
+    margin-top:auto; padding-top:8px;
   }
   .cat-card-arrow{
     position:absolute; right:10px; bottom:10px;
@@ -339,7 +342,7 @@ color:#fff; font-weight:600; font-size:13px; cursor:pointer;
   .qty{display:flex; align-items:center; border:1px solid var(--stone-200); border-radius:8px; overflow:hidden; background:#fff;}
   .qty button{width:30px; height:30px; border:none; background:var(--stone-100); font-size:15px; cursor:pointer;}
   .qty button:hover{background:var(--stone-200);}
-  .qty input{width:34px; text-align:center; border:none; font-family:'IBM Plex Mono',monospace; font-size:14px; padding:0;}
+  .qty input{width:44px; text-align:center; border:none; font-family:'IBM Plex Mono',monospace; font-size:14px; padding:0;}
   .qty input:focus{outline:none;}
 
   .card{background:var(--moss-soft); border:1px solid #C9D9B4; border-radius:var(--radius); padding:16px; margin-bottom:14px;}
@@ -489,6 +492,9 @@ color:#fff; font-weight:600; font-size:13px; cursor:pointer;
 <div class="top-bar">
   <div class="top-bar-inner">
 <div class="brand-header">
+    <div class="brand-title">
+        荃富園藝
+    </div>
     <div class="brand-search-row">
       <input id="search-input" type="text" placeholder="搜尋商品名稱" aria-label="搜尋商品">
       <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#726C5C" stroke-width="2" stroke-linecap="round">
@@ -633,12 +639,12 @@ color:#fff; font-weight:600; font-size:13px; cursor:pointer;
    商品資料區 — 之後新增商品只需要在對應分類陣列裡加物件即可
    ========================================================= */
 const CATEGORIES = [
-  { id:'granule',     name:'顆粒介質',        color:'#3E6B45', image:'images/kelimulv.jpg',       imagePos:'right center', icon:'leaf' },
-  { id:'nonGranule',  name:'非顆粒介質',     color:'#7A5230', image:'images/feikelimulv.jpg',       icon:'cloud' },
-  { id:'roundPot',    name:'圓形塑膠盆',              color:'#5B4B8A', image:'images/yuanpenmulv.jpg',      icon:'pot' },
-  { id:'nonRoundPot', name:'非圓形塑膠盆',            color:'#2E6E76', image:'images/sifangpenmulv.jpg',       icon:'box' },
-  { id:'fertilizer',  name:'肥料 有機 液態 緩校',      color:'#4C7A32', image:'images/feiliaomulv.jpg',      icon:'sprout' },
-  { id:'hardware',    name:'端盤水盤、五金與其他',     color:'#C97B1E', image:'images/duanpanlv.jpg', icon:'droplet' }
+  { id:'granule',     name:'顆粒介質(赤玉土)',        color:'#3E6B45', image:'images/xiduorou.jpg',       icon:'leaf' },
+  { id:'nonGranule',  name:'非顆粒介質(泥炭椰塊)',     color:'#7A5230', image:'images/haohuatu.jpg',       icon:'cloud' },
+  { id:'roundPot',    name:'圓形塑膠盆',              color:'#5B4B8A', image:'images/jiubeipen.jpg',      icon:'pot' },
+  { id:'nonRoundPot', name:'非圓形塑膠盆',            color:'#2E6E76', image:'images/yuanjiao.jpg',       icon:'box' },
+  { id:'fertilizer',  name:'肥料 有機 液態 緩校',      color:'#4C7A32', image:'images/huoqubing.jpg',      icon:'sprout' },
+  { id:'hardware',    name:'端盤水盤、五金與其他',     color:'#C97B1E', image:'images/yexianyuandiao.jpg', icon:'droplet' }
 ];
 
 // discounts: 對應客戶代碼 -> 該規格的折扣後價格(留空/不寫該代碼 = 該代碼無折扣,顯示原價)
@@ -1185,6 +1191,19 @@ const PRODUCTS = [
     ]
   },
   {
+    id:'deguonitantu',
+    category:'nonGranule',
+    name:'德國泥炭土 培養 介質 酸性 草莓 栽培',
+    description:'250L最大顆，PH值約3-4，適合藍莓喜酸植物',
+    image:'images/deguonitantu.jpg',
+    images:['images/deguonitantu.jpg', 'images/deguonitantu2.jpg'],
+    unit:'個',
+    variants:[
+      { label:'德國純泥炭土250L',   basePrice:700, discounts:{ TTFF:680, LACS:680, TCGH:680, ESWS:680 } },
+      { label:'德國純泥炭土70L(棧板販售)',   basePrice:400, discounts:{ TTFF:400, LACS:400, TCGH:400, ESWS:400 } },
+    ]
+  },
+  {
     id:'wosong',
     category:'nonGranule',
     name:'沃鬆泥炭土 草莓 蔬果',
@@ -1236,19 +1255,6 @@ const PRODUCTS = [
     unit:'個',
     variants:[
       { label:'觀葉綜合介質10L',   basePrice:150, discounts:{ TTFF:150, LACS:150, TCGH:150, ESWS:150 } },
-    ]
-  },
-    {
-    id:'deguonitantu',
-    category:'nonGranule',
-    name:'德國泥炭土 培養 介質 酸性 草莓 栽培',
-    description:'250L最大顆，PH值約3-4，適合藍莓喜酸植物',
-    image:'images/deguonitantu.jpg',
-    images:['images/deguonitantu.jpg', 'images/deguonitantu2.jpg'],
-    unit:'個',
-    variants:[
-      { label:'德國純泥炭土250L',   basePrice:700, discounts:{ TTFF:680, LACS:680, TCGH:680, ESWS:680 } },
-      { label:'德國純泥炭土70L(棧板販售)',   basePrice:400, discounts:{ TTFF:400, LACS:400, TCGH:400, ESWS:400 } },
     ]
   },
   {
@@ -2556,7 +2562,7 @@ function loadCartFromStorage(){
       const qty = Number(saved[key]);
       const info = getVariantInfo(key); // 確認商品/規格仍然存在,避免商品下架後殘留無效資料
       if(info && Number.isFinite(qty) && qty > 0){
-        cart[key] = Math.max(0, Math.min(999, Math.floor(qty)));
+        cart[key] = Math.max(0, Math.min(9999, Math.floor(qty)));
       }
     });
   }catch(e){
@@ -2606,7 +2612,8 @@ function renderCategoryGrid(){
   grid.innerHTML = CATEGORIES.map(c => {
     const count = countByCategory(c.id);
     const displayName = c.name.includes('(') ? c.name.replace('(', '<br>(') : c.name;
-    return `<button class="cat-card" data-cat="${c.id}" style="--cat-color:${c.color}; --cat-image:url('${c.image}'); --cat-pos:${c.imagePos || 'center'}">
+    return `<button class="cat-card" data-cat="${c.id}" style="--cat-color:${c.color}; --cat-image:url('${c.image}')">
+      <span class="cat-card-icon">${CAT_ICONS[c.icon] || ''}</span>
       <span class="cat-card-title">${displayName}</span>
       <span class="count">${count > 0 ? count + ' 項商品' : '即將上架'}</span>
       <span class="cat-card-arrow">${CAT_ARROW_SVG}</span>
@@ -2875,7 +2882,7 @@ function attachLightboxWithin(container){
 }
 
 function setQty(key, val, sourceEl, isFinal){
-  val = Math.max(0, Math.min(999, Math.floor(Number(val) || 0)));
+  val = Math.max(0, Math.min(9999, Math.floor(Number(val) || 0)));
 
   // 還在輸入框裡打字(還沒離開輸入框)時,如果暫時清空或變成0,
   // 先不要真的把商品從購物車刪除,避免商品憑空消失、輸入框跟著被摧毀,導致打不完想要的數字

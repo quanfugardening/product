@@ -33,6 +33,58 @@
   h1,h2,h3{font-family:'Space Grotesk',sans-serif; margin:0; letter-spacing:-0.01em;}
   .mono{font-family:'IBM Plex Mono',monospace;}
 
+  /* ===== 落葉 + 陽光 氛圍動畫(整頁固定疊層,滑動時持續呈現) ===== */
+  .ambient-fx{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+    z-index:3;
+  }
+  .ambient-fx .sunbeam{
+    position:absolute;
+    top:-18vh; right:-12vw;
+    width:65vw; height:65vw;
+    max-width:620px; max-height:620px;
+    border-radius:50%;
+    background:radial-gradient(circle, rgba(255,224,140,0.38) 0%, rgba(255,224,140,0.14) 42%, rgba(255,224,140,0) 70%);
+    animation:sunPulse 9s ease-in-out infinite;
+  }
+  .ambient-fx .sunbeam2{
+    position:absolute;
+    bottom:-20vh; left:-15vw;
+    width:45vw; height:45vw;
+    max-width:420px; max-height:420px;
+    border-radius:50%;
+    background:radial-gradient(circle, rgba(180,214,150,0.28) 0%, rgba(180,214,150,0.1) 45%, rgba(180,214,150,0) 70%);
+    animation:sunPulse 11s ease-in-out infinite 1.5s;
+  }
+  @keyframes sunPulse{
+    0%,100%{ opacity:0.55; transform:scale(1); }
+    50%{ opacity:0.9; transform:scale(1.08); }
+  }
+  .ambient-fx .leaf{
+    position:absolute;
+    top:-10vh;
+    display:inline-block;
+    filter:drop-shadow(0 2px 3px rgba(0,0,0,0.08));
+    animation-name:leafFall;
+    animation-timing-function:linear;
+    animation-iteration-count:infinite;
+    will-change:transform;
+  }
+  @keyframes leafFall{
+    0%{   transform:translate(0,0) rotate(0deg); }
+    20%{  transform:translate(18px, 22vh) rotate(70deg); }
+    40%{  transform:translate(-16px, 44vh) rotate(150deg); }
+    60%{  transform:translate(14px, 66vh) rotate(230deg); }
+    80%{  transform:translate(-12px, 88vh) rotate(310deg); }
+    100%{ transform:translate(0, 118vh) rotate(400deg); }
+  }
+  @media (max-width:640px){
+    .ambient-fx .leaf{ font-size:16px !important; }
+  }
+
   .top-bar{
     position:relative;
     background-image:url('images/top-banner.jpg');
@@ -485,6 +537,20 @@ color:#fff; font-weight:600; font-size:13px; cursor:pointer;
 </style>
 </head>
 <body>
+
+<div class="ambient-fx" aria-hidden="true">
+  <div class="sunbeam"></div>
+  <div class="sunbeam2"></div>
+  <span class="leaf" style="left:4%;  font-size:20px; opacity:.55; animation-duration:17s; animation-delay:0s;">🍃</span>
+  <span class="leaf" style="left:14%; font-size:26px; opacity:.4;  animation-duration:22s; animation-delay:3s;">🍂</span>
+  <span class="leaf" style="left:26%; font-size:16px; opacity:.5;  animation-duration:14s; animation-delay:6s;">🍃</span>
+  <span class="leaf" style="left:38%; font-size:22px; opacity:.35; animation-duration:20s; animation-delay:1s;">🍃</span>
+  <span class="leaf" style="left:50%; font-size:18px; opacity:.5;  animation-duration:16s; animation-delay:8s;">🍂</span>
+  <span class="leaf" style="left:62%; font-size:24px; opacity:.4;  animation-duration:23s; animation-delay:4s;">🍃</span>
+  <span class="leaf" style="left:74%; font-size:17px; opacity:.55; animation-duration:15s; animation-delay:10s;">🍃</span>
+  <span class="leaf" style="left:85%; font-size:25px; opacity:.35; animation-duration:21s; animation-delay:2s;">🍂</span>
+  <span class="leaf" style="left:93%; font-size:19px; opacity:.5;  animation-duration:18s; animation-delay:7s;">🍃</span>
+</div>
 
 <div class="top-bar">
   <div class="top-bar-inner">

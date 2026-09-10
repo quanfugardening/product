@@ -612,6 +612,7 @@ color:#fff; font-weight:600; font-size:13px; cursor:pointer;
       <span class="kw-link keyword-chip" data-q="殺蟲">🍃 殺蟲</span>
       <span class="kw-link keyword-chip" data-q="名牌">🍃 名牌</span>
       <span class="kw-link keyword-chip" data-q="介質">🍃 綜合介質</span>
+      <span class="kw-link keyword-chip" data-q="小盆">🍃 小盆</span>
     </div>
   </div>
 
@@ -1384,7 +1385,7 @@ const PRODUCTS = [
     ]
   },
     {
-    id:'hakikithree',
+    id:'hakiki',
     category:'nonGranule',
     name:'HAKIKI印尼樹皮40-50公升',
     description:'進口原包裝',
@@ -1543,6 +1544,7 @@ const PRODUCTS = [
   {
     id:'jiaopen',
     category:'roundPot',
+    tags:['小盆'],
     name:'旋風盆 日式膠盆 缽盆 蛋殼盆',
     isnew:true,
     description:'特價中',
@@ -1635,6 +1637,7 @@ const PRODUCTS = [
   {
     id:'qingshanpen',
     category:'roundPot',
+    tags:['小盆'],
     name:'控根盆 青山盆 斷根盆',
     description:'3寸:直徑9*高7cm/ 5寸:直徑14.7*高14.3cm/ 6寸:直徑18*高15cm',
     image:'images/qingshanpen.jpg',
@@ -1736,6 +1739,7 @@ const PRODUCTS = [
   {
     id:'wangpen',
     category:'roundPot',
+    tags:['小盆'],
     name:'網盆 水草盆',
     description:'網盆 水草盆 側邊有洞 台灣製造 塑膠材質 整件另有折扣',
     image:'images/wangpen.jpg',
@@ -1798,6 +1802,7 @@ const PRODUCTS = [
   {
     id:'kaikopenshengji',
     category:'roundPot',
+    tags:['小盆'],
     name:'升級版開口盆(側邊有洞)',
     isNew:true,
     description:'升級版開口盆',
@@ -1870,6 +1875,7 @@ const PRODUCTS = [
   {
   id:'yuanjiao',
   category:'nonRoundPot',
+  tags:['小盆'],
   name:'圓角盆',
   isHot:true,
   description:'圓角設計，質感加分',
@@ -1938,6 +1944,7 @@ const PRODUCTS = [
   {
     id:'fangpen',
     category:'nonRoundPot',
+    tags:['小盆'],
     name:'方盆 四方盆 塑膠盆 多肉盆',
     description:'2號:邊長5.2*高5.5cm，1000個/件<br>3號:邊長7*高7.2cm，600個/件<br>4號:邊長9.7*高 8.1cm，500個/件<br>5號:邊長12*高10cm，300個/件',
     image:'images/fangpen.jpg',
@@ -1965,6 +1972,7 @@ const PRODUCTS = [
   {
   id:'yuanjiao',
   category:'nonRoundPot',
+  tags:['小盆'],
   name:'圓角盆',
   description:'圓角設計，質感加分',
   image:'images/yuanjiao.jpg',
@@ -1997,6 +2005,7 @@ const PRODUCTS = [
   {
     id:'qianbajiao',
     category:'nonRoundPot',
+    tags:['小盆'],
     name:'淺八角盆(白/黑)',
     description:'2號:5.3*4.3cm 1700個/件<br>3號:6.5*5.4cm 650個/件<br>4號:9.3*6.3cm 450個/件<br>5號:12*9.7cm  400個/件',
     image:'images/qianbajiao.jpg',
@@ -2024,6 +2033,7 @@ const PRODUCTS = [
   {
     id:'touqipen',
     category:'nonRoundPot',
+    tags:['小盆'],
     name:'透氣盆 加高透氣盆 觀葉盆 多肉盆 塑膠盆',
     description:'一般款:(白/黑/透明)<br>3號:邊長7*高7.8cm-500個/件<br>4號:邊長9.2cm*高11cm-300個/件<br>5號:邊長12cm*高14.5cm 150個/件<br>6號:邊長15cm*高17.5cm 120個/件<br>加高款:(白/黑/透明)<br>3號:邊長7*高7.8cm-500個/件<br>4號:邊長9.2cm*高11cm-300個/件<br>5號:邊長12cm*高14.5cm-150個/件<br>6號:邊長 15cm*高17.5cm-120個/件',
     image:'images/touqipen.jpg',
@@ -2053,6 +2063,7 @@ const PRODUCTS = [
   {
     id:'gaobaihepen',
     category:'nonRoundPot',
+    tags:['小盆'],
     name:'加高八角百合盆(白/黑) 塑膠盆',
     description:'3號:對邊7*對角8*高9.5cm<br>4號:對邊9.5*對角11*高13cm<br>5號:對邊12.5*對角14.5*高17cm<br>6號:對邊18*對角21*高17cm',
     image:'images/gaobaihepen.jpg',
@@ -2788,7 +2799,11 @@ function renderProductList(){
   let items;
   if(isSearching){
     const q = searchQuery.trim().toLowerCase();
-    items = PRODUCTS.filter(p => p.name.toLowerCase().includes(q));
+    items = PRODUCTS.filter(p => {
+      const nameMatch = p.name.toLowerCase().includes(q);
+      const tagMatch = Array.isArray(p.tags) && p.tags.some(t => t.toLowerCase().includes(q));
+      return nameMatch || tagMatch;
+    });
     titleEl.textContent = `搜尋「${searchQuery.trim()}」的結果`;
   } else {
     items = PRODUCTS.filter(p => p.category === activeCategory);

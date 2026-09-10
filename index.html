@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>荃富園藝資材批發目錄｜最新商品＆優惠專區</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&family=Noto+Serif+TC:wght@700;900&display=swap" rel="stylesheet">
 <style>
   :root{
     --stone-50:#EDEAE2;
@@ -83,6 +83,38 @@
   }
   @media (max-width:640px){
     .ambient-fx .leaf{ font-size:20px !important; opacity:.7 !important; }
+  }
+
+  .banner-text{
+    position:absolute;
+    left:27%;
+    top:50%;
+    transform:translateY(-58%);
+    z-index:2;
+    pointer-events:none;
+  }
+  .banner-title{
+    font-family:'Noto Serif TC','Songti TC',serif;
+    font-size:clamp(20px, 6.5vw, 48px);
+    font-weight:700;
+    color:#3A5828;
+    letter-spacing:0.12em;
+    white-space:nowrap;
+    text-shadow:0 1px 4px rgba(255,255,255,.55);
+  }
+  .banner-tagline{
+    font-size:clamp(11px, 2.6vw, 21px);
+    font-weight:700;
+    color:#3A5828;
+    letter-spacing:0.06em;
+    white-space:nowrap;
+    border-top:2px solid #EEAE40;
+    padding-top:clamp(4px, 1vw, 8px);
+    margin-top:clamp(4px, 1vw, 8px);
+    text-shadow:0 1px 3px rgba(255,255,255,.5);
+  }
+  @media (max-width:520px){
+    .banner-text{ left:24%; }
   }
 
   .top-bar{
@@ -554,6 +586,10 @@ color:#fff; font-weight:600; font-size:13px; cursor:pointer;
 
 <div class="top-bar">
   <div class="top-bar-inner">
+<div class="banner-text">
+  <div class="banner-title">荃富園藝</div>
+  <div class="banner-tagline">溫室｜批發｜貨櫃進口</div>
+</div>
 <div class="brand-header">
     <div class="brand-search-row">
       <input id="search-input" type="text" placeholder="搜尋商品名稱" aria-label="搜尋商品">

@@ -169,6 +169,13 @@
     padding:8px 16px;
     box-shadow:0 3px 12px rgba(0,0,0,.15);
 }
+  @media (min-width:900px){
+    .top-bar{
+      background-image:url('images/top-banner-desktop.jpg');
+      background-position:center center;
+      height:clamp(120px, 11.7vw, 200px);
+    }
+  }
   .top-bar-inner{
     max-width:1120px;
     margin:0 auto;
@@ -635,10 +642,6 @@ color:#fff; font-weight:600; font-size:13px; cursor:pointer;
 
 <div class="top-bar">
   <div class="top-bar-inner">
-<div class="banner-text">
-  <div class="banner-title">荃富園藝</div>
-  <div class="banner-tagline">溫室｜批發｜貨櫃進口</div>
-</div>
 <div class="brand-header">
     <div class="brand-search-row">
       <input id="search-input" type="text" placeholder="搜尋商品名稱" aria-label="搜尋商品">
@@ -2632,7 +2635,7 @@ const PRODUCTS = [
     name:'育苗盤 網格/加高',
     description:'育苗盤29*49.5*6.5cm<br>網格育苗盤29*49.5*6.5cm<br>加高育苗盤加高至11cm',
     image:'images/seedingtray.jpg',
-    images:['images/seedingtray.jpg', 'images/seedingtray2.jpg'],
+    images:['images/seedingtray.jpg'],
     unit:'20個/捆',
     variants:[
       { label:'育苗盤黑色',   basePrice:28, discounts:{ TTFF:28, LACS:28, TCGH:28, ESWS:28 } },

@@ -467,6 +467,8 @@ color:#fff; font-weight:600; font-size:13px; cursor:pointer;
   .price-current{font-size:15px; font-weight:600;}
   .price-current.discounted{color:var(--ochre);}
   .case-total{font-size:12px; color:var(--ochre); font-weight:600; margin-top:2px;}
+  .unit-ref-original{color:var(--stone-500); text-decoration:line-through; font-weight:400;}
+  .unit-ref-sale{color:var(--ochre); font-weight:700;}
   .unit-label{font-size:11px; color:var(--stone-500);}
 
   .qty{display:flex; align-items:center; border:1px solid var(--stone-200); border-radius:8px; overflow:hidden; background:#fff;}
@@ -2010,17 +2012,17 @@ const PRODUCTS = [
   unit:'1個',
   variants:[
     { label:'3號黑色', basePrice:2, discounts:{ TTFF:2, LACS:2, TCGH:2, ESWS:2 } },
-    { label:'3號黑色，整件800個', basePrice:1.5, discounts:{ TTFF:1.5, LACS:1.5, TCGH:1.5, ESWS:1.5 }, compareAt:2, caseQty:800 },
+    { label:'3號黑色，整件800個', displayLabel:'3號黑色', basePrice:1200, discounts:{ TTFF:1200, LACS:1200, TCGH:1200, ESWS:1200 }, unit:'整件800個', unitPriceOriginal:2, unitPriceSale:1.5 },
     { label:'3號白色', basePrice:3, discounts:{ TTFF:3, LACS:3, TCGH:3, ESWS:3 } },
-    { label:'3號白色，整件800個', basePrice:1.8, discounts:{ TTFF:1.8, LACS:1.8, TCGH:1.8, ESWS:1.8 }, compareAt:3, caseQty:800 },
+    { label:'3號白色，整件800個', basePrice:1.8, discounts:{ TTFF:1.8, LACS:1.8, TCGH:1.8, ESWS:1.8 } },
     { label:'4號黑色', basePrice:3, discounts:{ TTFF:3, LACS:3, TCGH:3, ESWS:3 } },
-    { label:'4號黑色，整件400個', basePrice:2.7, discounts:{ TTFF:2.7, LACS:2.7, TCGH:2.7, ESWS:2.7 }, compareAt:3, caseQty:400 },
+    { label:'4號黑色，整件400個', basePrice:2.7, discounts:{ TTFF:2.7, LACS:2.7, TCGH:2.7, ESWS:2.7 } },
     { label:'4號白色', basePrice:4, discounts:{ TTFF:4, LACS:4, TCGH:4, ESWS:4 } },
-    { label:'4號白色，整件400個', basePrice:3.2, discounts:{ TTFF:3.2, LACS:3.2, TCGH:3.2, ESWS:3.2 }, compareAt:4, caseQty:400 },
+    { label:'4號白色，整件400個', basePrice:3.2, discounts:{ TTFF:3.2, LACS:3.2, TCGH:3.2, ESWS:3.2 } },
     { label:'5號黑色', basePrice:5, discounts:{ TTFF:5, LACS:5, TCGH:5, ESWS:5 } },
-    { label:'5號黑色，整件400個', basePrice:4.2, discounts:{ TTFF:4.2, LACS:4.2, TCGH:4.2, ESWS:4.2 }, compareAt:5, caseQty:400 },
+    { label:'5號黑色，整件400個', basePrice:4.2, discounts:{ TTFF:4.2, LACS:4.2, TCGH:4.2, ESWS:4.2 } },
     { label:'5號白色', basePrice:6, discounts:{ TTFF:6, LACS:6, TCGH:6, ESWS:6 } },
-    { label:'5號白色，整件400個', basePrice:4.8, discounts:{ TTFF:4.8, LACS:4.8, TCGH:4.8, ESWS:4.8 }, compareAt:6, caseQty:400 },
+    { label:'5號白色，整件400個', basePrice:4.8, discounts:{ TTFF:4.8, LACS:4.8, TCGH:4.8, ESWS:4.8 } },
   ]
   },
   {
@@ -2994,25 +2996,30 @@ function renderProductCard(product){
     : '<div class="product-thumb-item">📦</div>';
   const rows = product.variants.map(v => {
     const price = currentPriceFor(v);
-    const codeDiscounted = price < v.basePrice;
-    const hasCompare = v.compareAt && v.compareAt > price;
-    const showOriginal = codeDiscounted || hasCompare;
-    const originalVal = codeDiscounted ? v.basePrice : v.compareAt;
+    const discounted = price < v.basePrice;
     const key = variantKey(product.id, v.label);
     const qty = cart[key] || 0;
-    const caseTotalHtml = v.caseQty
-      ? `<div class="case-total">🏷️ 整件 ${v.caseQty.toLocaleString()} 個，共 NT$${(v.caseQty * price).toLocaleString()}</div>`
-      : '';
+    const rowLabel = v.displayLabel || v.label;
+    const rowUnit = v.unit || product.unit;
+
+    let badgeHtml = '';
+    if(v.unitPriceOriginal != null && v.unitPriceSale != null){
+      // 整件計價:顯示「單價原本多少→現在多少」給客人參考(不影響實際計價)
+      badgeHtml = `<div class="case-total">🏷️ <span class="unit-ref-original mono">NT$ ${v.unitPriceOriginal}</span> <span class="unit-ref-sale mono">NT$ ${v.unitPriceSale}</span> /個</div>`;
+    } else if(v.caseQty){
+      badgeHtml = `<div class="case-total">🏷️ 整件 ${v.caseQty.toLocaleString()} 個，共 NT$${(v.caseQty * price).toLocaleString()}</div>`;
+    }
+
     return `
     <div class="variant-row" data-key="${key}">
       <div>
-        <div class="variant-label">${v.label}</div>
+        <div class="variant-label">${rowLabel}</div>
         <div class="price-block">
-          <span class="price-original mono ${showOriginal ? 'show' : ''}">NT$ ${originalVal}</span>
-          <span class="price-current mono ${showOriginal ? 'discounted' : ''}">NT$ ${price}</span>
-          <span class="unit-label">/ ${product.unit}</span>
+          <span class="price-original mono ${discounted ? 'show' : ''}">NT$ ${v.basePrice}</span>
+          <span class="price-current mono ${discounted ? 'discounted' : ''}">NT$ ${price.toLocaleString()}</span>
+          <span class="unit-label">/ ${rowUnit}</span>
         </div>
-        ${caseTotalHtml}
+        ${badgeHtml}
       </div>
       <div class="qty">
         <button type="button" class="qty-minus" data-key="${key}">−</button>
@@ -3329,7 +3336,8 @@ entries.forEach(key => {
   const info = getVariantInfo(key);
   const qty = cart[key];
   const price = currentPriceFor(info.variant);
-  text += `${info.product.name}(${info.variant.label}) ${qty} ${info.product.unit.replace(/^[0-9.]+\S*\s/, '') || '個'} × NT$${price} = NT$${(qty*price).toLocaleString()}\n`;
+  const unitText = info.variant.unit || info.product.unit;
+  text += `${info.product.name}(${info.variant.label}) ${qty} ${unitText.replace(/^[0-9.]+\S*\s/, '') || '個'} × NT$${price} = NT$${(qty*price).toLocaleString()}\n`;
 });
 text += `--------------------\n`;
 text += `總金額:NT$${grandTotal.toLocaleString()}\n\n`;

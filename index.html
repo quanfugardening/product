@@ -2012,7 +2012,7 @@ const PRODUCTS = [
   unit:'1個',
   variants:[
     { label:'3號黑色', basePrice:2, discounts:{ TTFF:2, LACS:2, TCGH:2, ESWS:2 } },
-    { label:'3號黑色，整件800個', displayLabel:'3號黑色', basePrice:1200, discounts:{ TTFF:1200, LACS:1200, TCGH:1200, ESWS:1200 }, unit:'整件800個', unitPriceOriginal:2, unitPriceSale:1.5 },
+    { label:'3號黑色，整件800個', basePrice:1200, discounts:{ TTFF:1200, LACS:1200, TCGH:1200, ESWS:1200 }, unit:'整件800個', unitPriceOriginal:2, unitPriceSale:1.5 },
     { label:'3號白色', basePrice:3, discounts:{ TTFF:3, LACS:3, TCGH:3, ESWS:3 } },
     { label:'3號白色，整件800個', basePrice:1.8, discounts:{ TTFF:1.8, LACS:1.8, TCGH:1.8, ESWS:1.8 } },
     { label:'4號黑色', basePrice:3, discounts:{ TTFF:3, LACS:3, TCGH:3, ESWS:3 } },
@@ -2999,7 +2999,7 @@ function renderProductCard(product){
     const discounted = price < v.basePrice;
     const key = variantKey(product.id, v.label);
     const qty = cart[key] || 0;
-    const rowLabel = v.displayLabel || v.label;
+    const rowLabel = v.label;
     const rowUnit = v.unit || product.unit;
 
     let badgeHtml = '';

@@ -70,7 +70,8 @@
     filter:drop-shadow(0 2px 3px rgba(0,0,0,0.08));
     animation-name:leafFall;
     animation-timing-function:linear;
-    animation-iteration-count:infinite;
+    animation-iteration-count:1;
+    animation-fill-mode:forwards;
     will-change:transform;
   }
   @keyframes leafFall{
@@ -632,15 +633,15 @@ color:#fff; font-weight:600; font-size:13px; cursor:pointer;
 <div class="ambient-fx" aria-hidden="true">
   <div class="sunbeam"></div>
   <div class="sunbeam2"></div>
-  <span class="leaf" style="left:4%;  font-size:22px; opacity:.75; animation-duration:17s; animation-delay:0s;">🍃</span>
-  <span class="leaf" style="left:14%; font-size:28px; opacity:.6;  animation-duration:22s; animation-delay:3s;">🍂</span>
-  <span class="leaf" style="left:26%; font-size:18px; opacity:.7;  animation-duration:14s; animation-delay:6s;">🍃</span>
-  <span class="leaf" style="left:38%; font-size:24px; opacity:.55; animation-duration:20s; animation-delay:1s;">🍃</span>
-  <span class="leaf" style="left:50%; font-size:20px; opacity:.7;  animation-duration:16s; animation-delay:8s;">🍂</span>
-  <span class="leaf" style="left:62%; font-size:26px; opacity:.6;  animation-duration:23s; animation-delay:4s;">🍃</span>
-  <span class="leaf" style="left:74%; font-size:19px; opacity:.75; animation-duration:15s; animation-delay:10s;">🍃</span>
-  <span class="leaf" style="left:85%; font-size:27px; opacity:.55; animation-duration:21s; animation-delay:2s;">🍂</span>
-  <span class="leaf" style="left:93%; font-size:21px; opacity:.7;  animation-duration:18s; animation-delay:7s;">🍃</span>
+  <span class="leaf" style="left:4%;  font-size:22px; opacity:.75; animation-duration:6s; animation-delay:0s;">🍃</span>
+  <span class="leaf" style="left:14%; font-size:28px; opacity:.6;  animation-duration:7s; animation-delay:1s;">🍂</span>
+  <span class="leaf" style="left:26%; font-size:18px; opacity:.7;  animation-duration:5s; animation-delay:0.5s;">🍃</span>
+  <span class="leaf" style="left:38%; font-size:24px; opacity:.55; animation-duration:6s; animation-delay:2s;">🍃</span>
+  <span class="leaf" style="left:50%; font-size:20px; opacity:.7;  animation-duration:7s; animation-delay:1.5s;">🍂</span>
+  <span class="leaf" style="left:62%; font-size:26px; opacity:.6;  animation-duration:6s; animation-delay:3s;">🍃</span>
+  <span class="leaf" style="left:74%; font-size:19px; opacity:.75; animation-duration:8s; animation-delay:0s;">🍃</span>
+  <span class="leaf" style="left:85%; font-size:27px; opacity:.55; animation-duration:6s; animation-delay:2.5s;">🍂</span>
+  <span class="leaf" style="left:93%; font-size:21px; opacity:.7;  animation-duration:6s; animation-delay:3.5s;">🍃</span>
 </div>
 
 <div class="top-bar">
@@ -2014,15 +2015,15 @@ const PRODUCTS = [
     { label:'3號黑色', basePrice:2, discounts:{ TTFF:2, LACS:2, TCGH:2, ESWS:2 } },
     { label:'3號黑色，整件800個', basePrice:1200, discounts:{ TTFF:1200, LACS:1200, TCGH:1200, ESWS:1200 }, unit:'整件800個', unitPriceOriginal:2, unitPriceSale:1.5 },
     { label:'3號白色', basePrice:3, discounts:{ TTFF:3, LACS:3, TCGH:3, ESWS:3 } },
-    { label:'3號白色，整件800個', basePrice:1.8, discounts:{ TTFF:1.8, LACS:1.8, TCGH:1.8, ESWS:1.8 } },
+    { label:'3號白色，整件800個', basePrice:1440, discounts:{ TTFF:1440, LACS:1440, TCGH:1440, ESWS:1440 }, unit:'整件800個', unitPriceOriginal:3, unitPriceSale:1.8 },
     { label:'4號黑色', basePrice:3, discounts:{ TTFF:3, LACS:3, TCGH:3, ESWS:3 } },
-    { label:'4號黑色，整件400個', basePrice:2.7, discounts:{ TTFF:2.7, LACS:2.7, TCGH:2.7, ESWS:2.7 } },
+    { label:'4號黑色，整件400個', basePrice:1080, discounts:{ TTFF:1080, LACS:1080, TCGH:1080, ESWS:1080 }, unit:'整件400個', unitPriceOriginal:3, unitPriceSale:2.7 },
     { label:'4號白色', basePrice:4, discounts:{ TTFF:4, LACS:4, TCGH:4, ESWS:4 } },
-    { label:'4號白色，整件400個', basePrice:3.2, discounts:{ TTFF:3.2, LACS:3.2, TCGH:3.2, ESWS:3.2 } },
+    { label:'4號白色，整件400個', basePrice:1280, discounts:{ TTFF:1280, LACS:1280, TCGH:1280, ESWS:1280 }, unit:'整件400個', unitPriceOriginal:4, unitPriceSale:3.2 },
     { label:'5號黑色', basePrice:5, discounts:{ TTFF:5, LACS:5, TCGH:5, ESWS:5 } },
-    { label:'5號黑色，整件400個', basePrice:4.2, discounts:{ TTFF:4.2, LACS:4.2, TCGH:4.2, ESWS:4.2 } },
+    { label:'5號黑色，整件400個', basePrice:1680, discounts:{ TTFF:1680, LACS:1680, TCGH:1680, ESWS:1680 }, unit:'整件400個', unitPriceOriginal:5, unitPriceSale:4.2 },
     { label:'5號白色', basePrice:6, discounts:{ TTFF:6, LACS:6, TCGH:6, ESWS:6 } },
-    { label:'5號白色，整件400個', basePrice:4.8, discounts:{ TTFF:4.8, LACS:4.8, TCGH:4.8, ESWS:4.8 } },
+    { label:'5號白色，整件400個', basePrice:1920, discounts:{ TTFF:1920, LACS:1920, TCGH:1920, ESWS:1920 }, unit:'整件400個', unitPriceOriginal:6, unitPriceSale:4.8 },
   ]
   },
   {
@@ -2088,21 +2089,21 @@ const PRODUCTS = [
     unit:'個',
     variants:[
       { label:'2號黑色',   basePrice:2, discounts:{ TTFF:2, LACS:2, TCGH:2, ESWS:2 } },
-      { label:'2號黑色  整件1000個',   basePrice:1.3, discounts:{ TTFF:1.3, LACS:1.3, TCGH:1.3, ESWS:1.3 } },
+      { label:'2號黑色  整件1000個',   basePrice:1300, discounts:{ TTFF:1300, LACS:1300, TCGH:1300, ESWS:1300 }, unit:'整件1000個', unitPriceOriginal:2, unitPriceSale:1.3 },
       { label:'3號黑色',   basePrice:3, discounts:{ TTFF:3, LACS:3, TCGH:3, ESWS:3 } },
-      { label:'3號黑色   整件600個',   basePrice:2.3, discounts:{ TTFF:2.3, LACS:2.3, TCGH:2.3, ESWS:2.3 } },
+      { label:'3號黑色   整件600個',   basePrice:1380, discounts:{ TTFF:1380, LACS:1380, TCGH:1380, ESWS:1380 }, unit:'整件600個', unitPriceOriginal:3, unitPriceSale:2.3 },
       { label:'4號黑色',   basePrice:5, discounts:{ TTFF:5, LACS:5, TCGH:5, ESWS:5 } },
-      { label:'4號黑色  整件500個',   basePrice:3.5, discounts:{ TTFF:3.5, LACS:3.5, TCGH:3.5, ESWS:3.5 } },
+      { label:'4號黑色  整件500個',   basePrice:1750, discounts:{ TTFF:1750, LACS:1750, TCGH:1750, ESWS:1750 }, unit:'整件500個', unitPriceOriginal:5, unitPriceSale:3.5 },
       { label:'5號 黑色',   basePrice:6, discounts:{ TTFF:6, LACS:6, TCGH:6, ESWS:6 } },
-      { label:'5號黑色 整件300個',   basePrice:2.5, discounts:{ TTFF:2.5, LACS:2.5, TCGH:2.5, ESWS:2.5 } },
+      { label:'5號黑色 整件300個',   basePrice:750, discounts:{ TTFF:750, LACS:750, TCGH:750, ESWS:750 }, unit:'整件300個', unitPriceOriginal:6, unitPriceSale:2.5 },
       { label:'2號白色',   basePrice:2, discounts:{ TTFF:2, LACS:2, TCGH:2, ESWS:2 } },
-      { label:'2號白色  整件1000個',   basePrice:1.5, discounts:{ TTFF:1.5, LACS:1.5, TCGH:1.5, ESWS:1.5 } },
+      { label:'2號白色  整件1000個',   basePrice:1500, discounts:{ TTFF:1500, LACS:1500, TCGH:1500, ESWS:1500 }, unit:'整件1000個', unitPriceOriginal:2, unitPriceSale:1.5 },
       { label:'3號白色',   basePrice:4, discounts:{ TTFF:4, LACS:4, TCGH:4, ESWS:4 } },
-      { label:'3號白色  整件600個',   basePrice:2.6, discounts:{ TTFF:2.6, LACS:2.6, TCGH:2.6, ESWS:2.6 } },
+      { label:'3號白色  整件600個',   basePrice:1560, discounts:{ TTFF:1560, LACS:1560, TCGH:1560, ESWS:1560 }, unit:'整件600個', unitPriceOriginal:4, unitPriceSale:2.6 },
       { label:'4號白色',   basePrice:6, discounts:{ TTFF:6, LACS:6, TCGH:6, ESWS:6 } },
-      { label:'4號白色  整件500個',   basePrice:4, discounts:{ TTFF:4, LACS:4, TCGH:4, ESWS:4 } },
+      { label:'4號白色  整件500個',   basePrice:2000, discounts:{ TTFF:2000, LACS:2000, TCGH:2000, ESWS:2000 }, unit:'整件500個', unitPriceOriginal:6, unitPriceSale:4 },
       { label:'5號白色',   basePrice:7, discounts:{ TTFF:7, LACS:7, TCGH:7, ESWS:7 } },
-      { label:'5號白色 整件300個',   basePrice:6, discounts:{ TTFF:6, LACS:6, TCGH:6, ESWS:6 } },
+      { label:'5號白色 整件300個',   basePrice:1800, discounts:{ TTFF:1800, LACS:1800, TCGH:1800, ESWS:1800 }, unit:'整件300個', unitPriceOriginal:7, unitPriceSale:6 },
     ]
   },
   {

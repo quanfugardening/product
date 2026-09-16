@@ -783,6 +783,10 @@ color:#fff; font-weight:600; font-size:13px; cursor:pointer;
       <label for="cust-phone">聯絡電話</label>
       <input id="cust-phone" type="tel" placeholder="請輸入聯絡電話">
     </div>
+    <div class="field">
+      <label for="cust-note">備註(選填)</label>
+      <textarea id="cust-note" rows="3" placeholder="有其他需求可以寫在這裡，例如指定到貨時間、特殊包裝需求等"></textarea>
+    </div>
     <div class="error-text" id="form-error">請填寫姓名電話、並至少選購一項商品。</div>
     <button class="submit-btn" id="submit-order">送出訂單</button>
     <div class="send-status" id="send-status"></div>
@@ -3362,6 +3366,7 @@ document.getElementById('submit-order').addEventListener('click', function(){
   const submitBtn = this;
 const name = document.getElementById('cust-name').value.trim();
 const phone = document.getElementById('cust-phone').value.trim();
+const note = document.getElementById('cust-note').value.trim();
 const errorEl = document.getElementById('form-error');
 const statusEl = document.getElementById('send-status');
 
@@ -3388,6 +3393,9 @@ text += `--------------------\n`;
 text += `總金額:NT$${grandTotal.toLocaleString()}\n\n`;
 text += `姓名/公司:${name}\n`;
 text += `電話:${phone}\n`;
+if(note){
+  text += `備註:${note}\n`;
+}
 
   document.getElementById('result-text').textContent = text;
   document.getElementById('order-result').classList.add('show');
@@ -3404,6 +3412,7 @@ text += `電話:${phone}\n`;
     total: grandTotal,
     name: name,
     phone: phone,
+    note: note,
   };
 
   fetch(ORDER_ENDPOINT, {

@@ -96,25 +96,17 @@
   }
   .order-toast.show{ opacity:1; }
   .order-toast-box{
-    background:rgba(30,28,20,0.92);
-    color:#fff;
-    font-size:18px;
-    font-weight:700;
-    padding:20px 32px;
-    border-radius:18px;
-    box-shadow:0 12px 32px rgba(0,0,0,0.35);
-    display:flex; flex-direction:column; align-items:center; gap:10px;
+    display:flex; flex-direction:column; align-items:center;
     transform:scale(0.85);
     transition:transform .25s ease;
-    max-width:220px;
   }
   .order-toast.show .order-toast-box{ transform:scale(1); }
   .order-toast-img{
-    width:72px; height:72px;
-    object-fit:contain;
+    width:min(70vw, 280px);
+    height:auto;
     display:block;
+    filter:drop-shadow(0 10px 24px rgba(0,0,0,0.25));
   }
-  .order-toast-text{ text-align:center; }
 
   /* ===== 進站廣告彈窗 ===== */
   .promo-modal{
@@ -654,8 +646,7 @@ color:#fff; font-weight:600; font-size:13px; cursor:pointer;
 
 <div class="order-toast" id="order-toast" aria-hidden="true">
   <div class="order-toast-box">
-    <img src="images/order-success.png" alt="送出成功" class="order-toast-img">
-    <div class="order-toast-text">送出成功</div>
+    <img src="images/order-success.png" alt="已成功送出訂單" class="order-toast-img">
   </div>
 </div>
 

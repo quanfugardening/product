@@ -98,22 +98,23 @@
   .order-toast-box{
     background:rgba(30,28,20,0.92);
     color:#fff;
-    font-size:20px;
+    font-size:18px;
     font-weight:700;
-    padding:20px 38px;
+    padding:20px 32px;
     border-radius:18px;
     box-shadow:0 12px 32px rgba(0,0,0,0.35);
-    display:flex; align-items:center; gap:10px;
+    display:flex; flex-direction:column; align-items:center; gap:10px;
     transform:scale(0.85);
     transition:transform .25s ease;
+    max-width:220px;
   }
   .order-toast.show .order-toast-box{ transform:scale(1); }
-  .order-toast-icon{
-    display:flex; align-items:center; justify-content:center;
-    width:26px; height:26px; border-radius:50%;
-    background:#57713F; color:#fff; font-size:16px; font-weight:900;
-    flex:0 0 auto;
+  .order-toast-img{
+    width:72px; height:72px;
+    object-fit:contain;
+    display:block;
   }
+  .order-toast-text{ text-align:center; }
 
   /* ===== 進站廣告彈窗 ===== */
   .promo-modal{
@@ -653,7 +654,8 @@ color:#fff; font-weight:600; font-size:13px; cursor:pointer;
 
 <div class="order-toast" id="order-toast" aria-hidden="true">
   <div class="order-toast-box">
-    <span class="order-toast-icon">✓</span> 送出成功
+    <img src="images/order-success.png" alt="送出成功" class="order-toast-img">
+    <div class="order-toast-text">送出成功</div>
   </div>
 </div>
 
@@ -2831,7 +2833,7 @@ function showOrderToast(){
   toast.classList.add('show');
   orderToastTimer = setTimeout(() => {
     toast.classList.remove('show');
-  }, 1000);
+  }, 3000);
 }
 
 /* ---------- 購物車自動記住(存在使用者手機本機,不用登入、不會同步到別人裝置) ---------- */

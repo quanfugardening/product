@@ -86,6 +86,35 @@
     .ambient-fx .leaf{ font-size:20px !important; opacity:.7 !important; }
   }
 
+  /* ===== 訂單送出成功浮動提示 ===== */
+  .order-toast{
+    position:fixed; inset:0; z-index:300;
+    display:flex; align-items:center; justify-content:center;
+    pointer-events:none;
+    opacity:0;
+    transition:opacity .25s ease;
+  }
+  .order-toast.show{ opacity:1; }
+  .order-toast-box{
+    background:rgba(30,28,20,0.92);
+    color:#fff;
+    font-size:20px;
+    font-weight:700;
+    padding:20px 38px;
+    border-radius:18px;
+    box-shadow:0 12px 32px rgba(0,0,0,0.35);
+    display:flex; align-items:center; gap:10px;
+    transform:scale(0.85);
+    transition:transform .25s ease;
+  }
+  .order-toast.show .order-toast-box{ transform:scale(1); }
+  .order-toast-icon{
+    display:flex; align-items:center; justify-content:center;
+    width:26px; height:26px; border-radius:50%;
+    background:#57713F; color:#fff; font-size:16px; font-weight:900;
+    flex:0 0 auto;
+  }
+
   /* ===== 進站廣告彈窗 ===== */
   .promo-modal{
     position:fixed; inset:0; z-index:200;
@@ -621,6 +650,12 @@ color:#fff; font-weight:600; font-size:13px; cursor:pointer;
 </style>
 </head>
 <body>
+
+<div class="order-toast" id="order-toast" aria-hidden="true">
+  <div class="order-toast-box">
+    <span class="order-toast-icon">✓</span> 送出成功
+  </div>
+</div>
 
 <div class="promo-modal hidden" id="promo-modal">
   <div class="promo-modal-backdrop" id="promo-backdrop"></div>
@@ -2787,6 +2822,18 @@ let currentCode = null;
 let pendingScrollProductId = null; // 從「最新產品」點進來時,要捲動並高亮的商品id
 const cart = {}; // key: variantKey -> qty
 
+/* ---------- 訂單送出成功的浮動提示 ---------- */
+let orderToastTimer = null;
+function showOrderToast(){
+  const toast = document.getElementById('order-toast');
+  if(!toast) return;
+  clearTimeout(orderToastTimer);
+  toast.classList.add('show');
+  orderToastTimer = setTimeout(() => {
+    toast.classList.remove('show');
+  }, 1000);
+}
+
 /* ---------- 購物車自動記住(存在使用者手機本機,不用登入、不會同步到別人裝置) ---------- */
 const CART_STORAGE_KEY = 'cfgardening_cart_v1';
 
@@ -3376,6 +3423,9 @@ text += `電話:${phone}\n`;
     statusEl.textContent = '✓ 訂單已自動送出,我們會盡快與您聯繫!';
     statusEl.className = 'send-status ok';
     submitBtn.disabled = false;
+
+    // ★ 顯示送出成功的浮動提示,1秒後自動消失
+    showOrderToast();
 
         // ★ 送出成功後清空購物車
     Object.keys(cart).forEach(key => delete cart[key]);   // 清空購物車資料

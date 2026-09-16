@@ -3401,11 +3401,6 @@ if(note){
   document.getElementById('order-result').classList.add('show');
   document.getElementById('order-result').scrollIntoView({ behavior:'smooth', block:'start' });
 
-  // ★ 自動送出訂單到 Google 試算表
-  submitBtn.disabled = true;
-  statusEl.textContent = '訂單送出中…';
-  statusEl.className = 'send-status pending';
-
   const payload = {
     discountCode: currentCode || '',
     orderText: text,
@@ -3415,28 +3410,28 @@ if(note){
     note: note,
   };
 
+  // ★ 不等後端(試算表+LINE通知)處理完,先立即顯示成功、清空購物車
+  //   (no-cors 模式下前端本來就無法讀取後端真正處理結果,等待也無法確認對錯,
+  //    所以讓客人體感速度維持流暢,實際資料由下面的 fetch 在背景送出)
+  statusEl.textContent = '✓ 訂單已送出,我們會盡快與您聯繫!';
+  statusEl.className = 'send-status ok';
+  submitBtn.disabled = false;
+
+  showOrderToast();
+
+  Object.keys(cart).forEach(key => delete cart[key]);
+  saveCartToStorage();
+  render();
+  document.getElementById('order-result').classList.add('show');
+
   fetch(ORDER_ENDPOINT, {
     method: 'POST',
     mode: 'no-cors', // Apps Script 網頁應用程式不支援讀取回應內容,但資料仍會送達
     headers: { 'Content-Type': 'text/plain;charset=utf-8' },
     body: JSON.stringify(payload)
   })
-  .then(() => {
-    statusEl.textContent = '✓ 訂單已自動送出,我們會盡快與您聯繫!';
-    statusEl.className = 'send-status ok';
-    submitBtn.disabled = false;
-
-    // ★ 顯示送出成功的浮動提示,1秒後自動消失
-    showOrderToast();
-
-        // ★ 送出成功後清空購物車
-    Object.keys(cart).forEach(key => delete cart[key]);   // 清空購物車資料
-    saveCartToStorage();                                    // 同步清空 localStorage
-    render();                                               // 重新渲染畫面(數量歸零、購物車列表清空)
-    document.getElementById('order-result').classList.add('show'); // 保留剛剛顯示的訂單明細
-    
-  })
   .catch(() => {
+    // 只有真的連不上(離線、網址錯誤等)才會走到這裡,提醒客人用備援方式聯繫
     statusEl.textContent = '⚠ 自動送出失敗,請按下方「複製訂單內容」後傳給我們。';
     statusEl.className = 'send-status err';
     submitBtn.disabled = false;

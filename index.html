@@ -776,7 +776,7 @@ color:#fff; font-weight:600; font-size:13px; cursor:pointer;
   <div class="card" id="checkout-card" style="display:none;">
     <h2 style="font-size:16px; margin-bottom:14px;">收件資訊</h2>
     <div class="field">
-      <label for="cust-name">姓名 / 公司名稱</label>
+      <label for="cust-name">姓名 / 溫室編號</label>
       <input id="cust-name" type="text" placeholder="請輸入姓名或公司名稱">
     </div>
     <div class="field">
@@ -2626,6 +2626,18 @@ const PRODUCTS = [
     unit:'個',
     variants:[
       { label:'3寸 24孔端盤',   basePrice:30, discounts:{ TTFF:30, LACS:30, TCGH:30, ESWS:30 } },
+    ]
+  },
+    {
+    id:'shiwukongduanpan',
+    category:'hardware',
+    name:'2.5寸 15孔端盤',
+    description:'2.5寸 15孔端盤 放2.5寸圓盆',
+    image:'images/shiwukongduanpan.jpg',
+    images:['images/shiwukongduanpan.jpg', 'images/shiwukongduanpan2.jpg'],
+    unit:'個',
+    variants:[
+      { label:'2.5寸 15孔端盤',   basePrice:20, discounts:{ TTFF:20, LACS:20, TCGH:20, ESWS:20 } },
     ]
   },
   {

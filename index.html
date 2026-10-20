@@ -2460,8 +2460,8 @@ const PRODUCTS = [
     unit:'瓶',
     variants:[
       { label:'500ml(效期6個月)',      basePrice:160, discounts:{} },
-      { label:'推薦-1L(效期6個月)',         basePrice:180, discounts:{} },
-      { label:'推薦-500ml將軍(效期18個月)', basePrice:260, discounts:{} },
+      { label:'推薦-1L(效期6個月)',         basePrice:260, discounts:{} },
+      { label:'推薦-500ml將軍(效期18個月)', basePrice:180, discounts:{} },
       { label:'1L將軍(效期18個月)',    basePrice:280, discounts:{} }
     ]
   },
@@ -2633,12 +2633,15 @@ const PRODUCTS = [
     id:'cike',
     category:'fertilizer',
     name:'刺剋 殺蟲 天然萃取 殺菌 白粉 薊馬 蚜蟲',
-    description:'脂肪酸鉀鹽 500ml可直接使用 免登記資材',
+    tags:['殺蟲','白粉病','薊馬','蚜蟲','苦楝油','茶皂素'],
+    description:'刺剋=脂肪酸鉀鹽 500ml可直接使用 免登記資材<br>植物保鑣=(苦楝油、茶皂素)500ml可直接使用 免登記資材',
     image:'images/cike.jpg',
-    images:['images/cike.jpg', 'images/cike2.jpg'],
+    images:['images/cike.jpg', 'images/cike2.jpg','images/cike3.jpg'],
     unit:'個',
     variants:[
-      { label:'刺剋 殺蟲500ml免稀釋直接使用',   basePrice:160, discounts:{ TTFF:155, LACS:155, TCGH:155, ESWS:155 } },
+      { label:'刺剋 500ml 免稀釋直接使用',   basePrice:160, discounts:{ TTFF:155, LACS:155, TCGH:155, ESWS:155 } },
+      { label:'刺剋濃縮500ml需稀釋',   basePrice:250, discounts:{ TTFF:250, LACS:250, TCGH:250, ESWS:250 } },
+      { label:'植物保鑣 500ml免稀釋直接使用',   basePrice:160, discounts:{ TTFF:155, LACS:155, TCGH:155, ESWS:155 } },
     ]
   },
   {
@@ -2911,7 +2914,8 @@ const PRODUCTS = [
   {
     id:'lvxian',
     category:'hardware',
-    name:'銀鋁線 黑鋁線',
+    name:'鋁線',
+    tags:['銀鋁線', '黑鋁線', '綁線', '綁帶'，'鉤子', '鍍銅', '銅鋁線'],
     description:'1.0-1.5mm較貴<br>2.0-6.0mm一樣價格',
     image:'images/lvxian.jpg',
     images:['images/lvxian.jpg', 'images/lvxian2.jpg'],

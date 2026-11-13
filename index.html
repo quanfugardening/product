@@ -1287,6 +1287,18 @@ const PRODUCTS = [
       { label:'各尺寸',   basePrice:250, discounts:{ TTFF:250, LACS:250, TCGH:250, ESWS:250 } },
     ]
   },
+    {
+    id:'heidanshi',
+    category:'granule',
+    name:'黑膽石',
+    description:'20kg 3-5mm',
+    image:'images/heidanshi.jpg',
+    images:['images/heidanshi.jpg', 'images/heidanshi2.jpg'],
+    unit:'個',
+    variants:[
+      { label:'3-5mm',   basePrice:400, discounts:{ TTFF:400, LACS:400, TCGH:400, ESWS:400 } },
+    ]
+  },
   {
     id:'haishi',
     category:'granule',
@@ -1495,8 +1507,7 @@ const PRODUCTS = [
     unit:'個',
     variants:[
       { label:'純泥炭土250L',   basePrice:760, discounts:{ TTFF:680, LACS:680, TCGH:680, ESWS:680 } },
-      { label:'新品(粗纖維)純泥炭土70L',   basePrice:400, discounts:{ TTFF:400, LACS:400, TCGH:400, ESWS:400 } },
-      { label:'(細纖維)純泥炭土70L(缺貨)',   basePrice:400, discounts:{ TTFF:400, LACS:400, TCGH:400, ESWS:400 } },
+      { label:'泥炭土70L',   basePrice:400, discounts:{ TTFF:400, LACS:400, TCGH:400, ESWS:400 } },
     ]
   },
   {
@@ -1537,6 +1548,20 @@ const PRODUCTS = [
       { label:'碳化稻殼3L',   basePrice:60, discounts:{ TTFF:60, LACS:60, TCGH:60, ESWS:60 } },
     ]
   },
+    {
+    id:'shupi',
+    category:'granule',
+    name:'樹皮 樹塊',
+    tags:['樹皮', '山大王', '知更', 'HAKIKI'],
+    description:'印尼進口 松樹皮 40-50公升',
+    image:'images/shupi.jpg',
+    images:['images/shupi.jpg', 'images/shupi2.jpg', 'images/shupi3.jpg', 'images/shupi4.jpg'],
+    unit:'個',
+    variants:[
+      { label:'山大王樹皮',   basePrice:400, discounts:{ TTFF:400, LACS:400, TCGH:400, ESWS:400 } },
+      { label:'山大王樹皮塊(特大塊)',   basePrice:600, discounts:{ TTFF:600, LACS:600, TCGH:600, ESWS:600 } },
+    ]
+  },
   {
     id:'porttreebark',
     category:'granule',
@@ -1549,19 +1574,17 @@ const PRODUCTS = [
       { label:'3-4cm',   basePrice:380, discounts:{ TTFF:380, LACS:380, TCGH:380, ESWS:380 } },
     ]
   },
-  {
+    {
     id:'shupi',
     category:'granule',
-    name:'樹皮 經典樹皮 山大王 知更 樹塊 樹皮塊',
-    description:'印尼 樹皮 40-50公升',
-    image:'images/shupi.jpg',
-    images:['images/shupi.jpg', 'images/shupi2.jpg', 'images/shupi3.jpg', 'images/shupi4.jpg'],
+    name:'樹皮 樹塊',
+    tags:['樹皮', '山大王', '知更', 'HAKIKI'],
+    description:'印尼進口 松樹皮 40-50公升',
+    image:'images/zhigenshupi.jpg',
+    images:['images/zhigenshupi.jpg', 'images/zhigenshupi2.jpg'],
     unit:'個',
     variants:[
-      { label:'山大王樹皮',   basePrice:400, discounts:{ TTFF:400, LACS:400, TCGH:400, ESWS:400 } },
-      { label:'山大王樹皮塊(較大塊)',   basePrice:600, discounts:{ TTFF:600, LACS:600, TCGH:600, ESWS:600 } },
       { label:'知更樹皮',   basePrice:400, discounts:{ TTFF:400, LACS:400, TCGH:400, ESWS:400 } },
-      { label:'HAKIKI樹皮',   basePrice:400, discounts:{ TTFF:400, LACS:400, TCGH:400, ESWS:400 } },
     ]
   },
     {
@@ -1579,7 +1602,7 @@ const PRODUCTS = [
   {
     id:'yezitu',
     category:'nonGranule',
-    name:'椰子土100L 椰纖椰塊系列',
+    name:'椰子土100L',
     tags:['椰纖', '椰塊', '椰子土', '椰子纖維'],
     description:'麻布袋 CP值高',
     image:'images/yezitu.jpg',
@@ -1587,6 +1610,19 @@ const PRODUCTS = [
     unit:'個',
     variants:[
       { label:'100L麻布袋',   basePrice:300, discounts:{ TTFF:300, LACS:300, TCGH:300, ESWS:300 } },
+    ]
+  },
+   {
+    id:'yekuails',
+    category:'nonGranule',
+    name:'椰塊三合一100L',
+    tags:['椰纖', '椰塊', '椰子土', '椰子纖維'],
+    description:'麻布袋 CP值高',
+    image:'images/yekuails.jpg',
+    images:['images/yekuails.jpg', 'images/yekuails2.jpg'],
+    unit:'個',
+    variants:[
+      { label:'100L麻布袋',   basePrice:340, discounts:{ TTFF:300, LACS:300, TCGH:300, ESWS:300 } },
     ]
   },
   {
@@ -1942,6 +1978,22 @@ const PRODUCTS = [
       { label:'塑陶盆 10吋S',   basePrice:168.75, discounts:{ TTFF:168.75, LACS:168.75, TCGH:168.75, ESWS:168.75 } },
       { label:'塑陶盆 12吋S',   basePrice:236.25, discounts:{ TTFF:236.25, LACS:236.25, TCGH:236.25, ESWS:236.25 } },
     ]
+  },
+  {
+    id:'maxsutaopen',
+    category:'roundPot',
+    name:'塑陶盆 素陶盆 B表示高款',
+    tags:['大盆', '質感圓盆', '多肉盆', '仿瓷'],
+    description:'maximum 高款(H)黑咖色 價格較便宜 8B=20/9B=15/10B=10/12B=5',
+    image:'images/maxsutaopen.jpg',
+    images:['images/maxsutaopen.jpg', 'images/maxsutaopen2.jpg'],
+    unit:'個',
+    variants:[
+      { label:'塑陶盆 8吋H',   basePrice:112.5, discounts:{ TTFF:112.5, LACS:112.5, TCGH:112.5, ESWS:112.5 } },
+      { label:'塑陶盆 9吋H',   basePrice:146.25, discounts:{ TTFF:146.25, LACS:146.25, TCGH:146.25, ESWS:146.25 } },
+      { label:'塑陶盆 10吋H',   basePrice:180, discounts:{ TTFF:180, LACS:180, TCGH:180, ESWS:180 } },
+      { label:'塑陶盆 12吋H',   basePrice:270, discounts:{ TTFF:270, LACS:270, TCGH:270, ESWS:270 } },
+        ]
   },
   {
     id:'wangpen',
